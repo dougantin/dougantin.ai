@@ -1,38 +1,18 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getAllEssays } from "@/lib/mdx";
 
 export const metadata: Metadata = {
-  title: "Writing — Doug Antin",
+  title: "Writing",
+  description: "Essays and thesis notes on AI, agency, product marketing, and capital allocation.",
+  alternates: {
+    canonical: "/writing",
+  },
 };
 
-const essays = [
-  {
-    href: "/writing/language-is-code",
-    title: "Language Is Code",
-    date: "2025",
-    description:
-      "Every brand guide I've ever read is lying to itself about what it is. Here's the better frame.",
-    tag: "Essay",
-  },
-  {
-    href: "/writing/agency-era",
-    title: "The Agency Era",
-    date: "2025",
-    description:
-      "We're not entering an AI era. We're entering an agency era. The distinction matters.",
-    tag: "Thesis",
-  },
-  {
-    href: "/writing/middlegame",
-    title: "The Middlegame",
-    date: "2026",
-    description:
-      "The opening theory is over. The endgame is far off. This is where the game gets won.",
-    tag: "Essay",
-  },
-];
-
 export default function WritingIndex() {
+  const essays = getAllEssays();
+
   return (
     <div style={{ background: "var(--bg-primary)" }} className="min-h-screen">
       <main className="mx-auto max-w-3xl px-6 py-20 md:py-32">
@@ -47,7 +27,7 @@ export default function WritingIndex() {
         </h1>
         <div className="space-y-4">
           {essays.map((essay) => (
-            <Link key={essay.href} href={essay.href} className="essay-card">
+            <Link key={essay.slug} href={`/writing/${essay.slug}`} className="essay-card">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <span
@@ -68,7 +48,7 @@ export default function WritingIndex() {
                 {essay.description}
               </p>
               <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
-                {essay.date}
+                {new Date(essay.date).getFullYear()}
               </p>
             </Link>
           ))}

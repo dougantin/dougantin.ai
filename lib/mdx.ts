@@ -18,14 +18,22 @@ export interface Essay extends EssayMeta {
   content: string;
 }
 
+function sortEssaysByDate<T extends { date: string }>(essays: T[]) {
+  return essays.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+}
+
 export function getAllEssays(): EssayMeta[] {
   const files = fs.readdirSync(contentDir).filter((f) => f.endsWith(".mdx"));
-  return files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "");
-    const raw = fs.readFileSync(path.join(contentDir, filename), "utf-8");
-    const { data } = matter(raw);
-    return { slug, ...data } as EssayMeta;
-  });
+  return sortEssaysByDate(
+    files.map((filename) => {
+      const slug = filename.replace(/\.mdx$/, "");
+      const raw = fs.readFileSync(path.join(contentDir, filename), "utf-8");
+      const { data } = matter(raw);
+      return { slug, ...data } as EssayMeta;
+    })
+  );
 }
 
 export function getEssay(slug: string): Essay | null {

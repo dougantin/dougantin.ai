@@ -1,26 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import HomeNav from "@/components/HomeNav";
+import { getAllEssays } from "@/lib/mdx";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 
-const essays = [
-  {
-    href: "/writing/language-is-code",
-    title: "Language Is Code",
-    description:
-      "Every brand guide I've ever read is lying to itself about what it is. Here's the better frame.",
-  },
-  {
-    href: "/writing/agency-era",
-    title: "The Agency Era",
-    description:
-      "We're not entering an AI era. We're entering an agency era. The distinction matters.",
-  },
-  {
-    href: "/writing/middlegame",
-    title: "The Middlegame",
-    description:
-      "The opening theory is over. The endgame is far off. This is where the game gets won.",
-  },
-];
+export const metadata: Metadata = {
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+};
 
 const workingOn = [
   "Mapping the infrastructure layer of the agency era: what gets built, by whom, and why it compounds",
@@ -29,6 +16,8 @@ const workingOn = [
 ];
 
 export default function Home() {
+  const essays = getAllEssays().slice(0, 3);
+
   return (
     <div id="top" style={{ background: "var(--gradient-section)" }} className="min-h-screen">
       <HomeNav />
@@ -73,8 +62,8 @@ export default function Home() {
             Recent writing
           </h2>
           <div className="space-y-4">
-            {essays.slice(0, 3).map((essay) => (
-              <Link key={essay.href} href={essay.href} className="essay-card">
+            {essays.map((essay) => (
+              <Link key={essay.slug} href={`/writing/${essay.slug}`} className="essay-card">
                 <div className="flex items-start justify-between gap-4">
                   <h3
                     className="text-lg font-semibold leading-snug"

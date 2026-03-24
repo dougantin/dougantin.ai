@@ -2,6 +2,9 @@
 @plugin "@tailwindcss/typography";
 
 :root {
+  --font-playfair: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+  --font-dm-sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+
   /* Backgrounds */
   --bg-primary: #1B1614;
   --bg-surface: #3D3430;
