@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { EssayMeta } from "@/lib/mdx";
+import SiteLogo from "@/components/SiteLogo";
 
 interface Props {
   meta: EssayMeta;
@@ -18,15 +19,16 @@ export default function EssayLayout({ meta, children }: Props) {
   return (
     <div style={{ background: "var(--bg-primary)" }} className="min-h-screen">
       <main className="mx-auto max-w-2xl px-6 py-20 md:py-32">
-
-        {/* Back link */}
-        <Link
-          href="/writing"
-          className="mb-12 inline-block text-sm"
-          style={{ color: "var(--text-muted)" }}
-        >
-          ← Writing
-        </Link>
+        <div className="mb-8 flex items-start justify-between gap-6">
+          <SiteLogo />
+          <Link
+            href="/writing"
+            className="mt-3 inline-block text-sm"
+            style={{ color: "var(--text-muted)" }}
+          >
+            ← Writing
+          </Link>
+        </div>
 
         {/* Header */}
         <header className="mb-12">

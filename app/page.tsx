@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import HomeNav from "@/components/HomeNav";
+import SiteLogo from "@/components/SiteLogo";
 import { getAllEssays } from "@/lib/mdx";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 
@@ -24,7 +25,15 @@ export default function Home() {
       <main className="mx-auto max-w-3xl px-6 py-20 md:py-32">
 
         {/* Hero */}
-        <section className="mb-20">
+        <section className="mb-20 text-center">
+          <div className="mb-8 flex justify-center">
+            <SiteLogo
+              href="/#top"
+              priority
+              className="h-auto w-[200px] md:w-[240px]"
+              imageClassName="opacity-85 mix-blend-screen [filter:saturate(0.78)_brightness(0.92)_contrast(0.96)]"
+            />
+          </div>
           <h1
             className="mb-4 text-5xl font-bold leading-tight tracking-tight md:text-6xl"
             style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
@@ -37,15 +46,12 @@ export default function Home() {
           >
             Product marketer. AI practitioner. Writer.
           </p>
-          <div className="space-y-4 text-base leading-relaxed md:text-lg" style={{ color: "var(--text-body)" }}>
+          <div
+            className="mx-auto max-w-2xl space-y-4 text-left text-base leading-relaxed md:text-lg"
+            style={{ color: "var(--text-body)" }}
+          >
             <p>
-              I spend most of my time thinking about how AI redistributes agency, who captures the value, and what the infrastructure of that shift looks like. I write to figure out what I actually believe.
-            </p>
-            <p>
-              My background is in product marketing, which turns out to be a good lens for this moment: it&apos;s fundamentally about encoding meaning into language and getting machines (and people) to execute on it consistently.
-            </p>
-            <p>
-              I&apos;m building toward a capital allocator role. The thesis is that the agency era is real, it&apos;s early, and most people are looking at it wrong.
+              I&apos;m exploring what happens when intelligence gets cheap. Who captures the value, what the infrastructure looks like, and where agency becomes the real edge. Product marketer by trade. Building with AI by compulsion. This is where I think and build publicly.
             </p>
           </div>
         </section>

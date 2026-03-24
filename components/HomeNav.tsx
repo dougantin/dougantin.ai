@@ -12,7 +12,11 @@ export default function HomeNav() {
         <a
           href="#top"
           className="text-sm font-semibold"
-          style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif", textDecoration: "none" }}
+          style={{
+            color: "var(--text-heading)",
+            fontFamily: "var(--font-playfair), serif",
+            textDecoration: "none",
+          }}
         >
           Doug Antin
         </a>
