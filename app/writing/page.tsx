@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllEssays } from "@/lib/mdx";
+import SiteLogo from "@/components/SiteLogo";
 
 export const metadata: Metadata = {
   title: "Writing",
@@ -16,9 +17,9 @@ export default function WritingIndex() {
   return (
     <div style={{ background: "var(--bg-primary)" }} className="min-h-screen">
       <main className="mx-auto max-w-3xl px-6 py-20 md:py-32">
-        <Link href="/" className="mb-12 inline-block text-sm" style={{ color: "var(--text-muted)" }}>
-          ← Doug Antin
-        </Link>
+        <div className="mb-12">
+          <SiteLogo />
+        </div>
         <h1
           className="mb-12 text-4xl font-bold"
           style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
