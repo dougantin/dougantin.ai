@@ -22,6 +22,14 @@ const essays = [
       "We're not entering an AI era. We're entering an agency era. The distinction matters.",
     tag: "Thesis",
   },
+  {
+    href: "/writing/middlegame",
+    title: "The Middlegame",
+    date: "2026",
+    description:
+      "The opening theory is over. The endgame is far off. This is where the game gets won.",
+    tag: "Essay",
+  },
 ];
 
 export default function WritingIndex() {

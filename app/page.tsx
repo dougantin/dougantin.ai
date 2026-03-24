@@ -14,6 +14,12 @@ const essays = [
     description:
       "We're not entering an AI era. We're entering an agency era. The distinction matters.",
   },
+  {
+    href: "/writing/middlegame",
+    title: "The Middlegame",
+    description:
+      "The opening theory is over. The endgame is far off. This is where the game gets won.",
+  },
 ];
 
 const workingOn = [
