@@ -84,14 +84,24 @@ async function fetchQuoteForSymbol(
 ): Promise<TickerQuote> {
   const quoteUrl = `${FINNHUB_BASE_URL}/quote?symbol=${symbol}&token=${apiKey}`;
   const quote = await fetchJson<FinnhubQuoteResponse>(quoteUrl);
-  const ytdBaseline = await fetchYtdBaseline(symbol, apiKey);
+  let ytdChangePercent = 0;
+
+  try {
+    const ytdBaseline = await fetchYtdBaseline(symbol, apiKey);
+    ytdChangePercent = ((quote.c - ytdBaseline) / ytdBaseline) * 100;
+  } catch (error) {
+    console.warn(
+      `YTD baseline unavailable for ${symbol}; defaulting ytdChangePercent to 0.`,
+      error
+    );
+  }
 
   return {
     symbol,
     currentPrice: quote.c,
     change: quote.d,
     changePercent: quote.dp,
-    ytdChangePercent: ((quote.c - ytdBaseline) / ytdBaseline) * 100,
+    ytdChangePercent,
     previousClose: quote.pc,
     high: quote.h,
     low: quote.l,
