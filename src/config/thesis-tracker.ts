@@ -5,7 +5,8 @@ export const trackerConfig: TrackerConfig = {
     {
       id: "energy",
       name: "Energy — Power the Buildout",
-      thesisDescription: "[PLACEHOLDER — we'll write this later]",
+      thesisDescription:
+        "AI is an energy story before it's a software story. Every watt of compute capacity requires baseload power, and nuclear is the only carbon-free source that scales to meet the demand curve.",
       tickers: [
         {
           symbol: "CEG",
@@ -48,7 +49,8 @@ export const trackerConfig: TrackerConfig = {
     {
       id: "compute",
       name: "Compute — Build the Infrastructure",
-      thesisDescription: "[PLACEHOLDER]",
+      thesisDescription:
+        "The picks-and-shovels layer of the intelligence buildout. Data centers, networking, and cooling infrastructure are where hundreds of billions in hyperscaler capex is actually landing.",
       tickers: [
         {
           symbol: "EQIX",
@@ -91,7 +93,8 @@ export const trackerConfig: TrackerConfig = {
     {
       id: "metals",
       name: "Metals & Commodities — The Physical Bottleneck",
-      thesisDescription: "[PLACEHOLDER]",
+      thesisDescription:
+        "The physical bottleneck beneath everything. A single AI data center can consume 3-4x the copper of a conventional facility, and supply constraints across copper, lithium, and uranium are structural, not cyclical.",
       tickers: [
         {
           symbol: "FCX",

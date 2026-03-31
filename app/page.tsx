@@ -4,6 +4,8 @@ import HomeNav from "@/components/HomeNav";
 import SiteLogo from "@/components/SiteLogo";
 import { getAllEssays } from "@/lib/mdx";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+import TrackerPreview from "@/src/components/tracker/TrackerPreview";
+import { getTrackerData } from "@/src/lib/tracker/data";
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -16,8 +18,9 @@ const workingOn = [
   "Building toward a capital allocator role with a thesis grounded in how AI redistributes agency",
 ];
 
-export default function Home() {
+export default async function Home() {
   const essays = getAllEssays().slice(0, 3);
+  const trackerData = await getTrackerData();
 
   return (
     <div id="top" style={{ background: "var(--gradient-section)" }} className="min-h-screen">
@@ -89,6 +92,14 @@ export default function Home() {
               All writing →
             </Link>
           </div>
+        </section>
+
+        {/* Divider */}
+        <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
+
+        {/* Thesis Tracker */}
+        <section className="mb-20">
+          <TrackerPreview data={trackerData} />
         </section>
 
         {/* Divider */}

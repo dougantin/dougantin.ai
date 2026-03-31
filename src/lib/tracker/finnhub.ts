@@ -18,6 +18,7 @@ interface FinnhubCandleResponse {
 
 const FINNHUB_BASE_URL = "https://finnhub.io/api/v1";
 const SYMBOL_DELAY_MS = 100;
+const ytdUnavailableSymbols = new Set<string>();
 
 function getApiKey() {
   const apiKey = process.env.FINNHUB_API_KEY;
@@ -84,16 +85,13 @@ async function fetchQuoteForSymbol(
 ): Promise<TickerQuote> {
   const quoteUrl = `${FINNHUB_BASE_URL}/quote?symbol=${symbol}&token=${apiKey}`;
   const quote = await fetchJson<FinnhubQuoteResponse>(quoteUrl);
-  let ytdChangePercent = 0;
+  let ytdChangePercent: number | null = null;
 
   try {
     const ytdBaseline = await fetchYtdBaseline(symbol, apiKey);
     ytdChangePercent = ((quote.c - ytdBaseline) / ytdBaseline) * 100;
   } catch (error) {
-    console.warn(
-      `YTD baseline unavailable for ${symbol}; defaulting ytdChangePercent to 0.`,
-      error
-    );
+    ytdUnavailableSymbols.add(symbol);
   }
 
   return {
@@ -124,6 +122,7 @@ export async function fetchQuotes(
 ): Promise<Record<string, TickerQuote>> {
   const apiKey = getApiKey();
   const quotes: Record<string, TickerQuote> = {};
+  ytdUnavailableSymbols.clear();
 
   for (const [index, symbol] of symbols.entries()) {
     if (index > 0) {
@@ -136,6 +135,14 @@ export async function fetchQuotes(
     } catch (error) {
       console.error(`Failed to fetch Finnhub data for ${symbol}:`, error);
     }
+  }
+
+  if (ytdUnavailableSymbols.size > 0) {
+    console.warn(
+      `YTD baseline unavailable for ${ytdUnavailableSymbols.size} ticker(s): ${Array.from(
+        ytdUnavailableSymbols
+      ).join(", ")}`
+    );
   }
 
   return quotes;

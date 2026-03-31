@@ -22,7 +22,7 @@ export interface TickerQuote {
   currentPrice: number;
   change: number;
   changePercent: number;
-  ytdChangePercent: number;
+  ytdChangePercent: number | null;
   previousClose: number;
   high: number;
   low: number;
