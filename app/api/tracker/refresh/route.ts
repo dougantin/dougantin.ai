@@ -1,12 +1,8 @@
-import fs from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
 import { trackerConfig } from "@/src/config/thesis-tracker";
 import { fetchQuotes, getAllSymbols } from "@/src/lib/tracker/finnhub";
 import type { TrackerData } from "@/src/lib/tracker/types";
-
-const CACHE_DIR = path.join(process.cwd(), "public", "data");
-const CACHE_PATH = path.join(CACHE_DIR, "tracker-cache.json");
+import { writeTrackerData } from "@/src/lib/tracker/data";
 
 function isAuthorized(request: Request) {
   if (process.env.NODE_ENV === "development") {
@@ -35,15 +31,13 @@ export async function GET(request: Request) {
       quotes,
       fetchedAt: new Date().toISOString(),
     };
-
-    fs.mkdirSync(CACHE_DIR, { recursive: true });
-    fs.writeFileSync(CACHE_PATH, JSON.stringify(trackerData, null, 2), "utf-8");
+    const storage = await writeTrackerData(trackerData);
 
     return NextResponse.json({
       status: "ok",
       totalSymbols: symbols.length,
       fetchedQuotes: Object.keys(quotes).length,
-      cachePath: "/data/tracker-cache.json",
+      storage,
       fetchedAt: trackerData.fetchedAt,
     });
   } catch (error) {
