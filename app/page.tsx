@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 const workingOn = [
   "Mapping the infrastructure layer of the agency era: what gets built, by whom, and why it compounds",
   "Writing about AI-native product marketing and what the job actually looks like in 2025",
-  "Building toward a capital allocator role with a thesis grounded in how AI redistributes agency",
 ];
 
 export default async function Home() {
