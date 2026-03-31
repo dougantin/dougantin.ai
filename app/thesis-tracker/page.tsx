@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import ThesisTracker from "@/src/components/tracker/ThesisTracker";
 import { getTrackerData } from "@/src/lib/tracker/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Agency Era Thesis Tracker",
   description:

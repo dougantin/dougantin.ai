@@ -7,6 +7,8 @@ import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import TrackerPreview from "@/src/components/tracker/TrackerPreview";
 import { getTrackerData } from "@/src/lib/tracker/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: SITE_NAME,
   description: SITE_DESCRIPTION,
