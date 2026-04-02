@@ -8,8 +8,11 @@ interface ThesisTrackerProps {
 
 function formatDate(dateString: string) {
   return new Intl.DateTimeFormat("en-US", {
-    dateStyle: "long",
-    timeStyle: "short",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
     timeZone: "America/New_York",
     timeZoneName: "short",
   }).format(new Date(dateString));
