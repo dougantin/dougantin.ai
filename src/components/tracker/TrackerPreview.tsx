@@ -19,6 +19,7 @@ function formatDate(dateString: string) {
 }
 
 export default function TrackerPreview({ data }: TrackerPreviewProps) {
+  const totalVerticals = trackerConfig.verticals.length;
   const totalTickers = trackerConfig.verticals.reduce(
     (sum, vertical) => sum + vertical.tickers.length,
     0
@@ -59,7 +60,7 @@ export default function TrackerPreview({ data }: TrackerPreviewProps) {
           <div className="mt-2 font-mono text-2xl font-semibold" style={{ color: "var(--text-heading)" }}>
             {totalTickers}
           </div>
-          <div style={{ color: "var(--text-muted)" }}>tickers across 3 verticals</div>
+          <div style={{ color: "var(--text-muted)" }}>tickers across {totalVerticals} verticals</div>
         </div>
       </div>
 
