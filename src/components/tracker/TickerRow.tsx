@@ -24,6 +24,36 @@ function formatSignedPercent(value: number) {
   return `${prefix}${value.toFixed(2)}%`;
 }
 
+function formatMultiple(value: number | null) {
+  if (value === null) {
+    return "Unavailable";
+  }
+
+  return `${value.toFixed(2)}x`;
+}
+
+function formatLargeCurrency(value: number | null) {
+  if (value === null) {
+    return "Unavailable";
+  }
+
+  const absoluteValue = Math.abs(value);
+
+  if (absoluteValue >= 1_000_000_000_000) {
+    return `$${(value / 1_000_000_000_000).toFixed(2)}T`;
+  }
+
+  if (absoluteValue >= 1_000_000_000) {
+    return `$${(value / 1_000_000_000).toFixed(1)}B`;
+  }
+
+  if (absoluteValue >= 1_000_000) {
+    return `$${(value / 1_000_000).toFixed(1)}M`;
+  }
+
+  return formatPrice(value);
+}
+
 function getChangeColor(value: number) {
   if (value > 0) return "#16a34a";
   if (value < 0) return "#dc2626";
@@ -37,6 +67,17 @@ function getYtdAbsoluteChange(quote: TickerQuote) {
 
   const baseline = quote.currentPrice / (1 + quote.ytdChangePercent / 100);
   return quote.currentPrice - baseline;
+}
+
+function renderMargin(value: number | null) {
+  if (value === null) {
+    return { label: "Unavailable", color: "var(--text-muted)" };
+  }
+
+  return {
+    label: formatSignedPercent(value * 100),
+    color: getChangeColor(value),
+  };
 }
 
 export default function TickerRow({ ticker, quote }: TickerRowProps) {
@@ -78,6 +119,7 @@ export default function TickerRow({ ticker, quote }: TickerRowProps) {
       ? "var(--text-muted)"
       : getChangeColor(quote.ytdChangePercent);
   const ytdAbsoluteChange = getYtdAbsoluteChange(quote);
+  const operatingMargin = renderMargin(quote.operatingMargin);
 
   return (
     <div
@@ -102,6 +144,40 @@ export default function TickerRow({ ticker, quote }: TickerRowProps) {
         <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
           {ticker.shortDescription}
         </p>
+        <div className="mt-4 grid gap-3 text-xs sm:grid-cols-2 xl:grid-cols-4">
+          <div>
+            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+              Market Cap
+            </div>
+            <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
+              {formatLargeCurrency(quote.marketCap)}
+            </div>
+          </div>
+          <div>
+            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+              Enterprise Value
+            </div>
+            <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
+              {formatLargeCurrency(quote.enterpriseValue)}
+            </div>
+          </div>
+          <div>
+            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+              EV / Sales
+            </div>
+            <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
+              {formatMultiple(quote.evToSales)}
+            </div>
+          </div>
+          <div>
+            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+              Operating Margin (FY)
+            </div>
+            <div className="mt-1 font-mono text-sm" style={{ color: operatingMargin.color }}>
+              {operatingMargin.label}
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="md:text-right">

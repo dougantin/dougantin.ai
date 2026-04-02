@@ -20,9 +20,23 @@ interface FmpHistoricalResponseObject {
   historical?: FmpHistoricalPricePoint[];
 }
 
+interface FmpEnterpriseValueResponse {
+  marketCapitalization?: number;
+  enterpriseValue?: number;
+}
+
+interface FmpKeyMetricsResponse {
+  evToSales?: number;
+}
+
+interface FmpFinancialRatiosResponse {
+  operatingProfitMargin?: number;
+}
+
 const FMP_BASE_URL = "https://financialmodelingprep.com/stable";
 const SYMBOL_DELAY_MS = 100;
 const ytdUnavailableSymbols = new Set<string>();
+const fundamentalsUnavailableSymbols = new Set<string>();
 
 function getApiKey() {
   const apiKey = process.env.FMP_API_KEY;
@@ -114,6 +128,50 @@ async function fetchYtdBaseline(symbol: string, apiKey: string): Promise<number>
   return firstClose;
 }
 
+async function fetchFundamentals(symbol: string) {
+  const enterpriseValuesUrl = `${FMP_BASE_URL}/enterprise-values?symbol=${symbol}`;
+  const keyMetricsUrl = `${FMP_BASE_URL}/key-metrics?symbol=${symbol}`;
+  const financialRatiosUrl = `${FMP_BASE_URL}/ratios?symbol=${symbol}`;
+
+  const [enterpriseValuesResult, keyMetricsResult, financialRatiosResult] = await Promise.allSettled([
+    fetchJson<FmpEnterpriseValueResponse[]>(enterpriseValuesUrl),
+    fetchJson<FmpKeyMetricsResponse[]>(keyMetricsUrl),
+    fetchJson<FmpFinancialRatiosResponse[]>(financialRatiosUrl),
+  ]);
+
+  const enterpriseValues =
+    enterpriseValuesResult.status === "fulfilled"
+      ? enterpriseValuesResult.value[0]
+      : null;
+  const keyMetrics =
+    keyMetricsResult.status === "fulfilled"
+      ? keyMetricsResult.value[0]
+      : null;
+  const financialRatios =
+    financialRatiosResult.status === "fulfilled"
+      ? financialRatiosResult.value[0]
+      : null;
+
+  return {
+    marketCap:
+      typeof enterpriseValues?.marketCapitalization === "number"
+        ? enterpriseValues.marketCapitalization
+        : null,
+    enterpriseValue:
+      typeof enterpriseValues?.enterpriseValue === "number"
+        ? enterpriseValues.enterpriseValue
+        : null,
+    evToSales:
+      typeof keyMetrics?.evToSales === "number"
+        ? keyMetrics.evToSales
+        : null,
+    operatingMargin:
+      typeof financialRatios?.operatingProfitMargin === "number"
+        ? financialRatios.operatingProfitMargin
+        : null,
+  };
+}
+
 async function fetchQuoteForSymbol(
   symbol: string,
   apiKey: string
@@ -127,6 +185,10 @@ async function fetchQuoteForSymbol(
   }
 
   let ytdChangePercent: number | null = null;
+  let marketCap: number | null = null;
+  let enterpriseValue: number | null = null;
+  let evToSales: number | null = null;
+  let operatingMargin: number | null = null;
 
   try {
     const ytdBaseline = await fetchYtdBaseline(symbol, apiKey);
@@ -135,12 +197,35 @@ async function fetchQuoteForSymbol(
     ytdUnavailableSymbols.add(symbol);
   }
 
+  try {
+    const fundamentals = await fetchFundamentals(symbol);
+    marketCap = fundamentals.marketCap;
+    enterpriseValue = fundamentals.enterpriseValue;
+    evToSales = fundamentals.evToSales;
+    operatingMargin = fundamentals.operatingMargin;
+  } catch (error) {
+    fundamentalsUnavailableSymbols.add(symbol);
+  }
+
+  if (
+    marketCap === null &&
+    enterpriseValue === null &&
+    evToSales === null &&
+    operatingMargin === null
+  ) {
+    fundamentalsUnavailableSymbols.add(symbol);
+  }
+
   return {
     symbol,
     currentPrice: quote.price,
     change: quote.change,
     changePercent: normalizePercent(quote.changesPercentage),
     ytdChangePercent,
+    marketCap,
+    enterpriseValue,
+    evToSales,
+    operatingMargin,
     previousClose: quote.previousClose,
     high: quote.dayHigh,
     low: quote.dayLow,
@@ -164,6 +249,7 @@ export async function fetchQuotes(
   const apiKey = getApiKey();
   const quotes: Record<string, TickerQuote> = {};
   ytdUnavailableSymbols.clear();
+  fundamentalsUnavailableSymbols.clear();
 
   for (const [index, symbol] of symbols.entries()) {
     if (index > 0) {
@@ -182,6 +268,14 @@ export async function fetchQuotes(
     console.warn(
       `YTD baseline unavailable for ${ytdUnavailableSymbols.size} ticker(s): ${Array.from(
         ytdUnavailableSymbols
+      ).join(", ")}`
+    );
+  }
+
+  if (fundamentalsUnavailableSymbols.size > 0) {
+    console.warn(
+      `Fundamentals unavailable for ${fundamentalsUnavailableSymbols.size} ticker(s): ${Array.from(
+        fundamentalsUnavailableSymbols
       ).join(", ")}`
     );
   }

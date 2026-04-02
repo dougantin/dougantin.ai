@@ -23,6 +23,10 @@ export interface TickerQuote {
   change: number;
   changePercent: number;
   ytdChangePercent: number | null;
+  marketCap: number | null;
+  enterpriseValue: number | null;
+  evToSales: number | null;
+  operatingMargin: number | null;
   previousClose: number;
   high: number;
   low: number;
