@@ -1,30 +1,34 @@
 import type { TickerQuote, TrackerConfig } from "@/src/lib/tracker/types";
 
-interface FinnhubQuoteResponse {
-  c: number;
-  d: number;
-  dp: number;
-  h: number;
-  l: number;
-  o: number;
-  pc: number;
-  t: number;
+interface FmpQuoteResponse {
+  symbol: string;
+  price: number;
+  change: number;
+  changesPercentage: number | string;
+  dayLow: number;
+  dayHigh: number;
+  previousClose: number;
+  timestamp?: number;
 }
 
-interface FinnhubCandleResponse {
-  c?: number[];
-  s?: string;
+interface FmpHistoricalPricePoint {
+  date?: string;
+  close?: number;
 }
 
-const FINNHUB_BASE_URL = "https://finnhub.io/api/v1";
+interface FmpHistoricalResponseObject {
+  historical?: FmpHistoricalPricePoint[];
+}
+
+const FMP_BASE_URL = "https://financialmodelingprep.com/stable";
 const SYMBOL_DELAY_MS = 100;
 const ytdUnavailableSymbols = new Set<string>();
 
 function getApiKey() {
-  const apiKey = process.env.FINNHUB_API_KEY;
+  const apiKey = process.env.FMP_API_KEY;
 
   if (!apiKey) {
-    throw new Error("Missing FINNHUB_API_KEY environment variable.");
+    throw new Error("Missing FMP_API_KEY environment variable.");
   }
 
   return apiKey;
@@ -36,44 +40,75 @@ function delay(ms: number) {
 
 function getYearStartWindow() {
   const now = new Date();
-  const yearStart = new Date(Date.UTC(now.getUTCFullYear(), 0, 1, 0, 0, 0));
-  const yearStartUnix = Math.floor(yearStart.getTime() / 1000);
-  const yearStartPlusFiveDaysUnix = yearStartUnix + 5 * 24 * 60 * 60;
+  const year = now.getUTCFullYear();
+  const yearStart = `${year}-01-01`;
+  const yearStartPlusTenDays = `${year}-01-10`;
 
-  return { yearStartUnix, yearStartPlusFiveDaysUnix };
+  return { yearStart, yearStartPlusTenDays };
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
+  const apiKey = process.env.FMP_API_KEY;
   const response = await fetch(url, {
     method: "GET",
     headers: {
       Accept: "application/json",
+      ...(apiKey ? { apikey: apiKey } : {}),
     },
     cache: "no-store",
   });
 
   if (!response.ok) {
-    throw new Error(`Finnhub request failed: ${response.status} ${response.statusText}`);
+    throw new Error(`FMP request failed: ${response.status} ${response.statusText}`);
   }
 
   return (await response.json()) as T;
 }
 
-async function fetchYtdBaseline(
-  symbol: string,
-  apiKey: string
-): Promise<number> {
-  const { yearStartUnix, yearStartPlusFiveDaysUnix } = getYearStartWindow();
-  const candleUrl =
-    `${FINNHUB_BASE_URL}/stock/candle?symbol=${symbol}` +
-    `&resolution=D&from=${yearStartUnix}&to=${yearStartPlusFiveDaysUnix}` +
-    `&token=${apiKey}`;
+function normalizePercent(value: number | string | undefined) {
+  if (typeof value === "number") {
+    return value;
+  }
 
-  const candle = await fetchJson<FinnhubCandleResponse>(candleUrl);
-  const firstClose = candle.c?.[0];
+  if (typeof value === "string") {
+    const parsed = Number(value.replace("%", ""));
+    return Number.isNaN(parsed) ? 0 : parsed;
+  }
+
+  return 0;
+}
+
+function parseHistoricalResponse(data: unknown): FmpHistoricalPricePoint[] {
+  if (Array.isArray(data)) {
+    return data as FmpHistoricalPricePoint[];
+  }
+
+  if (
+    data &&
+    typeof data === "object" &&
+    "historical" in data &&
+    Array.isArray((data as FmpHistoricalResponseObject).historical)
+  ) {
+    return (data as FmpHistoricalResponseObject).historical ?? [];
+  }
+
+  return [];
+}
+
+async function fetchYtdBaseline(symbol: string, apiKey: string): Promise<number> {
+  const { yearStart, yearStartPlusTenDays } = getYearStartWindow();
+  const historicalUrl =
+    `${FMP_BASE_URL}/historical-price-eod/light?symbol=${symbol}` +
+    `&from=${yearStart}&to=${yearStartPlusTenDays}`;
+
+  const historicalResponse = await fetchJson<unknown>(historicalUrl);
+  const historicalPoints = parseHistoricalResponse(historicalResponse);
+  const firstClose = historicalPoints.find(
+    (point) => typeof point.close === "number" && !Number.isNaN(point.close)
+  )?.close;
 
   if (typeof firstClose !== "number" || Number.isNaN(firstClose)) {
-    throw new Error(`Missing YTD baseline candle for ${symbol}.`);
+    throw new Error(`Missing YTD baseline historical close for ${symbol}.`);
   }
 
   return firstClose;
@@ -83,27 +118,33 @@ async function fetchQuoteForSymbol(
   symbol: string,
   apiKey: string
 ): Promise<TickerQuote> {
-  const quoteUrl = `${FINNHUB_BASE_URL}/quote?symbol=${symbol}&token=${apiKey}`;
-  const quote = await fetchJson<FinnhubQuoteResponse>(quoteUrl);
+  const quoteUrl = `${FMP_BASE_URL}/quote?symbol=${symbol}`;
+  const quoteResponse = await fetchJson<FmpQuoteResponse[]>(quoteUrl);
+  const quote = quoteResponse[0];
+
+  if (!quote?.symbol) {
+    throw new Error(`Missing FMP quote data for ${symbol}.`);
+  }
+
   let ytdChangePercent: number | null = null;
 
   try {
     const ytdBaseline = await fetchYtdBaseline(symbol, apiKey);
-    ytdChangePercent = ((quote.c - ytdBaseline) / ytdBaseline) * 100;
+    ytdChangePercent = ((quote.price - ytdBaseline) / ytdBaseline) * 100;
   } catch (error) {
     ytdUnavailableSymbols.add(symbol);
   }
 
   return {
     symbol,
-    currentPrice: quote.c,
-    change: quote.d,
-    changePercent: quote.dp,
+    currentPrice: quote.price,
+    change: quote.change,
+    changePercent: normalizePercent(quote.changesPercentage),
     ytdChangePercent,
-    previousClose: quote.pc,
-    high: quote.h,
-    low: quote.l,
-    timestamp: quote.t,
+    previousClose: quote.previousClose,
+    high: quote.dayHigh,
+    low: quote.dayLow,
+    timestamp: quote.timestamp ?? Math.floor(Date.now() / 1000),
   };
 }
 
@@ -133,7 +174,7 @@ export async function fetchQuotes(
       const quote = await fetchQuoteForSymbol(symbol, apiKey);
       quotes[symbol] = quote;
     } catch (error) {
-      console.error(`Failed to fetch Finnhub data for ${symbol}:`, error);
+      console.error(`Failed to fetch FMP data for ${symbol}:`, error);
     }
   }
 
