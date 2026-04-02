@@ -1,4 +1,12 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function HomeNav() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <nav
       className="sticky top-0 z-50 w-full"
@@ -9,8 +17,8 @@ export default function HomeNav() {
       }}
     >
       <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-        <a
-          href="#top"
+        <Link
+          href={isHome ? "#top" : "/"}
           className="text-sm font-semibold"
           style={{
             color: "var(--text-heading)",
@@ -19,29 +27,29 @@ export default function HomeNav() {
           }}
         >
           Doug Antin
-        </a>
+        </Link>
         <div className="flex gap-6">
-          <a
-            href="#writing"
+          <Link
+            href={isHome ? "#writing" : "/#writing"}
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             Writing
-          </a>
-          <a
-            href="#working-on"
+          </Link>
+          <Link
+            href={isHome ? "#working-on" : "/#working-on"}
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             What I&apos;m working on
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            href={isHome ? "#contact" : "/#contact"}
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import HomeNav from "@/components/HomeNav";
 import SiteLogo from "@/components/SiteLogo";
 import { getAllEssays } from "@/lib/mdx";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
@@ -25,7 +24,6 @@ export default async function Home() {
 
   return (
     <div id="top" style={{ background: "var(--gradient-section)" }} className="min-h-screen">
-      <HomeNav />
       <main className="mx-auto max-w-3xl px-6 py-20 md:py-32">
 
         {/* Hero */}
