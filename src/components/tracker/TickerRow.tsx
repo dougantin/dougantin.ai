@@ -24,16 +24,16 @@ function formatSignedPercent(value: number) {
   return `${prefix}${value.toFixed(2)}%`;
 }
 
-function formatMultiple(value: number | null) {
-  if (value === null) {
+function formatMultiple(value: number | null | undefined) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
     return "Unavailable";
   }
 
   return `${value.toFixed(2)}x`;
 }
 
-function formatLargeCurrency(value: number | null) {
-  if (value === null) {
+function formatLargeCurrency(value: number | null | undefined) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
     return "Unavailable";
   }
 
@@ -69,8 +69,8 @@ function getYtdAbsoluteChange(quote: TickerQuote) {
   return quote.currentPrice - baseline;
 }
 
-function renderMargin(value: number | null) {
-  if (value === null) {
+function renderMargin(value: number | null | undefined) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
     return { label: "Unavailable", color: "var(--text-muted)" };
   }
 
