@@ -177,7 +177,7 @@ export default async function Home() {
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
 
         {/* What I'm tracking */}
-        <section id="working-on" className="mb-20 scroll-mt-20">
+        <section id="tracking" className="mb-20 scroll-mt-20">
           <h2
             className="mb-6 text-2xl font-bold"
             style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}

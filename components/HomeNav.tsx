@@ -37,11 +37,11 @@ export default function HomeNav() {
             Writing
           </Link>
           <Link
-            href={isHome ? "#working-on" : "/#working-on"}
+            href={isHome ? "#tracking" : "/#tracking"}
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
-            What I&apos;m working on
+            What I&apos;m tracking
           </Link>
           <Link
             href={isHome ? "#contact" : "/#contact"}
