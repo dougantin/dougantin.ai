@@ -13,9 +13,11 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
 };
 
-const workingOn = [
-  "Mapping the infrastructure layer of the agency era: what gets built, by whom, and why it compounds",
-  "Writing about AI-native product marketing and what the job actually looks like now",
+const tracking = [
+  "Where AI-driven power demand shows up first",
+  "Which bottlenecks are tightening across the electrical and compute stack",
+  "How public market names convert demand into backlog, pricing power, and capex",
+  "What changes in product, labor, and capital allocation as intelligence gets cheap",
 ];
 
 export default async function Home() {
@@ -174,16 +176,16 @@ export default async function Home() {
         {/* Divider */}
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
 
-        {/* What I'm working on */}
+        {/* What I'm tracking */}
         <section id="working-on" className="mb-20 scroll-mt-20">
           <h2
             className="mb-6 text-2xl font-bold"
             style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
           >
-            What I&apos;m working on
+            What I&apos;m tracking
           </h2>
           <ul className="space-y-3">
-            {workingOn.map((item, i) => (
+            {tracking.map((item, i) => (
               <li key={i} className="flex gap-3">
                 <span
                   className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
