@@ -53,8 +53,78 @@ export default async function Home() {
             style={{ color: "var(--text-body)" }}
           >
             <p>
-              I&apos;m exploring what happens when intelligence gets cheap. Who captures the value, what the infrastructure looks like, and where agency becomes the real edge. Product marketer by trade. Building with AI by compulsion. This is where I think and build publicly.
+              Building a point of view on how cheap intelligence reshapes infrastructure, incentives, and capital allocation.
             </p>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
+
+        {/* What this site is for */}
+        <section className="mb-20">
+          <div className="max-w-2xl">
+            <p
+              className="text-xs font-medium uppercase tracking-[0.22em]"
+              style={{ color: "var(--accent-primary)" }}
+            >
+              What This Site Is For
+            </p>
+            <div
+              className="mt-4 space-y-4 text-sm leading-relaxed md:text-base"
+              style={{ color: "var(--text-body)" }}
+            >
+              <p>
+                dougantin.ai is where I develop and test a point of view on what happens when
+                intelligence becomes abundant and cheap, and how that reshapes work, software,
+                and capital allocation.
+              </p>
+              <p>
+                I use it to turn observations into frameworks, exploratory work into conclusions,
+                and conclusions into artifacts that can be monitored over time. The site is a
+                constant work in progress and everything here is in motion.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {[
+              {
+                title: "Notes explore",
+                body: "Early observations and rough models.",
+              },
+              {
+                title: "Essays synthesize",
+                body: "Structured arguments about what is changing and why it matters.",
+              },
+              {
+                title: "Tracker monitors",
+                body: "A live watchlist of public signals tied to the thesis.",
+              },
+              {
+                title: "Convictions accumulate",
+                body: "The clearest conclusions that survive contact with reality.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border px-5 py-5"
+                style={{
+                  borderColor: "var(--border-default)",
+                  background: "rgba(61, 52, 48, 0.28)",
+                }}
+              >
+                <h2
+                  className="text-lg font-semibold"
+                  style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                >
+                  {item.title}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
