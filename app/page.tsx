@@ -13,15 +13,13 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
 };
 
-const tracking = [
-  "Where AI-driven power demand shows up first",
-  "Which bottlenecks are tightening across the electrical and compute stack",
-  "How public market names convert demand into backlog, pricing power, and capex",
-  "What changes in product, labor, and capital allocation as intelligence gets cheap",
-];
-
 export default async function Home() {
-  const essays = getAllEssays().slice(0, 3);
+  const allEssays = getAllEssays();
+  const startHereEssay = allEssays.find((essay) => essay.slug === "agency-era");
+  const essays = [
+    ...(startHereEssay ? [startHereEssay] : []),
+    ...allEssays.filter((essay) => essay.slug !== "agency-era").slice(0, 2),
+  ];
   const trackerData = await getTrackerData();
 
   return (
@@ -145,12 +143,25 @@ export default async function Home() {
             {essays.map((essay) => (
               <Link key={essay.slug} href={`/writing/${essay.slug}`} className="essay-card">
                 <div className="flex items-start justify-between gap-4">
-                  <h3
-                    className="text-lg font-semibold leading-snug"
-                    style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-                  >
-                    {essay.title}
-                  </h3>
+                  <div>
+                    {essay.slug === "agency-era" && (
+                      <span
+                        className="mb-2 inline-block rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.18em]"
+                        style={{
+                          color: "#1b1614",
+                          background: "var(--accent-primary)",
+                        }}
+                      >
+                        Start Here
+                      </span>
+                    )}
+                    <h3
+                      className="text-lg font-semibold leading-snug"
+                      style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                    >
+                      {essay.title}
+                    </h3>
+                  </div>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
                   {essay.description}
@@ -169,35 +180,28 @@ export default async function Home() {
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
 
         {/* Thesis Tracker */}
-        <section className="mb-20">
+        <section id="tracking" className="mb-20 scroll-mt-20">
+          <div className="mb-8 max-w-2xl">
+            <p
+              className="text-xs font-medium uppercase tracking-[0.22em]"
+              style={{ color: "var(--accent-primary)" }}
+            >
+              What I&apos;m Tracking
+            </p>
+            <p
+              className="mt-4 text-sm leading-relaxed md:text-base"
+              style={{ color: "var(--text-body)" }}
+            >
+              I&apos;m building tracking systems to help me make better decisions through the
+              transition to commoditized intelligence by watching bottlenecks, rates of change,
+              and the places where the shift becomes visible first.
+            </p>
+          </div>
           <TrackerPreview data={trackerData} />
         </section>
 
         {/* Divider */}
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
-
-        {/* What I'm tracking */}
-        <section id="tracking" className="mb-20 scroll-mt-20">
-          <h2
-            className="mb-6 text-2xl font-bold"
-            style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-          >
-            What I&apos;m tracking
-          </h2>
-          <ul className="space-y-3">
-            {tracking.map((item, i) => (
-              <li key={i} className="flex gap-3">
-                <span
-                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: "var(--accent-warm)" }}
-                />
-                <span className="text-base leading-relaxed" style={{ color: "var(--text-body)" }}>
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
 
         {/* Divider */}
         <div className="mb-12 h-px w-full" style={{ background: "var(--border-default)" }} />
