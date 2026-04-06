@@ -2,6 +2,7 @@ export interface TickerConfig {
   symbol: string;
   name: string;
   shortDescription: string;
+  vehicleType?: "equity" | "etf";
 }
 
 export interface VerticalConfig {

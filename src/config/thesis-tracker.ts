@@ -217,30 +217,35 @@ export const trackerConfig: TrackerConfig = {
           name: "Global X Uranium ETF",
           shortDescription:
             "Broad exposure to the uranium mining and nuclear fuel cycle. Tracks the commodity input powering the Energy vertical.",
+          vehicleType: "etf",
         },
         {
           symbol: "COPX",
           name: "Global X Copper Miners ETF",
           shortDescription:
             "Basket of global copper producers. Copper deficit projected to widen through 2026+ as AI data center and grid buildout accelerates.",
+          vehicleType: "etf",
         },
         {
           symbol: "SIL",
           name: "Global X Silver Miners ETF",
           shortDescription:
             "Silver miners basket. Industrial demand now over half of total silver consumption, driven by electrical contacts and DC components.",
+          vehicleType: "etf",
         },
         {
           symbol: "LIT",
           name: "Global X Lithium & Battery Tech ETF",
           shortDescription:
             "Lithium producers and battery technology. Grid-scale battery storage (BESS) is becoming required infrastructure for data center power.",
+          vehicleType: "etf",
         },
         {
           symbol: "REMX",
           name: "VanEck Rare Earth/Strategic Metals ETF",
           shortDescription:
             "Rare earth and strategic metals exposure. China controls ~91% of global rare earth refining. This ETF tracks the commodity layer underneath that chokepoint.",
+          vehicleType: "etf",
         },
         {
           symbol: "CLF",

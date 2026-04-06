@@ -81,6 +81,8 @@ function renderMargin(value: number | null | undefined) {
 }
 
 export default function TickerRow({ ticker, quote }: TickerRowProps) {
+  const isEtf = ticker.vehicleType === "etf";
+
   if (!quote) {
     return (
       <div
@@ -144,40 +146,42 @@ export default function TickerRow({ ticker, quote }: TickerRowProps) {
         <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
           {ticker.shortDescription}
         </p>
-        <div className="mt-4 grid gap-3 text-xs sm:grid-cols-2 xl:grid-cols-4">
-          <div>
-            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
-              Market Cap
+        {!isEtf && (
+          <div className="mt-4 grid gap-3 text-xs sm:grid-cols-2 xl:grid-cols-4">
+            <div>
+              <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+                Market Cap
+              </div>
+              <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
+                {formatLargeCurrency(quote.marketCap)}
+              </div>
             </div>
-            <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
-              {formatLargeCurrency(quote.marketCap)}
+            <div>
+              <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+                Enterprise Value
+              </div>
+              <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
+                {formatLargeCurrency(quote.enterpriseValue)}
+              </div>
+            </div>
+            <div>
+              <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+                EV / Sales
+              </div>
+              <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
+                {formatMultiple(quote.evToSales)}
+              </div>
+            </div>
+            <div>
+              <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
+                Operating Margin (FY)
+              </div>
+              <div className="mt-1 font-mono text-sm" style={{ color: operatingMargin.color }}>
+                {operatingMargin.label}
+              </div>
             </div>
           </div>
-          <div>
-            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
-              Enterprise Value
-            </div>
-            <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
-              {formatLargeCurrency(quote.enterpriseValue)}
-            </div>
-          </div>
-          <div>
-            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
-              EV / Sales
-            </div>
-            <div className="mt-1 font-mono text-sm" style={{ color: "var(--text-heading)" }}>
-              {formatMultiple(quote.evToSales)}
-            </div>
-          </div>
-          <div>
-            <div className="uppercase tracking-[0.16em]" style={{ color: "var(--text-muted)" }}>
-              Operating Margin (FY)
-            </div>
-            <div className="mt-1 font-mono text-sm" style={{ color: operatingMargin.color }}>
-              {operatingMargin.label}
-            </div>
-          </div>
-        </div>
+        )}
       </div>
 
       <div className="md:text-right">
