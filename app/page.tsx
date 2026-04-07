@@ -179,14 +179,14 @@ export default async function Home() {
         {/* Divider */}
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
 
-        {/* Thesis Tracker */}
+        {/* Tracking Systems */}
         <section id="tracking" className="mb-20 scroll-mt-20">
           <div className="mb-8 max-w-2xl">
             <p
               className="text-xs font-medium uppercase tracking-[0.22em]"
               style={{ color: "var(--accent-primary)" }}
             >
-              What I&apos;m Tracking
+              Tracking Systems
             </p>
             <p
               className="mt-4 text-sm leading-relaxed md:text-base"
@@ -197,11 +197,58 @@ export default async function Home() {
               and the places where the shift becomes visible first.
             </p>
           </div>
-          <TrackerPreview data={trackerData} />
-        </section>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <TrackerPreview data={trackerData} />
 
-        {/* Divider */}
-        <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
+            <div
+              className="rounded-2xl border px-6 py-7 md:px-8 md:py-8"
+              style={{
+                borderColor: "var(--border-default)",
+                background: "rgba(61, 52, 48, 0.32)",
+              }}
+            >
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p
+                    className="text-xs font-medium uppercase tracking-[0.22em]"
+                    style={{ color: "var(--accent-primary)" }}
+                  >
+                    Intelligence Cost
+                  </p>
+                  <h2
+                    className="mt-3 text-2xl font-bold"
+                    style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                  >
+                    How Fast Is Intelligence Getting Cheaper?
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                    Tracking capability gains, inference price declines, and the physical
+                    buildout behind commoditized intelligence.
+                  </p>
+                </div>
+                <span
+                  className="inline-block rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.18em]"
+                  style={{
+                    color: "#1b1614",
+                    background: "var(--accent-primary)",
+                  }}
+                >
+                  In Progress
+                </span>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-end">
+                <Link
+                  href="/tracking/intelligence-cost"
+                  className="text-sm font-medium"
+                  style={{ color: "var(--accent-primary)" }}
+                >
+                  View tracker →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Divider */}
         <div className="mb-12 h-px w-full" style={{ background: "var(--border-default)" }} />
