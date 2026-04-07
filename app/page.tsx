@@ -226,18 +226,21 @@ export default async function Home() {
                     buildout behind commoditized intelligence.
                   </p>
                 </div>
-                <span
-                  className="inline-block rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.18em]"
-                  style={{
-                    color: "#1b1614",
-                    background: "var(--accent-primary)",
-                  }}
-                >
-                  In Progress
-                </span>
+                <div className="text-right text-sm">
+                  <div className="uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
+                    Coverage
+                  </div>
+                  <div className="mt-2 font-mono text-2xl font-semibold" style={{ color: "var(--text-heading)" }}>
+                    3
+                  </div>
+                  <div style={{ color: "var(--text-muted)" }}>core signals</div>
+                </div>
               </div>
 
               <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-end">
+                <div className="text-sm md:mr-auto" style={{ color: "var(--text-muted)" }}>
+                  Last updated: Apr 7, 2026
+                </div>
                 <Link
                   href="/tracking/intelligence-cost"
                   className="text-sm font-medium"
