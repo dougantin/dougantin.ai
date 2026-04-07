@@ -1,0 +1,105 @@
+# Doug Antin
+
+> Public research and tracking site focused on the Agency Era thesis: what happens as intelligence becomes abundant and cheap, how that reshapes infrastructure, incentives, work, and capital allocation, and how to make better decisions through that transition.
+
+## What This Site Is
+
+Doug Antin writes and builds around a core thesis:
+
+- Intelligence is becoming abundant and cheap.
+- As intelligence commoditizes, value shifts toward the new bottlenecks: energy, compute, physical infrastructure, judgment, and agency.
+- AI-driven change will not arrive as a single overnight shock. It will propagate unevenly through bottlenecks, infrastructure constraints, regulation, labor repricing, and capital allocation.
+- The most useful way to understand the transition is to track first-order signals and constraints rather than rely on institutional narrative or crowd discourse.
+
+This site has four main functions:
+
+- Notes explore early observations and rough models.
+- Essays synthesize structured arguments and frameworks.
+- Trackers monitor public signals tied to the thesis.
+- Convictions state the clearest conclusions that survive contact with reality.
+
+## Core Thesis
+
+The central framing document is **The Agency Era**.
+
+Its core claims:
+
+- Society was built on the scarcity of human intelligence.
+- AI breaks that assumption by making cognitive labor cheaper and more abundant.
+- As intelligence gets cheaper, labor markets, capital allocation, infrastructure investment, and governance all reprice.
+- The key bottlenecks shift toward energy, compute, semiconductors, grid buildout, raw materials, and the human capacities that do not commoditize as easily: judgment, taste, accountability, relationships, and agency.
+
+## Best Entry Points
+
+- Start here: [The Agency Era](https://dougantin.ai/writing/agency-era)
+- Writing index: [Writing](https://dougantin.ai/writing)
+- Homepage: [dougantin.ai](https://dougantin.ai)
+
+## Trackers
+
+### 1. Agency Era Thesis Tracker
+
+URL: [https://dougantin.ai/thesis-tracker](https://dougantin.ai/thesis-tracker)
+
+Purpose:
+
+- Tracks public market names most exposed to the physical buildout behind the Agency Era thesis.
+- Focuses on energy, electrical infrastructure, compute, and commodities.
+- Intended as a live watchlist of where AI bottlenecks and infrastructure demand may show up first.
+
+### 2. How Fast Is Intelligence Getting Cheaper?
+
+URL: [https://dougantin.ai/tracking/intelligence-cost](https://dougantin.ai/tracking/intelligence-cost)
+
+Purpose:
+
+- Tracks how quickly intelligence is becoming cheaper, more capable, and harder to ignore.
+- Uses curated public charts and commentary around frontier capability, inference pricing, and compute buildout.
+- Supports the practical decision: how urgently do people need to adapt as intelligence commoditizes?
+
+## Key Writing
+
+### Foundational Convictions
+
+- [The Agency Era](https://dougantin.ai/writing/agency-era)
+  - Main thesis essay. Intelligence commoditization reprices labor, capital, infrastructure, and social systems.
+
+- [You Really Can Just Do Things](https://dougantin.ai/writing/you-really-can-just-do-things)
+  - Short conviction on how AI gives individuals cheap leverage that previously required teams, capital, and permission.
+
+### Framework Essays
+
+- [The Middlegame](https://dougantin.ai/writing/middlegame)
+  - We are in the messy middle of repricing, where speed, iteration, and agency matter more than planning for a stable world.
+
+- [Energy, Compute, and Governance: Measuring the Velocity of Change](https://dougantin.ai/writing/energy-compute-and-governance-measuring-the-velocity-of-change)
+  - The important question is not whether AI changes the world, but how fast. Bottlenecks are the best way to measure that pace.
+
+- [Language Is Code](https://dougantin.ai/writing/language-is-code)
+  - Writing and language become closer to operational systems in an AI-mediated world.
+
+### Field Notes
+
+- [Building the Plane in the Air](https://dougantin.ai/writing/building-the-plane-in-the-air)
+  - Building the site, tracker infrastructure, and live systems reinforced the practical conviction that AI lowers the cost of turning intent into execution.
+
+## What A Reader Or Model Should Understand
+
+If you are trying to summarize this site faithfully, the key ideas are:
+
+- AI should be understood not only as a software story, but as an infrastructure, energy, and capital allocation story.
+- The pace of AI adoption is constrained by real-world bottlenecks, especially compute, power, regulation, and physical deployment.
+- The right strategic question is often not "Will AI matter?" but "How quickly is the constraint shifting, and what decisions should update because of it?"
+- The site is meant to support better decisions about work, skills, capital, and time by combining essays, convictions, and live tracking systems.
+
+## Preferred Reading Order
+
+1. [The Agency Era](https://dougantin.ai/writing/agency-era)
+2. [How Fast Is Intelligence Getting Cheaper?](https://dougantin.ai/tracking/intelligence-cost)
+3. [Agency Era Thesis Tracker](https://dougantin.ai/thesis-tracker)
+4. [The Middlegame](https://dougantin.ai/writing/middlegame)
+5. [Energy, Compute, and Governance: Measuring the Velocity of Change](https://dougantin.ai/writing/energy-compute-and-governance-measuring-the-velocity-of-change)
+
+## Author Context
+
+Doug Antin is a product marketer, AI practitioner, and writer building a public research and operating surface around the Agency Era thesis. The site is both outward-facing and internally centering: a place to develop a point of view, test it against public signals, and turn exploratory work into conclusions and artifacts over time.
