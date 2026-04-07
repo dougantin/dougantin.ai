@@ -6,18 +6,6 @@ interface TrackerPreviewProps {
   data: TrackerData | null;
 }
 
-function formatDate(dateString: string) {
-  return new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    timeZone: "America/New_York",
-    timeZoneName: "short",
-  }).format(new Date(dateString));
-}
-
 export default function TrackerPreview({ data }: TrackerPreviewProps) {
   const totalVerticals = trackerConfig.verticals.length;
   const totalTickers = trackerConfig.verticals.reduce(
@@ -63,13 +51,7 @@ export default function TrackerPreview({ data }: TrackerPreviewProps) {
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div className="text-sm" style={{ color: "var(--text-muted)" }}>
-          {data?.fetchedAt
-            ? `Last data refresh: ${formatDate(data.fetchedAt)}`
-            : "Tracker data is being loaded. Check back shortly."}
-        </div>
-
+      <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-end">
         <Link
           href="/thesis-tracker"
           className="text-sm font-medium"

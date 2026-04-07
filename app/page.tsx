@@ -238,9 +238,6 @@ export default async function Home() {
               </div>
 
               <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-end">
-                <div className="text-sm md:mr-auto" style={{ color: "var(--text-muted)" }}>
-                  Last updated: Apr 7, 2026
-                </div>
                 <Link
                   href="/tracking/intelligence-cost"
                   className="text-sm font-medium"
