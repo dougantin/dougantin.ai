@@ -34,6 +34,8 @@ Its core claims:
 - Start here: [The Agency Era](https://dougantin.ai/writing/agency-era)
 - Writing index: [Writing](https://dougantin.ai/writing)
 - Homepage: [dougantin.ai](https://dougantin.ai)
+- Homepage companion: [https://dougantin.ai/llms/index.md](https://dougantin.ai/llms/index.md)
+- Writing companions index: [https://dougantin.ai/llms/writing/index.md](https://dougantin.ai/llms/writing/index.md)
 
 ## Trackers
 
@@ -82,6 +84,25 @@ Purpose:
 
 - [Building the Plane in the Air](https://dougantin.ai/writing/building-the-plane-in-the-air)
   - Building the site, tracker infrastructure, and live systems reinforced the practical conviction that AI lowers the cost of turning intent into execution.
+
+## LLM-Friendly Page Companions
+
+Homepage:
+
+- [https://dougantin.ai/llms/index.md](https://dougantin.ai/llms/index.md)
+
+Writing index:
+
+- [https://dougantin.ai/llms/writing/index.md](https://dougantin.ai/llms/writing/index.md)
+
+Writing pages:
+
+- [https://dougantin.ai/llms/writing/agency-era.md](https://dougantin.ai/llms/writing/agency-era.md)
+- [https://dougantin.ai/llms/writing/language-is-code.md](https://dougantin.ai/llms/writing/language-is-code.md)
+- [https://dougantin.ai/llms/writing/middlegame.md](https://dougantin.ai/llms/writing/middlegame.md)
+- [https://dougantin.ai/llms/writing/you-really-can-just-do-things.md](https://dougantin.ai/llms/writing/you-really-can-just-do-things.md)
+- [https://dougantin.ai/llms/writing/building-the-plane-in-the-air.md](https://dougantin.ai/llms/writing/building-the-plane-in-the-air.md)
+- [https://dougantin.ai/llms/writing/energy-compute-and-governance-measuring-the-velocity-of-change.md](https://dougantin.ai/llms/writing/energy-compute-and-governance-measuring-the-velocity-of-change.md)
 
 ## What A Reader Or Model Should Understand
 
