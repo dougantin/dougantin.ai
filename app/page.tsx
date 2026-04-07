@@ -287,6 +287,13 @@ export default async function Home() {
             >
               LinkedIn
             </a>
+            <a
+              href="/llms/index.md"
+              className="text-sm font-medium"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Site Guide for LLMs
+            </a>
           </div>
         </footer>
 
