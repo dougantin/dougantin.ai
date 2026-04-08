@@ -13,7 +13,7 @@ interface FmpQuoteResponse {
 
 interface FmpHistoricalPricePoint {
   date?: string;
-  close?: number;
+  price?: number;
 }
 
 interface FmpHistoricalResponseObject {
@@ -56,9 +56,9 @@ function getYearStartWindow() {
   const now = new Date();
   const year = now.getUTCFullYear();
   const yearStart = `${year}-01-01`;
-  const yearStartPlusTenDays = `${year}-01-10`;
+  const today = now.toISOString().slice(0, 10);
 
-  return { yearStart, yearStartPlusTenDays };
+  return { yearStart, today };
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -110,16 +110,23 @@ function parseHistoricalResponse(data: unknown): FmpHistoricalPricePoint[] {
 }
 
 async function fetchYtdBaseline(symbol: string, apiKey: string): Promise<number> {
-  const { yearStart, yearStartPlusTenDays } = getYearStartWindow();
+  const { yearStart, today } = getYearStartWindow();
   const historicalUrl =
     `${FMP_BASE_URL}/historical-price-eod/light?symbol=${symbol}` +
-    `&from=${yearStart}&to=${yearStartPlusTenDays}`;
+    `&from=${yearStart}&to=${today}`;
 
   const historicalResponse = await fetchJson<unknown>(historicalUrl);
   const historicalPoints = parseHistoricalResponse(historicalResponse);
-  const firstClose = historicalPoints.find(
-    (point) => typeof point.close === "number" && !Number.isNaN(point.close)
-  )?.close;
+  const firstTradingDay = [...historicalPoints]
+    .filter(
+      (point) =>
+        Boolean(point.date) &&
+        typeof point.price === "number" &&
+        !Number.isNaN(point.price)
+    )
+    .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""))[0];
+
+  const firstClose = firstTradingDay?.price;
 
   if (typeof firstClose !== "number" || Number.isNaN(firstClose)) {
     throw new Error(`Missing YTD baseline historical close for ${symbol}.`);
