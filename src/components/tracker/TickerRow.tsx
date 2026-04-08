@@ -82,6 +82,7 @@ function renderMargin(value: number | null | undefined) {
 
 export default function TickerRow({ ticker, quote }: TickerRowProps) {
   const isEtf = ticker.vehicleType === "etf";
+  const perplexityFinanceUrl = `https://www.perplexity.ai/finance/${ticker.symbol}`;
 
   if (!quote) {
     return (
@@ -146,6 +147,17 @@ export default function TickerRow({ ticker, quote }: TickerRowProps) {
         <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
           {ticker.shortDescription}
         </p>
+        {perplexityFinanceUrl ? (
+          <a
+            href={perplexityFinanceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block text-xs font-medium"
+            style={{ color: "var(--accent-primary)" }}
+          >
+            Deeper dive with live data →
+          </a>
+        ) : null}
         {!isEtf && (
           <div className="mt-4 grid gap-3 text-xs sm:grid-cols-2 xl:grid-cols-4">
             <div>
