@@ -3,6 +3,8 @@ import { trackerConfig } from "@/src/config/thesis-tracker";
 import { fetchQuotes, getAllSymbols } from "@/src/lib/tracker/finnhub";
 import type { TrackerData } from "@/src/lib/tracker/types";
 import { writeTrackerData } from "@/src/lib/tracker/data";
+import { hasSupabaseAdminConfig } from "@/src/lib/supabase";
+import { writeSnapshotsToSupabase } from "@/src/lib/tracker/supabase-snapshots";
 
 function isAuthorized(request: Request) {
   if (process.env.NODE_ENV === "development") {
@@ -32,12 +34,28 @@ export async function GET(request: Request) {
       fetchedAt: new Date().toISOString(),
     };
     const storage = await writeTrackerData(trackerData);
+    let supabase: { inserted: number; errors: string[] } | null = null;
+
+    if (hasSupabaseAdminConfig()) {
+      try {
+        supabase = await writeSnapshotsToSupabase(trackerData);
+      } catch (error) {
+        console.error("Failed to write snapshots to Supabase:", error);
+        supabase = {
+          inserted: 0,
+          errors: [
+            error instanceof Error ? error.message : "Unknown Supabase write error",
+          ],
+        };
+      }
+    }
 
     return NextResponse.json({
       status: "ok",
       totalSymbols: symbols.length,
       fetchedQuotes: Object.keys(quotes).length,
       storage,
+      supabase,
       fetchedAt: trackerData.fetchedAt,
     });
   } catch (error) {
