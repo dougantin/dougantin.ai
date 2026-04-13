@@ -50,12 +50,13 @@ export default function DailyBriefingPage() {
             className="mt-5 text-base leading-relaxed md:text-lg"
             style={{ color: "var(--text-body)" }}
           >
-            A reverse-chronological feed of daily intelligence memos synthesized from real-time
-            market signals across the Agency Era thesis.
+            Daily news briefs covering the companies being tracked within the Agency Era
+            bottleneck thesis. Each short memo maps the stories featured back to the broader
+            thesis showing how it evolves in real time.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-            Public daily briefs live here. Monthly and quarterly reviews can be gated later
-            without changing the structure of the archive.
+            Daily briefs live here, with longer-form narrative synthesis collected at the
+            monthly and quarterly level.
           </p>
         </div>
 
