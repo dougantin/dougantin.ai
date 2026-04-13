@@ -271,8 +271,8 @@ export default async function Home() {
                     Daily Briefing
                   </h2>
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                    Automated intelligence memos synthesized from real-time market signals across
-                    the Agency Era thesis.
+                    A running briefing on the companies, infrastructure, and constraints behind
+                    the AI buildout.
                   </p>
                 </div>
                 <div className="text-right text-sm">
