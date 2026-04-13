@@ -179,22 +179,23 @@ export default async function Home() {
         {/* Divider */}
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
 
-        {/* Tracking Systems */}
+        {/* Intelligence Systems */}
         <section id="tracking" className="mb-20 scroll-mt-20">
           <div className="mb-8 max-w-2xl">
             <p
               className="text-xs font-medium uppercase tracking-[0.22em]"
               style={{ color: "var(--accent-primary)" }}
             >
-              Tracking Systems
+              Intelligence Systems
             </p>
             <p
               className="mt-4 text-sm leading-relaxed md:text-base"
               style={{ color: "var(--text-body)" }}
             >
-              I&apos;m building tracking systems to help me make better decisions through the
-              transition to commoditized intelligence by watching bottlenecks, rates of change,
-              and the places where the shift becomes visible first.
+              I&apos;m building systems to help me make better decisions through the transition
+              to commoditized intelligence by watching bottlenecks, rates of change, and the
+              places where the shift becomes visible first, then turning those signals into
+              working briefs.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
@@ -244,6 +245,54 @@ export default async function Home() {
                   style={{ color: "var(--accent-primary)" }}
                 >
                   View tracker →
+                </Link>
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border px-6 py-7 md:px-8 md:py-8 lg:col-span-2"
+              style={{
+                borderColor: "var(--border-default)",
+                background: "rgba(61, 52, 48, 0.32)",
+              }}
+            >
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p
+                    className="text-xs font-medium uppercase tracking-[0.22em]"
+                    style={{ color: "var(--accent-primary)" }}
+                  >
+                    Daily Intelligence
+                  </p>
+                  <h2
+                    className="mt-3 text-2xl font-bold"
+                    style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                  >
+                    Daily Briefing
+                  </h2>
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                    Automated intelligence memos synthesized from real-time market signals across
+                    the Agency Era thesis.
+                  </p>
+                </div>
+                <div className="text-right text-sm">
+                  <div className="uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
+                    Coverage
+                  </div>
+                  <div className="mt-2 font-mono text-lg font-semibold" style={{ color: "var(--text-heading)" }}>
+                    4 verticals
+                  </div>
+                  <div style={{ color: "var(--text-muted)" }}>updated daily</div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-end">
+                <Link
+                  href="/daily-briefing"
+                  className="text-sm font-medium"
+                  style={{ color: "var(--accent-primary)" }}
+                >
+                  Read latest →
                 </Link>
               </div>
             </div>

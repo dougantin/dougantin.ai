@@ -5,6 +5,9 @@ import SiteLogo from "@/components/SiteLogo";
 interface Props {
   meta: EssayMeta;
   children: React.ReactNode;
+  backHref?: string;
+  backLabel?: string;
+  showDate?: boolean;
 }
 
 function formatDate(dateStr: string) {
@@ -15,18 +18,24 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function EssayLayout({ meta, children }: Props) {
+export default function EssayLayout({
+  meta,
+  children,
+  backHref = "/writing",
+  backLabel = "Writing",
+  showDate = true,
+}: Props) {
   return (
     <div style={{ background: "var(--bg-primary)" }} className="min-h-screen">
       <main className="mx-auto max-w-2xl px-6 py-20 md:py-32">
         <div className="mb-8 flex items-start justify-between gap-6">
           <SiteLogo />
           <Link
-            href="/writing"
+            href={backHref}
             className="mt-3 inline-block text-sm"
             style={{ color: "var(--text-muted)" }}
           >
-            ← Writing
+            ← {backLabel}
           </Link>
         </div>
 
@@ -46,25 +55,27 @@ export default function EssayLayout({ meta, children }: Props) {
           >
             {meta.title}
           </h1>
-          <div className="flex items-center gap-4 text-sm" style={{ color: "var(--text-muted)" }}>
-            <span>{formatDate(meta.date)}</span>
-            {meta.living && (
-              <>
-                <span style={{ color: "var(--border-strong)" }}>·</span>
+          {(showDate || meta.living) && (
+            <div className="flex items-center gap-4 text-sm" style={{ color: "var(--text-muted)" }}>
+              {showDate && <span>{formatDate(meta.date)}</span>}
+              {meta.living && (
+                <>
+                  {showDate && <span style={{ color: "var(--border-strong)" }}>·</span>}
 
-                <span
-                  className="rounded px-2 py-0.5 text-xs"
-                  style={{
-                    color: "var(--accent-primary)",
-                    border: "1px solid rgba(0, 245, 255, 0.3)",
-                    background: "rgba(0, 245, 255, 0.05)",
-                  }}
-                >
-                  Living document
-                </span>
-              </>
-            )}
-          </div>
+                  <span
+                    className="rounded px-2 py-0.5 text-xs"
+                    style={{
+                      color: "var(--accent-primary)",
+                      border: "1px solid rgba(0, 245, 255, 0.3)",
+                      background: "rgba(0, 245, 255, 0.05)",
+                    }}
+                  >
+                    Living document
+                  </span>
+                </>
+              )}
+            </div>
+          )}
         </header>
 
         {/* Divider */}
@@ -78,11 +89,11 @@ export default function EssayLayout({ meta, children }: Props) {
 
         {/* Footer nav */}
         <Link
-          href="/writing"
+          href={backHref}
           className="text-sm font-medium"
           style={{ color: "var(--text-muted)" }}
         >
-          ← Back to writing
+          ← Back to {backLabel.toLowerCase()}
         </Link>
 
       </main>
