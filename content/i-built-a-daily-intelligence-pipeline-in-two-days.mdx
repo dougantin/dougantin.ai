@@ -1,0 +1,63 @@
+---
+title: "I Built a Daily Intelligence Pipeline in a Week"
+date: "2026-04-13"
+description: "A case study in commoditized intelligence: building an automated daily intelligence pipeline while holding down a full-time job."
+readTime: "4 min read"
+tag: "Field Notes"
+---
+
+A few weeks ago, I wrote that [you really can just do things](https://www.dougantin.ai/writing/you-really-can-just-do-things). That the barriers people cite for not building are increasingly fictional, and that the distance between wanting to make something and actually making it has collapsed to the width of a conversation.
+
+This project made that argument feel real to me.
+
+Over the course of a week, while holding down a full-time job, I built a fully automated daily intelligence pipeline. Every morning at 6am, it wakes up, pulls headlines [for 37 publicly traded companies](https://www.dougantin.ai/thesis-tracker) across four investment verticals, reads the underlying articles, filters them for thesis relevance, generates structured briefs, synthesizes those briefs into a daily investment memo, extracts emerging themes into a searchable database, and drops the final output onto my local machine for a second AI agent to turn into a publishable newsletter draft.
+
+Under the hood, that workflow runs on seven database tables, three serverless functions, four scheduled cron jobs, and a batch-processing loop that clears its own queue. It costs roughly $0.18 a day. If it keeps working the way I intend, a few months from now I’ll have a structured archive of market intelligence organized by thesis vertical, tagged by confidence level, and useful enough to compound.
+
+I did not bring traditional engineering knowledge to this. Before this week, I had never written a database migration, deployed a serverless function, configured a cron job, or really understood the difference between a service role key and an anon key.
+
+But I did know what I wanted the system to do.
+
+That turned out to matter more than I expected.
+
+## How It Actually Worked
+
+I described the system in plain English to a mixture of Claude and ChatGPT 5.4 Codex. The models helped me evaluate tools, identify the APIs I’d need, write the SQL, draft the serverless functions, and debug the inevitable failures. My side of the work was deciding what the system should do, testing whether the outputs were actually useful, and correcting the process when it drifted away from the real objective.
+
+The backend runs on Supabase: Postgres, edge functions, cron scheduling, secrets management, and a stack of abstractions I had never touched before this project. Most of my interaction with it happened through a visual interface. I only needed the terminal a handful of times.
+
+The most important moment in the build came halfway through, when I realized the system had a fatal flaw. It was generating briefs from headlines alone and inferring article content rather than actually reading the articles themselves. That meant every downstream output was being built on top of synthetic understanding. The memo might have looked polished, but the pipeline would have been poisoning its own analysis from the start.
+
+So I stopped, flagged the issue, and rebuilt the workflow around a two-pass architecture that reads the full article before it writes the brief.
+
+That correction did not require engineering depth. It required judgment. It required knowing what a good intelligence product should actually be and recognizing where the system was taking a shortcut that invalidated the whole exercise.
+
+That was probably the clearest lesson of the project: judgment is the skill that compounds now.
+
+## What Building It Taught Me
+
+First, a lot of technical intimidation is fake. The tools were unfamiliar, but they were not inaccessible. Most of the friction came from novelty, not impossibility.
+
+Second, information quality matters more than workflow sophistication. A beautifully automated system that reasons over bad inputs only scales bad judgment. The hardest part is not making the machine produce output. It is designing a process that preserves signal.
+
+Third, iteration beats overplanning. This pipeline did not arrive fully formed. It got better because I built it live, watched it fail, found weak points, and improved the system under real conditions. That loop taught me more than another week of reading ever would have.
+
+## The Bigger Point
+
+I think this is what [the middlegame](https://www.dougantin.ai/writing/middlegame) looks like in practice.
+
+We are living through a transition where intelligence is becoming cheap, abundant, and increasingly available through natural language. Most people still have not internalized what that does to the act of building. The old barrier was syntax, tooling, deployment, and years of accumulated technical fluency. More and more, AI is absorbing that layer.
+
+What remains on the human side is different: clarity of intent, taste, judgment, and the willingness to move before you feel fully qualified.
+
+The phrase “non-technical” already feels less stable to me than it did a year ago. Not because technical depth no longer matters. It still does. But because the practical threshold for building useful systems has moved so dramatically that many of the old identity categories are breaking down.
+
+The real gap is no longer between people who can code and people who cannot. It is increasingly between people who will start and people who will wait.
+
+That is the uncomfortable implication.
+
+These tools are available right now. They are cheap, increasingly visual, and getting easier to use every quarter. Which means the translation layer between intent and implementation is collapsing.
+
+The people who pull ahead will not just be the most credentialed. They will be the ones who are willing to build ugly first versions, fix them in public, and learn through contact with reality.
+
+The tools do not care about your credentials. They respond to direction.
