@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import SiteLogo from "@/components/SiteLogo";
 import { getAllEssays } from "@/lib/mdx";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import TrackerPreview from "@/src/components/tracker/TrackerPreview";
@@ -28,14 +27,6 @@ export default async function Home() {
 
         {/* Hero */}
         <section className="mb-20 text-center">
-          <div className="mb-8 flex justify-center">
-            <SiteLogo
-              href="/#top"
-              priority
-              className="h-auto w-[200px] md:w-[240px]"
-              imageClassName="opacity-85 mix-blend-screen [filter:saturate(0.78)_brightness(0.92)_contrast(0.96)]"
-            />
-          </div>
           <h1
             className="mb-4 text-5xl font-bold leading-tight tracking-tight md:text-6xl"
             style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
