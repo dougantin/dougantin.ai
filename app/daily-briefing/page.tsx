@@ -15,9 +15,9 @@ function formatDate(date: string) {
 }
 
 export const metadata: Metadata = {
-  title: "Daily Briefing",
+  title: "Weekly Briefing",
   description:
-    "A reverse-chronological feed of daily intelligence memos synthesized from real-time market signals across the Agency Era thesis.",
+    "A reverse-chronological feed of weekly intelligence memos synthesized from market signals across the Agency Era thesis.",
   alternates: {
     canonical: "/daily-briefing",
   },
@@ -38,25 +38,25 @@ export default function DailyBriefingPage() {
             className="text-xs font-medium uppercase tracking-[0.22em]"
             style={{ color: "var(--accent-primary)" }}
           >
-            Daily Intelligence
+            Weekly Intelligence
           </p>
           <h1
             className="mt-4 text-4xl font-bold md:text-5xl"
             style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
           >
-            Daily Briefing
+            Weekly Briefing
           </h1>
           <p
             className="mt-5 text-base leading-relaxed md:text-lg"
             style={{ color: "var(--text-body)" }}
           >
-            Daily news briefs covering the companies being tracked within the Agency Era
-            bottleneck thesis. Each short memo maps the stories featured back to the broader
-            thesis showing how it evolves in real time.
+            Weekly briefs covering the companies being tracked within the Agency Era
+            bottleneck thesis. Each memo maps the signals featured back to the broader
+            thesis showing how it evolves over time.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-            Daily briefs live here, with longer-form narrative synthesis collected at the
-            monthly and quarterly level.
+            Weekly briefings live here, with longer-form narrative synthesis collected at the
+            monthly and quarterly level as the system matures.
           </p>
         </div>
 
@@ -67,10 +67,10 @@ export default function DailyBriefingPage() {
                 className="text-xl font-semibold"
                 style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
               >
-                No briefings yet
+                No weekly briefings yet
               </h2>
               <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                Add markdown memos in <code>/Users/panda/memos</code> and they&apos;ll appear here.
+                Add weekly briefing markdown files and they&apos;ll appear here.
               </p>
             </div>
           )}

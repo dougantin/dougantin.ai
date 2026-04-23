@@ -253,16 +253,16 @@ export default async function Home() {
                     className="text-xs font-medium uppercase tracking-[0.22em]"
                     style={{ color: "var(--accent-primary)" }}
                   >
-                    Daily Intelligence
+                    Weekly Intelligence
                   </p>
                   <h2
                     className="mt-3 text-2xl font-bold"
                     style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
                   >
-                    Daily Briefing
+                    Weekly Briefing
                   </h2>
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                    A running briefing on the companies, infrastructure, and constraints behind
+                    A weekly synthesis of the companies, infrastructure, and constraints behind
                     the AI buildout.
                   </p>
                 </div>
@@ -273,7 +273,7 @@ export default async function Home() {
                   <div className="mt-2 font-mono text-lg font-semibold" style={{ color: "var(--text-heading)" }}>
                     4 verticals
                   </div>
-                  <div style={{ color: "var(--text-muted)" }}>updated daily</div>
+                  <div style={{ color: "var(--text-muted)" }}>updated weekly</div>
                 </div>
               </div>
 

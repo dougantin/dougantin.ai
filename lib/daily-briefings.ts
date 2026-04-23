@@ -38,7 +38,7 @@ function parseBriefing(filePath: string): DailyBriefing {
     title:
       typeof data.title === "string" && typeof data.date === "string"
         ? `${data.title} - ${formatDateForTitle(data.date)}`
-        : "Daily Briefing",
+        : "Weekly Briefing",
     date: typeof data.date === "string" ? data.date : "",
     description: typeof data.description === "string" ? data.description : "",
     content,
@@ -66,7 +66,12 @@ export function getAllDailyBriefings(): DailyBriefing[] {
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => path.join(briefingsDir, file));
 
-  return sortBriefingsByDate(files.map(parseBriefing).filter(isValidBriefing));
+  return sortBriefingsByDate(
+    files
+      .map(parseBriefing)
+      .filter(isValidBriefing)
+      .filter((briefing) => briefing.cadence === "weekly"),
+  );
 }
 
 export function getDailyBriefing(slug: string): DailyBriefing | null {

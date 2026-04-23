@@ -45,7 +45,7 @@ export default async function DailyBriefingEntryPage({ params }: Props) {
   return (
     <EssayLayout
       backHref="/daily-briefing"
-      backLabel="Daily Briefing"
+      backLabel="Weekly Briefing"
       showDate={false}
       meta={{
         slug: briefing.slug,
