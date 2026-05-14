@@ -335,15 +335,6 @@ export default async function Home() {
                   evidence quality.
                 </p>
               </div>
-              <div className="hidden text-right text-sm md:block">
-                <div className="uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-                  Format
-                </div>
-                <div className="mt-2 font-mono text-lg font-semibold" style={{ color: "var(--text-heading)" }}>
-                  v1.7
-                </div>
-                <div style={{ color: "var(--text-muted)" }}>field guide</div>
-              </div>
             </div>
 
             <div className="mt-6 text-sm font-medium" style={{ color: "var(--accent-primary)" }}>
