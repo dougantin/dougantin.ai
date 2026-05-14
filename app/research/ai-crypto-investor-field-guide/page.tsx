@@ -12,9 +12,22 @@ const FIELD_GUIDE_PATH = path.join(
 export const metadata: Metadata = {
   title: "AI x Crypto Investor Field Guide",
   description:
-    "A public investor field guide to the AI x crypto market, focused on product reality, token utility, and evidence quality.",
+    "A research guide for evaluating AI x crypto projects through product usage, token proximity, and evidence quality.",
   alternates: {
     canonical: "/research/ai-crypto-investor-field-guide",
+  },
+  openGraph: {
+    title: "AI x Crypto Investor Field Guide",
+    description:
+      "A research guide for evaluating AI x crypto projects through product usage, token proximity, and evidence quality.",
+    type: "article",
+    url: "/research/ai-crypto-investor-field-guide",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI x Crypto Investor Field Guide",
+    description:
+      "A research guide for evaluating AI x crypto projects through product usage, token proximity, and evidence quality.",
   },
 };
 
