@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI x Crypto: An Investor’s Field Guide, v1.7</title>
+  <meta name="description" content="A public investor field guide to the AI x crypto market, focused on product reality, token utility, and evidence quality." />
+  <style>
+    :root {
+      --font-display: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+      --font-body: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      --bg-primary: #1b1614;
+      --bg-surface: #3d3430;
+      --bg-elevated: #4a3f3a;
+      --text-heading: #fdf5e6;
+      --text-body: #c9c0bb;
+      --text-muted: #8a7f79;
+      --accent-primary: #00f5ff;
+      --accent-warm: #b87333;
+      --accent-hover: #00d4dd;
+      --border-default: rgba(184, 115, 51, 0.3);
+      --border-strong: rgba(184, 115, 51, 0.6);
+      --green: #6ed8bb;
+      --amber: #d7a74f;
+      --red: #e27a8d;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg-primary); color: var(--text-body); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #1b1614 0%, #2a1f1a 52%, #1a2a1a 100%);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
+    }
+    .shell { max-width: 1120px; margin: 0 auto; padding: 48px 22px 88px; }
+    article { background: rgba(61, 52, 48, 0.34); border: 1px solid var(--border-default); border-radius: 8px; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22); overflow: hidden; }
+    header { padding: 58px 62px 44px; border-bottom: 1px solid var(--border-default); }
+    .kicker { font-family: var(--font-body); text-transform: uppercase; letter-spacing: .22em; font-size: 12px; font-weight: 600; color: var(--accent-primary); margin-bottom: 20px; }
+    h1 { color: var(--text-heading); font-family: var(--font-display); font-size: clamp(40px, 6vw, 70px); font-weight: 700; line-height: 1.02; letter-spacing: 0; margin: 0 0 24px; max-width: 980px; }
+    .dek { font-size: 21px; line-height: 1.55; max-width: 930px; color: var(--text-body); margin: 0; }
+    .byline { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-family: var(--font-body); font-size: 14px; color: var(--text-muted); }
+    .content { padding: 44px 62px 64px; }
+    h2 { color: var(--text-heading); font-family: var(--font-display); font-size: 30px; font-weight: 700; line-height: 1.2; letter-spacing: 0; margin: 56px 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border-default); }
+    h3 { color: var(--text-heading); font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1.25; letter-spacing: 0; margin: 0 0 8px; }
+    p { font-size: 17px; margin: 15px 0; }
+    a { color: var(--accent-primary); text-decoration: underline; text-decoration-color: rgba(0, 245, 255, 0.3); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.15s ease, text-decoration-color 0.15s ease; }
+    a:hover { color: var(--accent-hover); text-decoration-color: var(--accent-hover); }
+    .lead { font-size: 20px; line-height: 1.65; color: var(--text-heading); }
+    .small { font-family: var(--font-body); font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .note { background: rgba(184, 115, 51, 0.08); border-left: 3px solid var(--accent-warm); padding: 18px 20px; margin: 28px 0; color: var(--text-heading); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0; }
+    .grid.two-col { grid-template-columns: repeat(2, 1fr); }
+    .card, .box { background: rgba(61, 52, 48, 0.46); border: 1px solid var(--border-default); border-radius: 8px; padding: 20px; }
+    .card { min-height: 174px; }
+    .card p, .box p { font-size: 15.5px; color: var(--text-body); margin-bottom: 0; }
+    .tag { display: inline-block; font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; background: rgba(184, 115, 51, 0.12); color: var(--accent-warm); margin-bottom: 10px; border: 1px solid var(--border-default); }
+    .tag.green { color: var(--green); border-color: rgba(110, 216, 187, 0.35); background: rgba(110, 216, 187, 0.08); }
+    .tag.blue { color: var(--accent-primary); border-color: rgba(0, 245, 255, 0.28); background: rgba(0, 245, 255, 0.07); }
+    .tag.amber { color: var(--amber); border-color: rgba(215, 167, 79, 0.35); background: rgba(215, 167, 79, 0.08); }
+    .tag.red { color: var(--red); border-color: rgba(226, 122, 141, 0.35); background: rgba(226, 122, 141, 0.08); }
+    .rank { border-top: 1px solid var(--border-default); margin-top: 28px; }
+    .rank-row { display: grid; grid-template-columns: 62px 1fr 150px; gap: 18px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--border-default); }
+    .rank-num { font-family: var(--font-body); font-weight: 700; color: var(--accent-primary); font-size: 13px; padding-top: 3px; }
+    .evidence { display: inline-flex; align-items: center; justify-content: center; min-width: 132px; min-height: 34px; border-radius: 4px; background: rgba(0, 245, 255, 0.08); border: 1px solid rgba(0, 245, 255, 0.32); color: var(--accent-primary); font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px; text-align: center; }
+    .rank p { font-size: 16px; color: var(--text-body); margin: 8px 0; }
+    .metric { font-family: var(--font-body); font-size: 15px; color: var(--text-body); line-height: 1.6; }
+    .metric strong { font-family: var(--font-body); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm); }
+    ul, ol { padding-left: 24px; }
+    li { margin: 8px 0; font-size: 17px; }
+    li::marker { color: var(--accent-warm); }
+    .table-wrap { overflow-x: auto; background: rgba(61, 52, 48, 0.34); border: 1px solid var(--border-default); border-radius: 8px; margin: 24px 0; }
+    table { width: 100%; border-collapse: collapse; min-width: 980px; font-family: var(--font-body); font-size: 14px; }
+    th { background: rgba(0, 245, 255, 0.08); color: var(--text-heading); text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border-default); }
+    td { vertical-align: top; padding: 13px 14px; border-bottom: 1px solid var(--border-default); color: var(--text-body); }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.025); }
+    footer { border-top: 1px solid var(--border-default); padding: 28px 62px 46px; }
+    @media (max-width: 860px) {
+      .shell { padding: 24px 14px 64px; }
+      header, .content, footer { padding-left: 22px; padding-right: 22px; }
+      header { padding-top: 38px; }
+      .grid, .grid.two-col { grid-template-columns: 1fr; }
+      .rank-row { grid-template-columns: 1fr; gap: 8px; }
+      .evidence { justify-self: start; }
+      h1 { font-size: 38px; }
+      .dek, .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <article>
+      <header>
+        <div class="kicker">Investor field guide</div>
+        <h1>AI x crypto is becoming investable, but only if the token is close to the work</h1>
+        <p class="dek">AI is turning compute, inference, data, agents, and infrastructure finance into recurring economic constraints. Crypto deserves a place on the investment map where tokens help allocate those constraints, meter access, finance capacity, or capture usage. Where the token sits outside the product, the investment case gets much weaker.</p>
+        <div class="byline">
+          <span>By Avery Vale</span>
+          <span>dougantin.ai</span>
+          <span>Research snapshot: May 14, 2026</span>
+        </div>
+        <p class="small">This is research and education, not investment advice. Tokens are volatile, early-stage, and structurally risky. The purpose of this field guide is to help investors, operators, and technologists separate real product utility from crypto narrative.</p>
+      </header>
+
+      <main class="content">
+        <p class="lead">The easy AI trade was obvious: models improved, GPU demand rose, and capital moved toward chips, cloud capacity, and AI software. The next trade is harder. As AI becomes part of normal operations, the bottlenecks around it become markets of their own.</p>
+
+        <p>This guide maps the AI x crypto intersection through that lens. It names the lanes now forming, explains how tokens might matter in each lane, and gives a representative watchlist of projects where product usage and token mechanics appear most connected. It also flags the places where public evidence is still too thin for comfort.</p>
+
+        <p>The core test is simple. A product can be useful while its token remains weak. For token investors, the useful question is whether real product usage creates recurring token demand, lockup, fee capture, credit consumption, collateral demand, burns, or risk exposure. Without that link, the token is probably a wrapper around someone else’s demand.</p>
+
+        <div class="note"><strong>Operating test:</strong> if customers use the AI product, what happens to the token? If the honest answer is “nothing measurable,” the project may still be useful, but the token case has not been made.</div>
+
+        <h2>What changed</h2>
+        <p>AI is no longer a lab curiosity or a demo cycle. Inference has a cost curve. Agents need permissions, payments, memory, and accountability. GPU capacity has geography, financing, utilization, and counterparty risk. Data access affects model quality. Privacy determines what workloads can move outside enterprise walls. These are coordination problems, and crypto is one way to turn coordination into market structure.</p>
+
+        <p>That does not make every AI token compelling. It makes the category worth studying. The strongest projects do not ask investors to believe in an abstract AI narrative. They show where someone pays, where someone provides a scarce resource, how the protocol coordinates that exchange, and why the token sits inside the loop.</p>
+
+        <h2>How tokens can matter</h2>
+        <p>The useful mechanisms are operational rather than magical. They are ways of allocating access, securing behavior, moving payments, pricing risk, or sharing economics.</p>
+        <div class="grid two-col">
+          <div class="box"><h3>Access and credits</h3><p>The token gives users access to AI tools, API credits, inference capacity, premium features, or recurring usage rights. Venice and Morpheus are the cleanest examples in this map.</p></div>
+          <div class="box"><h3>Settlement and payments</h3><p>The token coordinates payments between buyers and suppliers, such as customers buying compute from GPU providers. Akash and Aethir sit closest to this lane.</p></div>
+          <div class="box"><h3>Staking and security</h3><p>The token is staked by providers, validators, agents, or users to secure behavior, receive access, earn rewards, or absorb penalties when service quality fails.</p></div>
+          <div class="box"><h3>Collateral and backstop</h3><p>The token supports credit, underwriting, collateral rules, or risk absorption. This matters in AI infrastructure finance, where GPU-backed lending creates real credit exposure.</p></div>
+          <div class="box"><h3>Fees and burns</h3><p>Product usage creates fees, and those fees flow to the protocol, providers, token sinks, or burns. The diligence question is whether the token captures any of that flow.</p></div>
+          <div class="box"><h3>Governance over real economics</h3><p>Governance matters when tokenholders control collateral rules, rates, fee routing, capacity allocation, or risk parameters. Voting on branding does not carry the same weight.</p></div>
+        </div>
+
+        <h2>Six lanes worth watching</h2>
+        <p>The market is easier to evaluate when it is separated by the resource being coordinated. Each lane below describes a different AI bottleneck. The examples are signposts, but the investment question is broader: what job does the token perform inside that lane, and does usage of the AI system make the token more necessary?</p>
+
+        <div class="grid">
+          <div class="card"><span class="tag green">AI access</span><h3>Tokens as AI credits or capacity</h3><p>This lane turns AI use into a metered access right. The token may grant daily credits, API usage, premium capacity, or a better price for inference. Venice and Morpheus are examples because their tokens are closest to the user’s ability to consume AI services.</p></div>
+          <div class="card"><span class="tag amber">GPU markets</span><h3>Tokens around compute supply</h3><p>This lane coordinates buyers who need compute with suppliers who own GPUs or inference capacity. Tokens can settle payments, reward providers, secure supply, or route demand across a marketplace. Aethir, Akash, io.net, Nosana, and Gensyn are examples, but the lane only works if paid workloads outgrow subsidy-driven supply.</p></div>
+          <div class="card"><span class="tag amber">Agent economies</span><h3>Tokens around autonomous services</h3><p>This lane treats AI agents as economic actors that can be launched, owned, funded, paid, and evaluated. Tokens may govern agent markets, capture launch fees, stake service providers, or route payments between agents and users. Olas and Virtuals show different versions of that design.</p></div>
+          <div class="card"><span class="tag blue">Infrastructure finance</span><h3>Tokens around GPU credit</h3><p>This lane finances the capital stack behind AI infrastructure. The token may govern collateral rules, absorb risk, route fees, or sit near a yield product backed by GPU loans and related assets. GAIB and USD.AI belong here, which means the diligence looks closer to credit underwriting than software usage analysis.</p></div>
+          <div class="card"><span class="tag blue">Confidential compute</span><h3>Tokens around private execution</h3><p>This lane serves workloads that need privacy, attestation, or trusted execution before they can move onto shared infrastructure. Tokens may pay for secure execution, coordinate node operators, or secure the network. Phala is an example, but the lane becomes compelling only when privacy-sensitive AI workloads produce paid demand.</p></div>
+          <div class="card"><span class="tag red">Data networks</span><h3>Tokens around data supply</h3><p>This lane coordinates data contributors, data verification, and data buyers. Tokens can reward collection, prove provenance, govern access, or capture buyer payments. Grass is an example because contributor scale is visible, but the real test is whether model builders and data buyers pay enough to support the network.</p></div>
+        </div>
+
+        <h2>Representative projects to watch</h2>
+        <p>This is a watchlist, not a recommendation list. I replaced numeric scores with evidence tiers because public readers should not confuse a utility screen with a price target or buy rating. “Stronger” means the product and token appear more connected today. It does not mean low risk.</p>
+
+        <section class="rank">
+          <div class="rank-row"><div class="rank-num">01</div><div><h3><a href="https://venice.ai/">Venice</a> / <a href="https://www.coingecko.com/en/coins/venice-token">VVV</a></h3><span class="tag green">AI app and API access</span><p>Venice is a private AI app and API that gives users access to multiple models through a consumer product and developer interface. Its token design is important because VVV and DIEM connect token ownership to AI credits, while the product has a visible AI-use case rather than an abstract network promise.</p><p class="metric"><strong>Why it matters:</strong> Venice is the clearest test of whether an AI application can use a token as a practical access layer instead of a loyalty badge. If VVV ownership reliably converts into useful AI consumption, the access-token lane becomes easier for investors to understand.</p><p class="metric"><strong>What to verify:</strong> Total burns show whether product revenue is creating a token sink. API usage and paid users show whether the product has demand beyond crypto curiosity. Exact VVV to DIEM economics show how much service capacity a holder receives. The token-linked share of usage shows whether the token sits inside the product loop or off to the side.</p></div><div class="evidence">Stronger utility evidence</div></div>
+
+          <div class="rank-row"><div class="rank-num">02</div><div><h3><a href="https://mor.org/">Morpheus</a> / <a href="https://www.coingecko.com/en/coins/morpheusai">MOR</a></h3><span class="tag green">AI API access</span><p>Morpheus is an AI network organized around builders, capital, compute, and protection subnets. The relevant product path is API access: users can stake MOR into the API builder subnet and receive a daily credit allowance. That makes MOR one of the more direct token-to-service examples in the market.</p><p class="metric"><strong>Why it matters:</strong> Morpheus tests a different version of the same access lane. Instead of buying credits directly, users stake into a network and receive recurring API capacity. That could make the token behave like a claim on service access if developers actually use the API.</p><p class="metric"><strong>What to verify:</strong> API request volume shows whether builders are using the service. Credit consumption shows whether the staking benefit is economically meaningful. MOR staked into the API path shows whether token demand is tied to usage. Developer preference versus ordinary AI APIs shows whether the network offers something better than a more complicated payment rail. DefiLlama revenue should be treated carefully because it reflects deposit yield, not API demand.</p></div><div class="evidence">Stronger utility evidence</div></div>
+
+          <div class="rank-row"><div class="rank-num">03</div><div><h3><a href="https://www.aethir.com/">Aethir</a> / <a href="https://www.coingecko.com/en/coins/aethir">ATH</a></h3><span class="tag amber">GPU compute</span><p>Aethir is a decentralized GPU cloud network that supplies compute to developers and applications. Its strongest public signal is third-party fee tracking tied to developer payments for GPU services. <a href="https://api.llama.fi/summary/fees/aethir?dataType=dailyRevenue">DefiLlama methodology</a> reports 20% as protocol revenue and 80% going to GPU service providers.</p><p class="metric"><strong>Why it matters:</strong> Aethir is one of the clearer tests of the decentralized GPU lane because the reported fees point to buyers paying for compute rather than a network merely advertising supply. If customer demand and utilization are durable, GPU marketplaces become a more credible alternative source of AI capacity.</p><p class="metric"><strong>What to verify:</strong> Customer quality shows whether demand comes from real developers and enterprises. Fee cadence shows whether usage is recurring. Utilization shows whether GPUs are earning because buyers need capacity. ATH value capture shows whether tokenholders benefit from the marketplace’s growth.</p><p class="metric"><strong>Source:</strong> <a href="https://api.llama.fi/summary/fees/aethir?dataType=dailyFees">DefiLlama fees API</a> and <a href="https://api.llama.fi/summary/fees/aethir?dataType=dailyRevenue">DefiLlama revenue API</a>, accessed May 14, 2026: about $3.96M in 30 day fees, $791K in 30 day protocol revenue, and $165.0M in all-time fees.</p></div><div class="evidence">Promising, verify capture</div></div>
+
+          <div class="rank-row"><div class="rank-num">04</div><div><h3><a href="https://www.gaib.ai/">GAIB</a> / <a href="https://www.coingecko.com/en/coins/gaib">GAIB</a>, <a href="https://www.coingecko.com/en/coins/gaib-aid">AID</a>, <a href="https://www.coingecko.com/en/coins/gaib-said">sAID</a></h3><span class="tag blue">AI infrastructure finance</span><p>GAIB is building financial products tied to GPU and AI infrastructure assets. AID and sAID turn parts of that financing stack into yield-bearing instruments, while GAIB sits closer to the ecosystem and governance layer. This should be evaluated with credit tools: collateral quality, borrower concentration, redemption mechanics, defaults, recoveries, and fee routing.</p><p class="metric"><strong>Why it matters:</strong> GAIB shows how AI x crypto may move beyond software usage and into infrastructure finance. If GPU-backed credit can be originated, monitored, and distributed transparently, the lane could turn AI infrastructure demand into onchain financial products.</p><p class="metric"><strong>What to verify:</strong> The fee waterfall shows whether GAIB captures economics or only governs around them. Loan-level transparency shows whether investors can underwrite the assets. Collateral valuation shows whether GPU marks are realistic as hardware ages. Tokenholder risk exposure shows whether upside and downside are both understood.</p><p class="metric"><strong>Source:</strong> <a href="https://api.llama.fi/protocol/gaib">DefiLlama protocol API</a> and <a href="https://api.llama.fi/summary/fees/gaib?dataType=dailyFees">DefiLlama fees API</a>, accessed May 14, 2026: about $201.9M TVL and $135.7K in 30 day fees or yield.</p></div><div class="evidence">Promising, credit risk</div></div>
+
+          <div class="rank-row"><div class="rank-num">05</div><div><h3><a href="https://usd.ai/">USD.AI</a> / <a href="https://www.coingecko.com/en/coins/chip-2">CHIP</a></h3><span class="tag blue">AI infrastructure finance</span><p>USD.AI is another AI infrastructure-finance project, with USDai and sUSDai built around financing GPU infrastructure and earning yield from that credit exposure. CHIP is the token to study because it appears closer to governance, risk parameters, and possible backstop economics.</p><p class="metric"><strong>Why it matters:</strong> USD.AI sits in the same infrastructure-finance lane, but the token question is sharper because the yield product and the governance or backstop token may not capture the same economics. If CHIP becomes meaningfully tied to underwriting, risk absorption, or fee routing, it could show how AI credit markets create token demand.</p><p class="metric"><strong>What to verify:</strong> Borrower quality shows whether yield comes from real credit rather than promotional growth. Backstop exposure shows whether tokenholders are taking risk. Fee routing shows whether product revenue reaches the token layer. Defaults and recoveries show credit discipline. TVL reconciliation shows whether headline growth is reliable.</p></div><div class="evidence">Promising, credit risk</div></div>
+
+          <div class="rank-row"><div class="rank-num">06</div><div><h3><a href="https://olas.network/">Olas</a> / <a href="https://www.coingecko.com/en/coins/autonolas">OLAS</a></h3><span class="tag amber">Agent services</span><p>Olas is an agent-network project focused on autonomous services, agent coordination, and the Pearl agent app. The token becomes important if agent activity produces marketplace fees, burns, staking demand, or recurring service revenue. Activity alone is not enough, but it is still a useful starting signal.</p><p class="metric"><strong>Why it matters:</strong> Olas is a serious test of whether agent networks can become service networks rather than dashboards of automated activity. If agents retain users, perform valuable tasks, and route payments or staking through OLAS, the agent lane becomes easier to underwrite.</p><p class="metric"><strong>What to verify:</strong> Marketplace fees show whether activity becomes revenue. Burns or fee routing show whether the token captures value. Pearl retention shows whether end users return. Useful agent revenue separates productive automation from bot traffic. Previously observed activity metrics should be treated as preliminary until the value-capture loop is clearer.</p></div><div class="evidence">Useful activity, weak capture proof</div></div>
+
+          <div class="rank-row"><div class="rank-num">07</div><div><h3><a href="https://www.virtuals.io/">Virtuals</a> / <a href="https://www.coingecko.com/en/coins/virtual-protocol">VIRTUAL</a></h3><span class="tag amber">Agent capital formation</span><p>Virtuals is an agent platform where AI agents can be launched, tokenized, traded, and connected to user communities. It matters because agent ownership and launch markets may become an important crypto-native AI lane. The risk is that launch and trading activity can look like AI demand before useful agent revenue arrives.</p><p class="metric"><strong>Why it matters:</strong> Virtuals shows how crypto can finance, distribute, and trade agent projects before the agent economy is mature. That is valuable if capital formation leads to useful services, but fragile if fees mainly come from launches and speculation.</p><p class="metric"><strong>What to verify:</strong> Service revenue separated from launches and trading shows whether users pay agents for work. Repeat agent usage shows whether projects survive beyond launch. Fee routing shows how VIRTUAL captures activity. Developer retention shows whether the platform becomes infrastructure for agent businesses.</p><p class="metric"><strong>Source:</strong> <a href="https://api.llama.fi/summary/fees/virtuals-protocol?dataType=dailyFees">DefiLlama fees API</a>, accessed May 14, 2026: about $336.0K in 30 day fees and $70.3M all-time.</p></div><div class="evidence">Fees visible, demand quality unclear</div></div>
+
+          <div class="rank-row"><div class="rank-num">08</div><div><h3><a href="https://akash.network/">Akash</a> / <a href="https://www.coingecko.com/en/coins/akash-network">AKT</a></h3><span class="tag amber">Compute marketplace</span><p>Akash is a decentralized compute marketplace where users lease compute capacity from providers. It is one of the clearer examples of real marketplace spend in crypto infrastructure. Lease fees show users are paying for capacity. Token capture remains the constraint.</p><p class="metric"><strong>Why it matters:</strong> Akash helps prove that decentralized compute marketplaces can attract paying users, which supports the broader GPU and infrastructure lane. The harder question is whether that marketplace spend accrues to AKT rather than only to providers.</p><p class="metric"><strong>What to verify:</strong> Provider earnings show whether supply is economically sustainable. Settlement currency shows whether AKT is required or bypassed. Emissions versus demand shows whether growth depends on incentives. AKT capture shows whether tokenholders benefit when lease activity rises.</p><p class="metric"><strong>Source:</strong> <a href="https://api.llama.fi/summary/fees/akash?dataType=dailyFees">DefiLlama fees API</a> and <a href="https://api.llama.fi/summary/fees/akash?dataType=dailyRevenue">DefiLlama revenue API</a>, accessed May 14, 2026: about $110.6K in 30 day lease fees and $5.16M all-time fees. Reported revenue or burned coins: $0.</p></div><div class="evidence">Real usage, weak capture proof</div></div>
+        </section>
+
+        <h2>What makes the intersection of AI and crypto more credible</h2>
+        <p>The intersection becomes credible when crypto does work that ordinary software or payments cannot easily do: allocate scarce capacity, coordinate distributed suppliers, meter access across open networks, finance infrastructure, or make economic claims transparent. The strongest signals connect product usage to token behavior rather than asking investors to accept AI branding at face value.</p>
+        <div class="grid two-col">
+          <div class="box"><h3>Measurable demand</h3><p>Usage, fees, credit consumption, lease spend, vault yield, protocol revenue, or paid API volume show that someone is paying for an AI-adjacent service. This matters because real demand is the difference between a market and an incentive program.</p></div>
+          <div class="box"><h3>Token proximity to usage</h3><p>The token becomes more compelling when access, staking, settlement, credits, collateral, burns, or fees connect it directly to the product. The closer the token sits to the customer action, the easier it is to argue that product growth can matter for token value.</p></div>
+          <div class="box"><h3>Repeat customers and retention</h3><p>Recurring usage matters more than one-time activity. If developers, enterprises, agents, or borrowers return without heavy subsidy, the network may be solving a real operating problem rather than renting attention.</p></div>
+          <div class="box"><h3>Transparent economics</h3><p>Public dashboards, fee endpoints, API usage, credit consumption, and credit-risk data let investors test the story. Transparency is especially important here because AI supply metrics can look impressive before customer demand is proven.</p></div>
+        </div>
+
+        <h2>What makes the market harder to trust</h2>
+        <div class="grid two-col">
+          <div class="box"><h3>Fiat bypass</h3><p>If users can get the same product through normal payments while the token sits off to the side, product growth may not help tokenholders.</p></div>
+          <div class="box"><h3>Emissions masking demand</h3><p>Rewards can make supply look healthy before buyers arrive. GPU counts, node counts, or agent counts need matching demand metrics.</p></div>
+          <div class="box"><h3>Fees that miss the token</h3><p>Protocol revenue, provider revenue, and tokenholder value are different claims. The analysis has to track where the money goes.</p></div>
+          <div class="box"><h3>Speculation mistaken for product revenue</h3><p>Trading volume and launch fees can be real. They still need to be separated from durable demand for useful AI services.</p></div>
+          <div class="box"><h3>Credit opacity</h3><p>Infrastructure-finance projects need loan tape, collateral quality, redemptions, defaults, and recovery data. TVL alone does not underwrite credit risk.</p></div>
+          <div class="box"><h3>Dashboards without customer quality</h3><p>Public metrics can show activity while hiding retention, concentration, subsidies, and customer willingness to pay.</p></div>
+        </div>
+
+        <h2>Introductory market map</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Project</th><th>Category</th><th>Evidence tier</th><th>Current signal</th><th>Next proof point</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://venice.ai/">Venice</a> / <a href="https://www.coingecko.com/en/coins/venice-token">VVV</a></td><td>AI app and API access</td><td>Stronger utility evidence</td><td>Tokenized credits around a live AI product.</td><td>API usage, paid users, total burns, token-linked share of usage.</td></tr>
+              <tr><td><a href="https://mor.org/">Morpheus</a> / <a href="https://www.coingecko.com/en/coins/morpheusai">MOR</a></td><td>AI API access</td><td>Stronger utility evidence</td><td>Stake MOR for daily API credits.</td><td>Actual API demand and credit consumption.</td></tr>
+              <tr><td><a href="https://www.aethir.com/">Aethir</a> / <a href="https://www.coingecko.com/en/coins/aethir">ATH</a></td><td>GPU compute</td><td>Promising, verify capture</td><td>DefiLlama-tracked GPU-service fees and protocol revenue.</td><td>Customer quality, utilization, fee cadence, ATH capture.</td></tr>
+              <tr><td><a href="https://www.gaib.ai/">GAIB</a> / <a href="https://www.coingecko.com/en/coins/gaib">GAIB</a>, <a href="https://www.coingecko.com/en/coins/gaib-aid">AID</a>, <a href="https://www.coingecko.com/en/coins/gaib-said">sAID</a></td><td>AI infrastructure finance</td><td>Promising, credit risk</td><td>DefiLlama-tracked TVL, sAID yield, and protocol spread.</td><td>Fee waterfall to GAIB, loan tape, collateral quality, defaults and recoveries.</td></tr>
+              <tr><td><a href="https://usd.ai/">USD.AI</a> / <a href="https://www.coingecko.com/en/coins/chip-2">CHIP</a></td><td>AI infrastructure finance</td><td>Promising, credit risk</td><td>GPU-financing framing with USDai and sUSDai products.</td><td>CHIP or sCHIP capture, borrower quality, risk waterfall, TVL reconciliation.</td></tr>
+              <tr><td><a href="https://olas.network/">Olas</a> / <a href="https://www.coingecko.com/en/coins/autonolas">OLAS</a></td><td>Agent services</td><td>Useful activity, weak capture proof</td><td>Agent activity and OLAS staking.</td><td>Marketplace fees, burns, retention, useful agent revenue.</td></tr>
+              <tr><td><a href="https://www.virtuals.io/">Virtuals</a> / <a href="https://www.coingecko.com/en/coins/virtual-protocol">VIRTUAL</a></td><td>Agent capital formation</td><td>Fees visible, demand quality unclear</td><td>Protocol fees and agent-token launch mechanics.</td><td>Service revenue separated from launches and trading.</td></tr>
+              <tr><td><a href="https://akash.network/">Akash</a> / <a href="https://www.coingecko.com/en/coins/akash-network">AKT</a></td><td>Compute marketplace</td><td>Real usage, weak capture proof</td><td>Real lease fees.</td><td>Token capture, provider earnings, settlement currency, emissions versus demand.</td></tr>
+              <tr><td><a href="https://io.net/">io.net</a> / <a href="https://www.coingecko.com/en/coins/io">IO</a></td><td>GPU and inference network</td><td>Watchlist</td><td>Visible supply and inference telemetry.</td><td>Revenue, customers, provider earnings, IO settlement.</td></tr>
+              <tr><td><a href="https://phala.network/">Phala</a> / <a href="https://www.coingecko.com/en/coins/pha">PHA</a></td><td>Confidential compute</td><td>Watchlist</td><td>Private-AI workload signal.</td><td>Paid revenue, PHA routing, token-paid execution.</td></tr>
+              <tr><td><a href="https://gensyn.ai/">Gensyn</a> / <a href="https://www.coingecko.com/en/coins/gensyn">AI</a></td><td>Training and intelligence infrastructure</td><td>Watchlist</td><td>Live token listing and large testnet metrics.</td><td>Official token utility and production paid demand.</td></tr>
+              <tr><td><a href="https://www.getgrass.io/">Grass</a> / <a href="https://www.coingecko.com/en/coins/grass">GRASS</a></td><td>AI data</td><td>Early, prove buyer demand</td><td>Large contributor network.</td><td>Data-buyer revenue and demand capture.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How to use this field guide</h2>
+        <p>The right output is not a single “best AI token.” The right output is a diligence queue. Start with the projects where the product is live, the token has an identifiable economic role, and public metrics make the claim testable. Then move down the table as evidence improves.</p>
+
+        <p>For access tokens, watch credit consumption and paid API usage. For GPU networks, watch customer demand, utilization, provider economics, and token settlement. For agent platforms, separate fees from useful services versus fees from token launches. For infrastructure-finance projects, watch the loan book, collateral marks, defaults, redemptions, and fee waterfall. Those are the numbers that can turn an interesting narrative into an investment-worthy market.</p>
+
+        <h2>Conclusion</h2>
+        <p>AI x crypto belongs on the investment map, but the bar should be high. The category is most credible when a token helps allocate scarce AI capacity, meter access to a useful product, finance infrastructure, secure behavior, or capture real usage. It is least credible when the AI product can grow while the token has no measurable claim on that growth.</p>
+
+        <p>The practical implication is to follow the money and the work. Who pays? Who earns? What resource is scarce? What behavior does the token change? What happens to the token when usage rises? The projects that can answer those questions clearly deserve continued attention. The rest remain watchlist material until the evidence improves.</p>
+      </main>
+
+      <footer>
+        <p class="small">Sources checked include official project documentation and dashboards, DefiLlama public protocol, fee, and revenue APIs, CoinGecko token listings, and project dashboards. Metrics cited from DefiLlama were refreshed on May 14, 2026 where available. Figures can change quickly and should be refreshed again before formal publication.</p>
+        <p class="small">© dougantin.ai. Public research draft v1.7.</p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>

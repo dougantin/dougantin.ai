@@ -293,6 +293,68 @@ export default async function Home() {
         {/* Divider */}
         <div className="mb-12 h-px w-full" style={{ background: "var(--border-default)" }} />
 
+        {/* Research */}
+        <section id="research" className="mb-20 scroll-mt-20">
+          <div className="mb-8 max-w-2xl">
+            <p
+              className="text-xs font-medium uppercase tracking-[0.22em]"
+              style={{ color: "var(--accent-primary)" }}
+            >
+              Research
+            </p>
+            <p
+              className="mt-4 text-sm leading-relaxed md:text-base"
+              style={{ color: "var(--text-body)" }}
+            >
+              Structured research projects and diligence resources I use to make sense of
+              emerging opportunity spaces.
+            </p>
+          </div>
+
+          <Link
+            href="/research/ai-crypto-investor-field-guide"
+            className="essay-card"
+          >
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p
+                  className="mb-3 text-xs font-medium uppercase tracking-[0.22em]"
+                  style={{ color: "var(--accent-primary)" }}
+                >
+                  Field Guide
+                </p>
+                <h2
+                  className="text-2xl font-bold leading-snug"
+                  style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                >
+                  AI x Crypto Investor Field Guide
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                  A public research guide for separating real AI x crypto utility from
+                  token narrative, with emphasis on product usage, token proximity, and
+                  evidence quality.
+                </p>
+              </div>
+              <div className="hidden text-right text-sm md:block">
+                <div className="uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
+                  Format
+                </div>
+                <div className="mt-2 font-mono text-lg font-semibold" style={{ color: "var(--text-heading)" }}>
+                  v1.7
+                </div>
+                <div style={{ color: "var(--text-muted)" }}>field guide</div>
+              </div>
+            </div>
+
+            <div className="mt-6 text-sm font-medium" style={{ color: "var(--accent-primary)" }}>
+              Read the field guide →
+            </div>
+          </Link>
+        </section>
+
+        {/* Divider */}
+        <div className="mb-12 h-px w-full" style={{ background: "var(--border-default)" }} />
+
         {/* Contact */}
         <footer id="contact" className="scroll-mt-20">
           <h2
