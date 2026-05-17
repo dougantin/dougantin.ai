@@ -240,53 +240,6 @@ export default async function Home() {
               </div>
             </div>
 
-            <div
-              className="rounded-2xl border px-6 py-7 md:px-8 md:py-8 lg:col-span-2"
-              style={{
-                borderColor: "var(--border-default)",
-                background: "rgba(61, 52, 48, 0.32)",
-              }}
-            >
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <p
-                    className="text-xs font-medium uppercase tracking-[0.22em]"
-                    style={{ color: "var(--accent-primary)" }}
-                  >
-                    Weekly Intelligence
-                  </p>
-                  <h2
-                    className="mt-3 text-2xl font-bold"
-                    style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-                  >
-                    Weekly Briefing
-                  </h2>
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                    A weekly synthesis of the companies, infrastructure, and constraints behind
-                    the AI buildout.
-                  </p>
-                </div>
-                <div className="text-right text-sm">
-                  <div className="uppercase tracking-[0.18em]" style={{ color: "var(--text-muted)" }}>
-                    Coverage
-                  </div>
-                  <div className="mt-2 font-mono text-lg font-semibold" style={{ color: "var(--text-heading)" }}>
-                    4 verticals
-                  </div>
-                  <div style={{ color: "var(--text-muted)" }}>updated weekly</div>
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-end">
-                <Link
-                  href="/daily-briefing"
-                  className="text-sm font-medium"
-                  style={{ color: "var(--accent-primary)" }}
-                >
-                  Read latest →
-                </Link>
-              </div>
-            </div>
           </div>
         </section>
 

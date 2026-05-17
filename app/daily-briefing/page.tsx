@@ -1,110 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import SiteLogo from "@/components/SiteLogo";
-import { getAllDailyBriefings } from "@/lib/daily-briefings";
-
-function formatDate(date: string) {
-  const [year, month, day] = date.split("-").map(Number);
-  const value = new Date(year, (month ?? 1) - 1, day ?? 1);
-
-  return value.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Weekly Briefing",
-  description:
-    "A reverse-chronological feed of weekly intelligence memos synthesized from market signals across the Agency Era thesis.",
-  alternates: {
-    canonical: "/daily-briefing",
+  title: "Not Found",
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 
 export default function DailyBriefingPage() {
-  const briefings = getAllDailyBriefings();
-
-  return (
-    <div style={{ background: "var(--bg-primary)" }} className="min-h-screen">
-      <main className="mx-auto max-w-3xl px-6 py-20 md:py-32">
-        <div className="mb-12">
-          <SiteLogo />
-        </div>
-
-        <div className="max-w-2xl">
-          <p
-            className="text-xs font-medium uppercase tracking-[0.22em]"
-            style={{ color: "var(--accent-primary)" }}
-          >
-            Weekly Intelligence
-          </p>
-          <h1
-            className="mt-4 text-4xl font-bold md:text-5xl"
-            style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-          >
-            Weekly Briefing
-          </h1>
-          <p
-            className="mt-5 text-base leading-relaxed md:text-lg"
-            style={{ color: "var(--text-body)" }}
-          >
-            Weekly briefs covering the companies being tracked within the Agency Era
-            bottleneck thesis. Each memo maps the signals featured back to the broader
-            thesis showing how it evolves over time.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-            Weekly briefings live here, with longer-form narrative synthesis collected at the
-            monthly and quarterly level as the system matures.
-          </p>
-        </div>
-
-        <div className="mt-12 space-y-4">
-          {briefings.length === 0 && (
-            <div className="essay-card">
-              <h2
-                className="text-xl font-semibold"
-                style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-              >
-                No weekly briefings yet
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                Add weekly briefing markdown files and they&apos;ll appear here.
-              </p>
-            </div>
-          )}
-
-          {briefings.map((briefing) => (
-            <Link
-              key={briefing.slug}
-              href={`/daily-briefing/${briefing.slug}`}
-              className="essay-card"
-            >
-              <div>
-                <span
-                  className="mb-2 inline-block rounded px-2 py-0.5 text-xs font-medium uppercase tracking-wider"
-                  style={{ color: "var(--accent-warm)", border: "1px solid var(--border-default)" }}
-                >
-                  {briefing.cadence}
-                </span>
-                <h2
-                  className="text-lg font-semibold leading-snug"
-                  style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-                >
-                  {briefing.title}
-                </h2>
-              </div>
-              <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                {briefing.description}
-              </p>
-              <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
-                {briefing.date.slice(0, 4)}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </main>
-    </div>
-  );
+  notFound();
 }
