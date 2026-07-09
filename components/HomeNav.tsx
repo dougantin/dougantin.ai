@@ -1,12 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 export default function HomeNav() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-
   return (
     <nav
       className="sticky top-0 z-50 w-full"
@@ -18,7 +14,7 @@ export default function HomeNav() {
     >
       <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
         <Link
-          href={isHome ? "#top" : "/"}
+          href="/"
           className="text-sm font-semibold"
           style={{
             color: "var(--text-heading)",
@@ -30,35 +26,35 @@ export default function HomeNav() {
         </Link>
         <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 md:gap-x-6">
           <Link
-            href={isHome ? "#writing" : "/#writing"}
+            href="/writing"
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             Writing
           </Link>
           <Link
-            href={isHome ? "#library" : "/#library"}
+            href="/library"
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             Library
           </Link>
           <Link
-            href={isHome ? "#tracking" : "/#tracking"}
+            href="/tracking"
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             Tracking
           </Link>
           <Link
-            href={isHome ? "#research" : "/#research"}
+            href="/research"
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
             Research
           </Link>
           <Link
-            href={isHome ? "#contact" : "/#contact"}
+            href="/contact"
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >

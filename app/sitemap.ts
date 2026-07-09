@@ -26,6 +26,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/library`,
       lastModified: new Date(),
     },
+    {
+      url: `${SITE_URL}/tracking`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${SITE_URL}/tracking/intelligence-cost`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${SITE_URL}/research`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${SITE_URL}/research/ai-crypto-investor-field-guide`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${SITE_URL}/contact`,
+      lastModified: new Date(),
+    },
     ...essays,
     ...libraryItems,
   ];
