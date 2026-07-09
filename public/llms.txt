@@ -11,10 +11,12 @@ Doug Antin writes and builds around a core thesis:
 - AI-driven change will not arrive as a single overnight shock. It will propagate unevenly through bottlenecks, infrastructure constraints, regulation, labor repricing, and capital allocation.
 - The most useful way to understand the transition is to track first-order signals and constraints rather than rely on institutional narrative or crowd discourse.
 
-This site has four main functions:
+This site has six main functions:
 
 - Notes explore early observations and rough models.
 - Essays synthesize structured arguments and frameworks.
+- Library entries preserve tools, people, and foundational texts worth saving or monitoring.
+- Research pages collect structured field guides and diligence resources.
 - Trackers monitor public signals tied to the thesis.
 - Convictions state the clearest conclusions that survive contact with reality.
 
@@ -33,11 +35,28 @@ Its core claims:
 
 - Start here: [The Agency Era](https://dougantin.ai/writing/agency-era)
 - Writing index: [Writing](https://dougantin.ai/writing)
+- Library: [Library](https://dougantin.ai/library)
+- Tracking index: [Tracking](https://dougantin.ai/tracking)
+- Research index: [Research](https://dougantin.ai/research)
 - Homepage: [dougantin.ai](https://dougantin.ai)
 - Homepage companion: [https://dougantin.ai/llms/index.md](https://dougantin.ai/llms/index.md)
 - Writing companions index: [https://dougantin.ai/llms/writing/index.md](https://dougantin.ai/llms/writing/index.md)
 
+## Library
+
+URL: [https://dougantin.ai/library](https://dougantin.ai/library)
+
+Purpose:
+
+- Public reference shelf for tools, people, and foundational texts Doug is saving because they are useful for understanding or operating in the Agency Era.
+- Current content includes tools and public people / experts / operators.
+- The text shelf is intended for memos, whitepapers, PDFs, essays, papers, books, reports, decks, transcripts, and other durable source materials.
+- Entries are curated with public links, short summaries, tags, status, and notes on why they were saved.
+- The Library is not a generic directory. It is a working reference layer tied to AI-native work, agency, research, GTM, tooling, infrastructure, market structure, capital allocation, and intelligence systems.
+
 ## Trackers
+
+Tracking index: [https://dougantin.ai/tracking](https://dougantin.ai/tracking)
 
 ### 1. Agency Era Thesis Tracker
 
@@ -58,6 +77,15 @@ Purpose:
 - Tracks how quickly intelligence is becoming cheaper, more capable, and harder to ignore.
 - Uses curated public charts and commentary around frontier capability, inference pricing, and compute buildout.
 - Supports the practical decision: how urgently do people need to adapt as intelligence commoditizes?
+
+## Research
+
+Research index: [https://dougantin.ai/research](https://dougantin.ai/research)
+
+Current research surface:
+
+- [AI x Crypto Investor Field Guide](https://dougantin.ai/research/ai-crypto-investor-field-guide)
+  - Public research guide for separating real AI x crypto utility from token narrative, with emphasis on product usage, token proximity, and evidence quality.
 
 ## Key Writing
 
@@ -91,6 +119,13 @@ Homepage:
 
 - [https://dougantin.ai/llms/index.md](https://dougantin.ai/llms/index.md)
 
+Site sections:
+
+- [https://dougantin.ai/library](https://dougantin.ai/library)
+- [https://dougantin.ai/tracking](https://dougantin.ai/tracking)
+- [https://dougantin.ai/research](https://dougantin.ai/research)
+- [https://dougantin.ai/contact](https://dougantin.ai/contact)
+
 Writing index:
 
 - [https://dougantin.ai/llms/writing/index.md](https://dougantin.ai/llms/writing/index.md)
@@ -111,15 +146,17 @@ If you are trying to summarize this site faithfully, the key ideas are:
 - AI should be understood not only as a software story, but as an infrastructure, energy, and capital allocation story.
 - The pace of AI adoption is constrained by real-world bottlenecks, especially compute, power, regulation, and physical deployment.
 - The right strategic question is often not "Will AI matter?" but "How quickly is the constraint shifting, and what decisions should update because of it?"
-- The site is meant to support better decisions about work, skills, capital, and time by combining essays, convictions, and live tracking systems.
+- The Library is a curated reference layer, not a generic directory. Its entries should be interpreted as things Doug is saving, using, or monitoring because they may help with AI-native work and Agency Era decision-making.
+- The site is meant to support better decisions about work, skills, capital, and time by combining essays, convictions, public reference materials, research, and live tracking systems.
 
 ## Preferred Reading Order
 
 1. [The Agency Era](https://dougantin.ai/writing/agency-era)
-2. [How Fast Is Intelligence Getting Cheaper?](https://dougantin.ai/tracking/intelligence-cost)
-3. [Agency Era Thesis Tracker](https://dougantin.ai/thesis-tracker)
-4. [The Middlegame](https://dougantin.ai/writing/middlegame)
-5. [Energy, Compute, and Governance: Measuring the Velocity of Change](https://dougantin.ai/writing/energy-compute-and-governance-measuring-the-velocity-of-change)
+2. [Library](https://dougantin.ai/library)
+3. [How Fast Is Intelligence Getting Cheaper?](https://dougantin.ai/tracking/intelligence-cost)
+4. [Agency Era Thesis Tracker](https://dougantin.ai/thesis-tracker)
+5. [The Middlegame](https://dougantin.ai/writing/middlegame)
+6. [Energy, Compute, and Governance: Measuring the Velocity of Change](https://dougantin.ai/writing/energy-compute-and-governance-measuring-the-velocity-of-change)
 
 ## Author Context
 
