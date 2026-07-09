@@ -170,6 +170,55 @@ export default async function Home() {
         {/* Divider */}
         <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
 
+        {/* Library */}
+        <section id="library" className="mb-20 scroll-mt-20">
+          <div className="mb-8 max-w-2xl">
+            <p
+              className="text-xs font-medium uppercase tracking-[0.22em]"
+              style={{ color: "var(--accent-primary)" }}
+            >
+              Library
+            </p>
+            <p
+              className="mt-4 text-sm leading-relaxed md:text-base"
+              style={{ color: "var(--text-body)" }}
+            >
+              Tools, people, and source materials I&apos;m saving because they seem useful
+              for understanding or operating in the Agency Era.
+            </p>
+          </div>
+
+          <Link href="/library" className="essay-card">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p
+                  className="mb-3 text-xs font-medium uppercase tracking-[0.22em]"
+                  style={{ color: "var(--accent-primary)" }}
+                >
+                  Reference Shelf
+                </p>
+                <h2
+                  className="text-2xl font-bold leading-snug"
+                  style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                >
+                  Tools, People, and Foundational Texts
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                  A living index of practical tools, expert operators, and eventually the
+                  memos, whitepapers, and PDFs I keep coming back to.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 text-sm font-medium" style={{ color: "var(--accent-primary)" }}>
+              Browse the library →
+            </div>
+          </Link>
+        </section>
+
+        {/* Divider */}
+        <div className="mb-20 h-px w-full" style={{ background: "var(--border-default)" }} />
+
         {/* Intelligence Systems */}
         <section id="tracking" className="mb-20 scroll-mt-20">
           <div className="mb-8 max-w-2xl">

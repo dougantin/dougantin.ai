@@ -28,7 +28,7 @@ export default function HomeNav() {
         >
           Doug Antin
         </Link>
-        <div className="flex gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-end gap-x-4 gap-y-2 md:gap-x-6">
           <Link
             href={isHome ? "#writing" : "/#writing"}
             className="text-sm"
@@ -37,11 +37,18 @@ export default function HomeNav() {
             Writing
           </Link>
           <Link
+            href={isHome ? "#library" : "/#library"}
+            className="text-sm"
+            style={{ color: "var(--text-muted)", textDecoration: "none" }}
+          >
+            Library
+          </Link>
+          <Link
             href={isHome ? "#tracking" : "/#tracking"}
             className="text-sm"
             style={{ color: "var(--text-muted)", textDecoration: "none" }}
           >
-            What I&apos;m tracking
+            Tracking
           </Link>
           <Link
             href={isHome ? "#research" : "/#research"}
