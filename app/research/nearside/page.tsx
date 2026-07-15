@@ -56,9 +56,9 @@ export default function NearsideIndexPage() {
             Cyberpunk has arrived. It’s just disguised as ordinary life.
           </h1>
           <p className={styles.dek}>
-            Nearside is a publication sharing real-world tech and real news headlines showcased
-            in fictional stories to reveal how we’ve entered the cyberpunk era and why it’s not
-            some distant future. In fact, it’s right next door.
+            Nearside is a publication sharing real-world tech and real news headlines repacked
+            into simple fictional stories to show how we’ve entered the cyberpunk era and why
+            it’s not some distant future. In fact, it’s right next door.
           </p>
         </div>
 
