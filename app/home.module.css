@@ -1,0 +1,147 @@
+.nearsidePreview {
+  position: relative;
+  display: block;
+  min-height: 188px;
+  padding: 1.35rem 1.5rem 1.45rem;
+  overflow: hidden;
+  border: 1px solid #2b342d;
+  border-left: 3px solid #d8ff52;
+  border-radius: 0.5rem;
+  color: #edf1ea;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px) 0 0 / 100% 4px,
+    radial-gradient(circle at 92% -25%, rgba(114, 220, 255, 0.1), transparent 18rem),
+    linear-gradient(135deg, rgba(216, 255, 82, 0.08), transparent 55%),
+    #101511;
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.nearsidePreview::after {
+  position: absolute;
+  right: -0.6rem;
+  bottom: -3.8rem;
+  color: rgba(237, 241, 234, 0.035);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 10rem;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 1;
+  content: "N";
+  pointer-events: none;
+}
+
+.nearsidePreview:hover {
+  border-color: #d8ff52;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.2);
+  color: #edf1ea;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.nearsidePreview:focus-visible {
+  outline: 2px solid #d8ff52;
+  outline-offset: 4px;
+}
+
+.nearsidePreviewTopline,
+.nearsidePreviewBody {
+  position: relative;
+  z-index: 1;
+}
+
+.nearsidePreviewTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.nearsidePreviewWordmark {
+  color: #d8ff52;
+  letter-spacing: 0.3em;
+}
+
+.nearsidePreviewFormat {
+  color: #707a72;
+}
+
+.nearsidePreviewBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 2rem;
+  margin-top: 1.65rem;
+}
+
+.nearsidePreviewTitle {
+  margin: 0;
+  color: #edf1ea;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(1.75rem, 5vw, 2.45rem);
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.nearsidePreviewDek {
+  margin: 0.35rem 0 0;
+  color: #c9d0ca;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.nearsidePreviewDescription {
+  margin: 0.75rem 0 0;
+  color: #8f9991;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.nearsidePreviewAction {
+  padding-bottom: 0.1rem;
+  color: #72dcff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .nearsidePreview {
+    min-height: 0;
+    padding: 1.25rem;
+  }
+
+  .nearsidePreviewFormat {
+    display: none;
+  }
+
+  .nearsidePreviewBody {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .nearsidePreviewDescription {
+    max-width: 22rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nearsidePreview {
+    transition: none;
+  }
+}

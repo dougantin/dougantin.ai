@@ -4,6 +4,7 @@ import { getAllEssays } from "@/lib/mdx";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import TrackerPreview from "@/src/components/tracker/TrackerPreview";
 import { getTrackerData } from "@/src/lib/tracker/data";
+import styles from "./home.module.css";
 
 export const dynamic = "force-dynamic";
 
@@ -313,36 +314,58 @@ export default async function Home() {
             </p>
           </div>
 
-          <Link
-            href="/research/ai-crypto-investor-field-guide"
-            className="essay-card"
-          >
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <p
-                  className="mb-3 text-xs font-medium uppercase tracking-[0.22em]"
-                  style={{ color: "var(--accent-primary)" }}
-                >
-                  Field Guide
-                </p>
-                <h2
-                  className="text-2xl font-bold leading-snug"
-                  style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
-                >
-                  AI x Crypto Investor Field Guide
-                </h2>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
-                  A public research guide for separating real AI x crypto utility from
-                  token narrative, with emphasis on product usage, token proximity, and
-                  evidence quality.
-                </p>
+          <div className="space-y-4">
+            <Link href="/research/nearside" className={styles.nearsidePreview}>
+              <div className={styles.nearsidePreviewTopline}>
+                <span className={styles.nearsidePreviewWordmark}>Nearside</span>
+                <span className={styles.nearsidePreviewFormat}>Near-present field guide</span>
               </div>
-            </div>
 
-            <div className="mt-6 text-sm font-medium" style={{ color: "var(--accent-primary)" }}>
-              Read the field guide →
-            </div>
-          </Link>
+              <div className={styles.nearsidePreviewBody}>
+                <div>
+                  <h2 className={styles.nearsidePreviewTitle}>Cyberpunk has arrived.</h2>
+                  <p className={styles.nearsidePreviewDek}>
+                    It’s just disguised as ordinary life.
+                  </p>
+                  <p className={styles.nearsidePreviewDescription}>
+                    Real-world tech and real news headlines showcased in fictional stories.
+                  </p>
+                </div>
+                <span className={styles.nearsidePreviewAction}>Read Nearside &rarr;</span>
+              </div>
+            </Link>
+
+            <Link
+              href="/research/ai-crypto-investor-field-guide"
+              className="essay-card"
+            >
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p
+                    className="mb-3 text-xs font-medium uppercase tracking-[0.22em]"
+                    style={{ color: "var(--accent-primary)" }}
+                  >
+                    Field Guide
+                  </p>
+                  <h2
+                    className="text-2xl font-bold leading-snug"
+                    style={{ color: "var(--text-heading)", fontFamily: "var(--font-playfair), serif" }}
+                  >
+                    AI x Crypto Investor Field Guide
+                  </h2>
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed" style={{ color: "var(--text-body)" }}>
+                    A public research guide for separating real AI x crypto utility from
+                    token narrative, with emphasis on product usage, token proximity, and
+                    evidence quality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 text-sm font-medium" style={{ color: "var(--accent-primary)" }}>
+                Read the field guide →
+              </div>
+            </Link>
+          </div>
         </section>
 
         {/* Divider */}
