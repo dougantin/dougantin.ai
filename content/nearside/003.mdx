@@ -1,0 +1,221 @@
+---
+number: "003"
+title: "Everyday Carry Is a Threat Model"
+date: "2026-07-13T17:00:00-04:00"
+publishedLabel: "13 July 2026 / 17:00 ET"
+summary: "A six-object pocket dump shows how a hardened phone, neural-control glasses, hardware keys, cellular-surveillance detection, telehealth sensors and satellite messaging trade default systems for new dependencies."
+iterationNote: "Moved from standalone vignettes to a connected loadout built around real-world tech that reads one person’s pocket as a lived threat model."
+sceneCount: 6
+artifactCount: 6
+edition: "V2"
+---
+
+At 06:42, airport security asks him to empty his coat. A phone, glasses, a bronze rectangle, a battered hotspot, a white medical wand and an orange satellite communicator fill two gray trays. He travels for work, helps manage his father’s care and spends enough weekends beyond cell coverage to know where the carrier map turns optimistic. Old pocket dumps advertised taste: knife, watch, wallet, light. This one records doubt. A threat model is simply an account of what might fail, who or what could exploit it, and what matters enough to protect. In 2026, you can read one from a coat pocket.
+
+Read this loadout as an X-ray, not a shopping list. Every object declines one default and accepts a different dependency.
+
+<NearsideLoadout
+  verified="13 July 2026"
+  total="Combined base-price estimate: about $2,427"
+  totalDetail="Using current list/starting prices and EFF’s $30 used-hardware ceiling; before subscriptions, carrier service or accessories."
+  powerTitle="No charger earns a seventh slot."
+  powerDetail="Every object in the loadout eventually goes dark without power."
+>
+  <NearsideLoadoutItem
+    number="01"
+    price="$499 + free OS"
+    title="Google Pixel 10a + GrapheneOS"
+    description="A mainstream phone rebuilt as a hardened personal terminal."
+  />
+  <NearsideLoadoutItem
+    number="02"
+    price="From $799"
+    title="Meta Ray-Ban Display + Neural Band"
+    description="An in-lens display controlled by electrical signals from muscle."
+  />
+  <NearsideLoadoutItem
+    number="03"
+    price="$349"
+    title="Foundation Passport Prime"
+    description="Bitcoin signer, FIDO2 key, one-time codes and encrypted files."
+  />
+  <NearsideLoadoutItem
+    number="04"
+    price="≈ $30 used"
+    title="Orbic RC400L + EFF Rayhunter"
+    description="A repurposed hotspot that watches for cell-site-simulator signaling."
+  />
+  <NearsideLoadoutItem
+    number="05"
+    price="$249.95"
+    title="Withings BeamO"
+    description="One-lead ECG, digital stethoscope and contactless thermometer."
+  />
+  <NearsideLoadoutItem
+    number="06"
+    price="$499.99"
+    title="Garmin inReach Mini 3 Plus"
+    description="Satellite voice messages, text, tracking and interactive SOS."
+  />
+</NearsideLoadout>
+
+---
+
+## 01 / THE PHONE WITH LESS INSIDE IT
+
+> **SCENE // FICTIONAL**
+
+The parking garage has removed its ticket machine. A QR code on the wall sends him to an app that would like precise location, nearby devices, notifications and permanent access to the network. It is a large set of requests for the privilege of leaving a concrete box.
+
+He installed GrapheneOS on an unlocked Pixel 10a before moving his data onto it. The parking app lives in a separate profile with no contacts and no photographs. He lets it reach the internet long enough to load his reservation, then closes that route again.
+
+<NearsideArtifact status="Product / Shipping">
+
+**Google Pixel 10a + GrapheneOS** — Google began selling the Pixel 10a for $499 on March 5, 2026. GrapheneOS currently lists the model as production-supported and adds a user-facing network permission that can deny an app direct and indirect internet access; March 2033 is Google’s minimum OEM-support end date for the phone, not an unconditional GrapheneOS guarantee. Carrier-locked Pixels may prevent installation, and some apps that insist on Google-certified software may refuse to run.
+
+<NearsideArtifactSources>
+  <NearsideArtifactSource href="https://blog.google/products-and-platforms/devices/pixel/google-pixel-10a/">Inspect phone</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://grapheneos.org/faq#supported-devices">Inspect OS</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://arstechnica.com/gadgets/2026/03/the-sidegrade/">Hardware review</NearsideArtifactSource>
+</NearsideArtifactSources>
+
+</NearsideArtifact>
+
+A phone operating system is a hierarchy of privileges. On GrapheneOS, even Google Play can run as an ordinary sandboxed app instead of a specially trusted part of the system. The network switch goes deeper than hiding an icon: the app is denied the ability to open the software connections it would use to speak outside the phone.
+
+Anything the parking app sent during its brief connection is already outside his control. Closing its network permission stops future traffic from that profile. His carrier still knows which towers serve him, and the garage camera reads his license plate when the barrier lifts. One boundary closes in software; another is bolted to the ceiling.
+
+---
+
+## 02 / THE HAND THAT CLICKS AIR
+
+> **SCENE // FICTIONAL**
+
+He leaves the airport carrying coffee in one hand and pulling a suitcase with the other. A client’s message moves the meeting two blocks east. It appears in the small display over his right eye. He touches thumb to forefinger to open it, then calls up the beta walking directions before he reaches the next corner.
+
+The cloth band on his wrist is reading electricity from muscle. Nerves tell the fingers to move; muscles answer with faint electrical patterns; sensors at the skin classify those patterns as scroll, click or swipe. It is called electromyography. It is not mind reading. The band recognizes a tiny physical command before anyone nearby can see the gesture.
+
+<NearsideArtifact status="Product / Shipping">
+
+**Meta Ray-Ban Display + Meta Neural Band** — a $799-and-up U.S. retail package with a display in the right lens and a wrist controller based on surface electromyography. The glasses can show messages, captions and translations; pedestrian navigation remains a beta for select cities. The band turns subtle finger motion into interface commands. Meta claims up to six hours of mixed use for the glasses and 18 hours for the band. An independent reviewer found the glasses could drain faster under heavier use. Availability remains region- and retailer-dependent.
+
+<NearsideArtifactSources>
+  <NearsideArtifactSource href="https://about.fb.com/news/2025/09/meta-ray-ban-display-ai-glasses-emg-wristband/">Launch + specs</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://www.tomsguide.com/computing/smart-glasses/meta-ray-ban-display-review">Independent review</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://about.fb.com/news/2026/07/metas-ai-glasses-your-questions-answered/amp/">Privacy explainer</NearsideArtifactSource>
+</NearsideArtifactSources>
+
+</NearsideArtifact>
+
+The display is private to the wearer; the surrounding world is still part of the camera’s field. A capture light signals when the camera records, but no light announces that a message is being read or an AI answer is hanging over the person across the table. The interface has moved off the screen and into social space.
+
+At the next crosswalk he takes the glasses off to wipe them. For a few seconds the street is only a street again—no arrow, no turn hovering at the edge of vision.
+
+---
+
+## 03 / THE POCKET WITH ALL THE KEYS
+
+> **SCENE // FICTIONAL**
+
+The phone falls screen-first onto tile in a train-station bathroom. It still vibrates. The display is black.
+
+On his laptop, he plugs in the bronze device from his other pocket. It supplies the hardware security key already registered to his email account. A one-time code stored in the same device opens the client portal. An encrypted recovery file is there too. The most important parts of his digital life were moved off the phone before the phone became a dark rectangle.
+
+<NearsideArtifact status="Product / Shipping">
+
+**Foundation Passport Prime** — a $349, 93-gram security device released in March 2026. It combines a Bitcoin hardware wallet, FIDO2 security keys, time-based one-time codes and 50 GB of encrypted file storage. WalletScrutiny reports that users generate and hold their own private keys and that current source code is public, but has not completed reproducibility verification of the firmware shipped on the device. Some third-party apps remain listed as coming soon.
+
+<NearsideArtifactSources>
+  <NearsideArtifactSource href="https://foundation.xyz/products/passport-prime">Product + status</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://walletscrutiny.com/hardware/passportprime/">Wallet assessment</NearsideArtifactSource>
+</NearsideArtifactSources>
+
+</NearsideArtifact>
+
+The direction of travel reverses. Account credentials, money keys and recovery files leave the general-purpose phone and return to an object with weight. Dedicated hardware keeps long-term private key material out of phone and laptop memory. It also concentrates consequences. Ten failed PIN attempts erase the device’s Master Key, forcing recovery from backup. If the object disappears, recovery moves back into the physical world: encrypted NFC keycards, seed material and whatever separation the owner arranged before the loss.
+
+His replacement phone will arrive tomorrow. The two backup cards are already waiting in different houses.
+
+---
+
+## 04 / THE TOWER HAS A TELL
+
+> **FIELD EXERCISE // FICTIONAL**
+
+**08:12** — The older mobile hotspot begins logging in the top of his bag.
+
+**10:41** — He crosses a courthouse square.
+
+**13:06** — He walks through a street festival dense with phones and temporary radios.
+
+**22:17** — The local dashboard shows a timestamped warning. He matches the time to the square from his own notes; location logging was not enabled on the device.
+
+<NearsideArtifact status="System / Live">
+
+**EFF Rayhunter v0.11.2 on the Orbic RC400L** — free, GPL-licensed software that turns a cheap LTE hotspot into a detector for cellular signaling associated with IMSI catchers, also called cell-site simulators. EFF recommends paying no more than $30 for the supported hotspot. Rayhunter analyzes and stores captures locally by default; optional update, notification and upload features exist, and captures can contain subscriber and location-sensitive information. Controlled simulations and carrier data have improved its heuristics, but an alert is neither attribution nor proof of unlawful surveillance.
+
+<NearsideArtifactSources>
+  <NearsideArtifactSource href="https://github.com/EFForg/rayhunter">Inspect software</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://efforg.github.io/rayhunter/orbic.html">Supported hardware</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://www.cape.co/blog/how-eff-and-cape-collaborated-to-improve-detection">Simulator testing</NearsideArtifactSource>
+</NearsideArtifactSources>
+
+</NearsideArtifact>
+
+A phone chooses among eligible cell sites using carrier and network priorities. A simulator tries to enter that trusted process and sends control messages designed to make nearby devices identify themselves or accept suspicious conditions. Rayhunter watches that signaling conversation inside the modem. The hotspot did not block anything. It cannot tell him whether the event came from police equipment, carrier maintenance, a configuration error or a false positive. It gives him a timestamp and packet capture that an expert might examine.
+
+Before the walk, he had no reason to ask what the tower was doing. After it, he has a precise question and no culprit.
+
+---
+
+## 05 / THE HOUSE CALL IN HIS PALM
+
+> **SCENE // FICTIONAL**
+
+His father has had a cough for three days and has no interest in spending four hours at urgent care to be told that he has a cough. During a telehealth appointment, the clinician asks for a temperature and then for the white object on the kitchen table.
+
+He passes it across. The device guides his father through several positions on the chest and records the sound moving through lungs and heart. A contactless scan measures temperature. Thirty seconds with two fingers on its metal electrodes produces a single-channel trace of the heart’s electrical activity.
+
+<NearsideArtifact status="Product / Shipping">
+
+**Withings BeamO SCT02** — a $249.95 handheld device combining a one-lead ECG, digital stethoscope and contactless thermometer. The FDA cleared the U.S. model in November 2025; it is currently offered for sale. The U.S. device records ECG waveforms but does not itself analyze them or derive heart rate, and its ECG indication is for people 22 and older. Measurements synchronize through the Withings app and servers. It is not intended for self-diagnosis.
+
+<NearsideArtifactSources>
+  <NearsideArtifactSource href="https://www.withings.com/us/en/beam-o">Inspect product</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252474.pdf">FDA clearance</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://www.tomsguide.com/wellness/fitness/i-just-tried-the-thermometer-of-the-future-why-this-at-home-health-monitor-might-save-you-a-future-trip-to-the-doctor">Independent hands-on</NearsideArtifactSource>
+</NearsideArtifactSources>
+
+</NearsideArtifact>
+
+A one-lead ECG watches the heart from one electrical angle; a hospital’s twelve-lead system looks from many. The stethoscope makes sound portable, not diagnosis automatic. What changes is the telehealth call: the clinician can receive more than a description and decide whether the kitchen is still the right room for the patient.
+
+His father plugs in headphones and hears his own heartbeat while the same recording crosses the Withings servers to the clinician. The kitchen has become both an examination room and a network endpoint.
+
+After listening to the uploaded recording, the clinician books an in-person examination for the morning. The pocket clinic ends by opening a real clinic door.
+
+---
+
+## 06 / THE SKY TAKES VOICE NOTES
+
+> **SCENE // FICTIONAL**
+
+His sister’s phone vibrates in a supermarket checkout line. The Garmin Messenger app shows a seventeen-second recording: they are safe, the cabin road is blocked and they will be late.
+
+Forty minutes earlier, the road had ended at a fallen tree. The alternate route added two hours and dropped cellular service before the first turn. He stepped into an open patch, pressed the side of the orange communicator and recorded the message. The status remained on **WAITING** while the device looked for a clean link. A satellite voice message is stored and sent when the link opens; it is not a telephone call.
+
+<NearsideArtifact status="Product / Shipping">
+
+**Garmin inReach Mini 3 Plus** — a $499.99, IP67 satellite communicator introduced in December 2025. With an active plan, it can exchange 30-second voice messages and texts up to 1,600 characters from the device, share location, track a route and initiate an interactive SOS through Garmin Response. Photo sharing uses the paired Garmin app. Recipients need a free Garmin Messenger account and app to exchange voice messages. Garmin claims up to 330 hours in 10-minute tracking mode; real performance depends on use and sky view. Independent field tests praise the richer messaging while noting sparse onboard maps, app overhead and continuing service cost.
+
+<NearsideArtifactSources>
+  <NearsideArtifactSource href="https://www.garmin.com/en-US/p/1756582/">Inspect product</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://www.garmin.com/en-US/newsroom/press-release/outdoor/built-for-the-backcountry-garmin-introduces-inreach-mini-3-plus-satellite-communicator-with-voice-text-and-photo-sharing/">Launch record</NearsideArtifactSource>
+  <NearsideArtifactSource href="https://hikingguy.com/gear/garmin-inreach-mini-3-plus-review/">Field test</NearsideArtifactSource>
+</NearsideArtifactSources>
+
+</NearsideArtifact>
+
+The route is still private infrastructure: Iridium satellites, Garmin servers, a paid plan and enough open sky to complete the link. The difference is geographical. A terrestrial carrier can abandon the road while the small device continues looking upward.
+
+She replies before the cashier scans the last carton. Forty kilometers away, her answer reaches the network he carried.

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllLibraryItems } from "@/lib/library";
 import { getAllEssays } from "@/lib/mdx";
+import { getAllNearsideIssues } from "@/lib/nearside";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,6 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const libraryItems = getAllLibraryItems().map((item) => ({
     url: `${SITE_URL}/library/${item.collection}/${item.slug}`,
     lastModified: item.lastChecked ?? item.dateAdded,
+  }));
+  const nearsideIssues = getAllNearsideIssues().map((issue) => ({
+    url: `${SITE_URL}/research/nearside/${issue.slug}`,
+    lastModified: issue.date,
   }));
 
   return [
@@ -43,10 +48,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `${SITE_URL}/research/nearside`,
+      lastModified: new Date(),
+    },
+    {
       url: `${SITE_URL}/contact`,
       lastModified: new Date(),
     },
     ...essays,
     ...libraryItems,
+    ...nearsideIssues,
   ];
 }

@@ -1,0 +1,142 @@
+.nearsideCard {
+  position: relative;
+  display: block;
+  min-height: 320px;
+  padding: 1.6rem;
+  overflow: hidden;
+  border: 1px solid #2b342d;
+  border-radius: 0.5rem;
+  color: #edf1ea;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px) 0 0 / 100% 4px,
+    radial-gradient(circle at 92% -16%, rgba(114, 220, 255, 0.1), transparent 20rem),
+    linear-gradient(135deg, rgba(216, 255, 82, 0.105), transparent 57%),
+    #101511;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.nearsideCard::after {
+  position: absolute;
+  right: -1.2rem;
+  bottom: -4.3rem;
+  color: rgba(237, 241, 234, 0.035);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 13rem;
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 1;
+  content: "N";
+  pointer-events: none;
+}
+
+.nearsideCard:hover {
+  border-color: #d8ff52;
+  box-shadow: 0 0 0 1px rgba(216, 255, 82, 0.14), 0 24px 70px rgba(0, 0, 0, 0.22);
+  color: #edf1ea;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.nearsideCard:focus-visible {
+  outline: 2px solid #d8ff52;
+  outline-offset: 4px;
+}
+
+.nearsideTopline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.nearsideWordmark {
+  color: #d8ff52;
+  letter-spacing: 0.32em;
+}
+
+.nearsideSignal {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #a2aca4;
+}
+
+.nearsideSignal::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d8ff52;
+  box-shadow: 0 0 14px rgba(216, 255, 82, 0.72);
+  content: "";
+}
+
+.nearsideLabel {
+  position: relative;
+  z-index: 1;
+  margin-top: 3.4rem;
+  color: #707a72;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nearsideTitle {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.55rem;
+  color: #edf1ea;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(2.6rem, 8vw, 4.7rem);
+  font-weight: 850;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+
+.nearsideDescription {
+  position: relative;
+  z-index: 1;
+  max-width: 37rem;
+  margin-top: 1.25rem;
+  color: #b8c0ba;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.nearsideAction {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.7rem;
+  color: #72dcff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .nearsideCard {
+    min-height: 350px;
+  }
+
+  .nearsideSignal {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nearsideCard {
+    transition: none;
+  }
+}

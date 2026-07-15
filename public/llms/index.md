@@ -83,6 +83,8 @@ Research index:
 
 - Canonical: https://dougantin.ai/research
 - Current field guide: https://dougantin.ai/research/ai-crypto-investor-field-guide
+- Nearside newsletter: https://dougantin.ai/research/nearside
+- Nearside companion: https://dougantin.ai/llms/research/nearside.md
 
 ### Contact
 
@@ -100,6 +102,7 @@ Contact routes to Doug's public contact surface.
 - Thesis tracker: https://dougantin.ai/thesis-tracker
 - Intelligence cost tracker: https://dougantin.ai/tracking/intelligence-cost
 - Research index: https://dougantin.ai/research
+- Nearside: https://dougantin.ai/research/nearside
 - Contact: https://dougantin.ai/contact
 
 ## Writing Companions

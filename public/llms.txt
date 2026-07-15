@@ -87,6 +87,10 @@ Current research surface:
 - [AI x Crypto Investor Field Guide](https://dougantin.ai/research/ai-crypto-investor-field-guide)
   - Public research guide for separating real AI x crypto utility from token narrative, with emphasis on product usage, token proximity, and evidence quality.
 
+- [Nearside](https://dougantin.ai/research/nearside)
+  - A serialized field guide to life on the near side of cyberpunk: real-world tech and real news headlines showcased in clearly marked fictional stories.
+  - LLM companion: [https://dougantin.ai/llms/research/nearside.md](https://dougantin.ai/llms/research/nearside.md)
+
 ## Key Writing
 
 ### Foundational Convictions
@@ -124,6 +128,7 @@ Site sections:
 - [https://dougantin.ai/library](https://dougantin.ai/library)
 - [https://dougantin.ai/tracking](https://dougantin.ai/tracking)
 - [https://dougantin.ai/research](https://dougantin.ai/research)
+- [https://dougantin.ai/research/nearside](https://dougantin.ai/research/nearside)
 - [https://dougantin.ai/contact](https://dougantin.ai/contact)
 
 Writing index:

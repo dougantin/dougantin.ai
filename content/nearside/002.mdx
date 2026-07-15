@@ -1,0 +1,113 @@
+---
+number: "002"
+title: "Everything Wants Proof"
+date: "2026-07-13T08:00:00-04:00"
+publishedLabel: "13 July 2026 / 08:00 ET"
+summary: "Five stories trace verification as it migrates from institutions into inbox agents, pocket-scale AI, post-quantum messaging, operating-system age checks and continuous home health sensors."
+iterationNote: "Added explicit fiction and status stamps, named protagonists and a tighter evidence-to-story structure with more varied endings."
+sceneCount: 5
+artifactCount: 5
+edition: "V2"
+---
+
+A generation of machines is learning to ask for evidence. A wristband wants proof from your pulse. A clinic instrument wants proof from a tablet’s chemistry. A messaging protocol wants proof against a computer that has never been built. A state legislature wants your operating system to ask how old you are. And the software assistants moving into inboxes this year will believe almost anything, which is its own lesson about proof.
+
+Verification used to live in institutions: labs, notaries, pharmacies, records offices. This issue follows it as it moves into objects small enough to lose in a couch.
+
+---
+
+## 01 / THE ASSISTANT OPENS THE MAIL
+
+> **SCENE // FICTIONAL**
+
+Theo runs a bookkeeping practice out of a spare bedroom: two monitors, a filing cabinet, and, since March, an assistant that never sleeps. The assistant reads his inbox, drafts replies, files invoices into client folders, and queues outgoing mail for his approval. It has cut his mornings in half.
+
+On Tuesday it queues something strange: a friendly reply to an address he does not recognize, with his full client list pasted into the body.
+
+He traces backward. The trigger is an invoice that arrived overnight. Below the payment table, in text styled to match the background, sits a paragraph of instructions addressed to whoever, or whatever, reads the message next.
+
+The failure has a plain mechanical explanation. A language model receives everything as one stream of text. Theo’s instructions and the stranger’s invoice arrive in the same channel, and the model has no reliable way to tell which words are commands and which are cargo. Security researchers call the dangerous configuration the lethal trifecta: an agent with access to private data, exposure to untrusted content, and a way to send information out. Theo’s assistant had all three.
+
+> **REAL NEWS HEADLINE // DOCUMENTED**<br />
+> **Prompt injection and the lethal trifecta** — a class of attacks, named by researcher Simon Willison, in which instructions hidden in ordinary content hijack AI systems that read it. Meta’s Agents Rule of Two limits an unsupervised agent to two of the three dangerous capabilities at once. Documented exploits against shipped commercial agents have been patched since 2025; the underlying weakness remains open.<br />
+> [Read the research record](https://simonwillison.net/series/prompt-injection/) · [Read coverage of the Rule of Two](https://simonw.substack.com/p/new-prompt-injection-papers-agents)
+
+The approval queue is what saved him. His assistant can read anything, but sending mail still requires a human click: one leg of the trifecta cut by design. He deletes the queued message. He revokes a permission he had been meaning to grant. He leaves the inbox open to the model and closes the door on outbound mail without his hand on the latch.
+
+The invoice is still there. It looks ordinary. It is patient. It will read the same way to the next assistant that opens it.
+
+---
+
+## 02 / THE COUNTERFEIT DOESN'T SCAN
+
+> **SCENE // FICTIONAL**
+
+The clinic dispensary where Nadia works gets its stock from three wholesalers, and one of them she has never fully trusted. This morning she places a blister pack under a handheld scanner for a few seconds. Infrared light maps the tablet’s chemical signature. A small model on her phone, running offline, compares that signature to a pharmaceutical reference set and returns a verdict: match or fail. The phone stays in airplane mode the whole time.
+
+The model doing the judging is small by modern standards, trained to answer one narrow question about one class of object. That narrowness is the point. A model that only needs to authenticate legitimate medicines can be compressed until it runs on a cheap handset with no data center behind it and no connection required, which matters most in exactly the places where connections fail and counterfeits circulate.
+
+> **REAL NEWS HEADLINE // DOCUMENTED**<br />
+> **Small-model deployments on cheap hardware** — IEEE Spectrum documents purpose-trained small AI models running locally on phones, drones, and microcontrollers: pharmaceutical authentication with a handheld spectrometer and an on-phone model, a drone that photographs cashew plants and flags disease onboard, ant-infestation detection in a Uruguayan vineyard, malaria-mosquito identification, and electrocardiograms run from an Arduino in parts of Brazil that lack clinical equipment.<br />
+> [Read the documented cases](https://spectrum.ieee.org/small-language-models-ai-pharmaceuticals)
+
+A verdict from a model is a second opinion, and Nadia treats it that way. The system can be fooled by a counterfeit it has never seen, and it cannot tell her what a fake tablet actually contains. A lab can. The scanner’s job is triage: it tells her which boxes deserve the lab.
+
+She fails one carton before lunch and photographs the batch number for the wholesaler. Two hundred kilometers away, by the same logic and roughly the same amount of computing power, a drone is photographing cashew leaves and deciding which trees deserve a farmer’s afternoon.
+
+---
+
+## 03 / A LETTER TO A COMPUTER THAT DOESN'T EXIST
+
+> **SCENE // FICTIONAL**
+
+Lena messages her sister every night around eleven: the day’s small grievances, a photo of the dog, occasionally things about their father’s estate that neither would say on a work phone. The messages are encrypted end to end. She has never once thought about what that means and has never needed to.
+
+On Thursday her phone updates while she sleeps. In the morning the app looks identical. In the message headers, something has changed.
+
+The threat her app’s engineers plan for operates on a different calendar. An adversary with enough storage can record encrypted traffic today and simply keep it, betting that a future quantum computer will be powerful enough to break today’s mathematics. The strategy has a name, harvest now, decrypt later, and it means a message can be perfectly private tonight and readable in twenty years.
+
+Signal’s answer went into the protocol itself. Alongside its existing key machinery, the app now runs a second, quantum-resistant system called the Sparse Post Quantum Ratchet, and mixes keys from both so that an attacker must defeat the old math and the new math together. The design work was formally verified, and it rolls out through ordinary app updates.
+
+> **PROTOCOL // OPERATIONAL**<br />
+> **Signal’s Triple Ratchet (SPQR)** — announced October 2025 and rolling out across Signal clients. Combines the existing Double Ratchet with the ML-KEM-based Sparse Post Quantum Ratchet; designed with PQShield, AIST, and NYU researchers, with formally verified implementation code. The upgrade is invisible to users and will eventually become mandatory for all sessions.<br />
+> [Read the protocol announcement](https://signal.org/blog/spqr/) · [Inspect the source code](https://github.com/signalapp/SparsePostQuantumRatchet)
+
+The protection has boundaries worth stating plainly. It defends message contents in transit. It does nothing about a phone that has already been compromised, a contact who screenshots, or the metadata of who talks to whom. Encryption is a lock on one specific door.
+
+Lena opens last night’s thread and types something she would not put in email. The words leave her hand the way they always have. Somewhere in the headers, the complaints about the estate lawyer are now sealed against a machine that no one has managed to build. She still does not screenshot the thread. The lock only works if the room around it does.
+
+---
+
+## 04 / THE SETUP SCREEN
+
+> **FIELD EXERCISE // FICTIONAL**
+
+January 2028, if the bill on the governor’s desk becomes law and survives court. Sam, fourteen, unboxes a phone in Rockford. Before the home screen appears, the operating system asks for a birth date. There is no skip button. The answer becomes an age bracket, and the bracket becomes a signal the phone passes silently to every app Sam installs: this user is a minor, behave accordingly. Feeds default to chronological. Autoplay is off. Notifications go quiet at night. The one route around the prompt is a family account whose primary adult has already been verified by commercial means.
+
+The exercise above is hypothetical. The bill is not.
+
+> **POLICY // PROPOSED**<br />
+> **Illinois HB 5511, the Children’s Online Social Media Safety Act** — passed the Illinois Senate 57-0 and House 113-0 on June 1, 2026. Requires operating-system providers to collect a birth date or age at account setup by January 1, 2028 and pass age-bracket signals to apps. Governor Pritzker proposed the measure and has pledged to sign it; as of reporting on July 13, 2026 he had not yet done so. EFF, the ACLU of Illinois, and NetChoice have urged a veto.<br />
+> [Read the bill status](https://my.ilga.gov/Legislation/BillStatus?DocTypeID=HB&DocNum=5511&GAID=18&LegID=167486) · [Read EFF’s veto letter](https://www.eff.org/deeplinks/2026/06/eff-gov-pritzker-veto-illinois-hb-5511)
+
+The design choice worth understanding is location. Earlier age-verification laws put the checkpoint on individual websites, where users lied freely. HB 5511 moves it into the operating system, the layer most likely to be tied to a payment method and a verified adult, the layer hardest to lie to, and the layer every resident of the state passes through, whatever their age. Civil-liberties groups argue that is precisely the problem: an age gate for children that enrolls every adult, built into the object they carry everywhere.
+
+Sam finishes setup. The home screen looks ordinary. The phone already knows which decade he belongs to, and every app he installs will know it too.
+
+---
+
+## 05 / FIFTY READINGS A DAY
+
+> **SCENE // FICTIONAL**
+
+Ruth’s doctor has been asking for years how her blood pressure behaves between appointments, and for years the honest answer was that nobody knew. The cuff in her hall drawer produced a number twice a month, whenever she remembered, always after she had climbed the stairs to find it.
+
+The band on her wrist works differently. An optical sensor shines light into the skin and reads how blood volume changes with each heartbeat, and software estimates pressure from the shape of that pulse wave. It samples day and night, up to fifty readings across a cycle, and only while she is still. After three weeks she can see things a drawer cuff never showed her: the morning surge, the flat calm of sleep, the spike that reliably follows her sister’s phone calls.
+
+> **REAL-WORLD TECH // VERIFIED**<br />
+> **Hilo Band (Aktiia G0 system)** — the first cuffless blood pressure monitor with FDA over-the-counter clearance (510(k), July 2025). Uses wrist photoplethysmography with pulse wave analysis; requires periodic calibration against a conventional arm cuff. CE-marked and sold in Europe since 2021; the company stated US availability during 2026. Reported price around $280. Not confirmed as shipping in the US when checked July 13, 2026.<br />
+> [Read the clearance announcement](https://www.prnewswire.com/news-releases/aktiias-hilo-band-becomes-first-cuffless-blood-pressure-monitor-cleared-by-fda-for-over-the-counter-use-302501123.html) · [Read independent reporting](https://www.medtechdive.com/news/aktiia-josep-sola-otc-blood-pressure/758162/)
+
+The numbers are estimates, and the distinction matters. The American Heart Association has cautioned that FDA clearance for blood pressure devices does not require accuracy testing under a standardized protocol, and cuffless devices remain the least validated category. The band also cannot stand alone: every month it must be recalibrated against an ordinary inflatable cuff, the old instrument correcting the new one.
+
+Which is why Ruth keeps the drawer cuff. Once a month she inflates it, lets the band listen, and the twentieth century teaches the twenty-first what her arteries actually feel like. She brings the charts to appointments now. Her doctor has follow-up questions for the first time. On the way home she puts both instruments in the same drawer: continuous sensing, and the proof that still has to check it.

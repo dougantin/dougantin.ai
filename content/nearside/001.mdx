@@ -1,0 +1,171 @@
+---
+number: "001"
+title: "Nothing Here Looks Like the Future"
+date: "2026-07-13T08:00:00-04:00"
+publishedLabel: "13 July 2026 / 08:00 ET"
+summary: "Six scenes reveal thermal vision, local AI, neighborhood mesh radio, quantified bodies, trainable home robots and mercenary spyware already operating behind the facade of an ordinary street."
+iterationNote: "Established the core format: real-world tech and real news headlines showcased in fictional stories set on an ordinary street."
+sceneCount: 6
+artifactCount: 6
+edition: "V3"
+---
+
+There are no flying cars over the avenue. No synthetic rain. No corporate police checking papers beneath a fifty-story hologram.
+
+There is a pharmacy, a tire shop, two apartment buildings, a medical office, and a converted garage with someone working inside after midnight. The street looks ordinary because the future rarely replaces the present. It installs itself inside it.
+
+The fictional stories below showcase real-world tech and real news headlines. Technology claims are verified; headlines and cases are documented and linked. Only the people and situations have been invented.
+
+---
+
+## 01 / THE HOT SPOT
+
+> **SCENE // FICTIONAL**
+
+At 7:18 in apartment 4B, the wall behind the desk turns white on a phone screen.
+
+To the naked eye, it is eggshell paint. On the screen, a bloom of heat spreads several inches beyond the outlet. The tenant unplugs the power strip and watches the shape slowly darken.
+
+The small camera attached to his phone is not looking through the wall. It measures infrared energy coming from the wall's surface—the heat that every object emits but human eyes cannot see. Hotter areas become brighter colors. Colder areas become darker ones. A second lens captures an ordinary image so the software can lay the thermal pattern over the outlet, screws, and surrounding paint.
+
+> **REAL-WORLD TECH // VERIFIED**<br />
+> **Thermal Master P4** — phone-mounted thermal and visible-light camera. Native infrared sensor: 256 × 192. Manufacturer list price: $399; frequently offered near $299. Android only. Price checked July 13, 2026.<br />
+> [Inspect the real object](https://thermalmaster.com/products/thermal-master-p4-thermal-in-one-all-in-one) · [Read an independent field review](https://newatlas.com/consumer-tech/review-smartphone-thermal-camera/)
+
+The camera weighs less than a set of keys. It can reveal cold air leaking around a window, an overheating component on a circuit board, a warm pipe behind plaster, or uneven heat across a motor. None of those colors explains the cause. Thermal vision is an extra sense, not expertise.
+
+He sends the image to an electrician. The reply arrives four minutes later: breaker off, leave it off, appointment at noon.
+
+The camera returns to the drawer. From the hallway, apartment 4B looks exactly as it did before one of its occupants acquired thermal vision.
+
+---
+
+## 02 / THE TENANT WHO NEVER LOGS IN
+
+> **SCENE // FICTIONAL**
+
+The light under the basement door usually appears around 11 p.m.
+
+The woman renting the room is cataloging thirty years of her father's workshop: handwritten measurements, scanned manuals, unlabeled photographs, receipts for machines that no longer exist, and several hundred voice notes recorded before he died.
+
+She has an assistant. It can read the archive, identify recurring projects, match photographs to receipts, and answer questions in the language her father used. It has no account and no monthly plan. When the internet cable is disconnected, it continues working.
+
+The assistant is a language model running on the computer beside her.
+
+Most familiar AI products work like a distant utility. A prompt travels to a company's data center, where a large model processes it and sends back an answer. A local model moves that process into the room. The model file lives on the user's storage. Software called `llama.cpp` loads it and turns the computer into a small private AI server. Other programs—including agent software—can talk to that server through the same kind of interface they would use to reach a cloud model.
+
+> **SYSTEM // LIVE**<br />
+> **Local agents through llama.cpp** — Hugging Face documents local configurations for Pi, OpenClaw, OpenCode, and Hermes Agent. The model runs on the user's hardware behind a local OpenAI-compatible endpoint.<br />
+> [Open the real setup guide](https://huggingface.co/docs/hub/en/agents-local) · [See how llama.cpp works](https://huggingface.co/docs/transformers/community_integrations/llama_cpp)
+
+Local does not mean omniscient. Smaller models make more mistakes. Long archives strain memory. A model can confidently join the wrong photograph to the wrong machine. If the agent is allowed to browse the web or connect to outside services, information can still leave the room. If it has permission to edit the archive, it can damage the thing it was asked to organize.
+
+So she gives it copies, never originals. Every answer links back to the document it used. The assistant is fast; the linked source is how she decides whether to believe it.
+
+At 1:13 a.m., it finds the name of an unfinished machine in the margin of a 2009 invoice. She searches the photographs and sees it for the first time: half assembled, covered in dust, waiting on the same workbench now sitting ten feet away.
+
+Upstairs, someone hears the printer start and assumes the basement tenant works late.
+
+---
+
+## 03 / THE STREET BENEATH THE STREET
+
+> **SCENE // FICTIONAL**
+
+Every Sunday at 10 a.m., six radios exchange a message that says nothing important.
+
+One sits beside a window in apartment 6A. Two are in houses behind the tire shop. Another is mounted beneath an attic vent. The highest node is inside a weatherproof box on the roof of the medical office. The sixth moves around in a canvas bag and occasionally disappears for a week.
+
+They do not connect to a cellular tower. They connect to one another.
+
+Each radio uses LoRa, a method designed to send small amounts of data over long distances while consuming very little power. It cannot carry a video call or load a website. It is good at short messages, coordinates, and sensor readings. If the destination is too far away, an intermediate radio can hear the message and pass it onward. Enough nodes create a mesh: a network made from its participants.
+
+> **PROTOCOL // OPERATIONAL**<br />
+> **Meshtastic** — an open-source system for encrypted text, location, and telemetry over low-power LoRa radios. It operates without cellular service, Wi-Fi, or internet access and supports more than 50 community hardware devices.<br />
+> [Open the real network](https://meshtastic.org/) · [Inspect its firmware](https://github.com/meshtastic/firmware)
+
+The radio in the canvas bag is unusual. It began as a Hackaday conference badge with a physical keyboard, GPS, an ESP32 processor, and a LoRa chip. New firmware gives it full Meshtastic support. It looks like a prop from a film made before smartphones won. It works because the underlying network never needed a smartphone to begin with.
+
+The mesh has limits. Buildings and hills absorb radio signals. A badly placed node is a very small paperweight. Encryption protects message content only when channels and keys are configured properly. Anyone carrying a radio still creates a radio signal, and a network run by neighbors inherits all the complications of neighbors.
+
+At 10 a.m., the six nodes report in. Five messages arrive immediately. The moving radio answers from somewhere across the river.
+
+The commercial network above the street carries millions of messages no resident can see. The small network beneath it carries six. Its owners know where every one came from.
+
+[See the Hackaday Communicator](https://hackaday.com/2026/06/12/the-hackaday-communicator-badge-re-imagined-with-new-firmware/)
+
+---
+
+## 04 / THE BODY HAS A DASHBOARD
+
+> **SCENE // FICTIONAL**
+
+At 6:42, the ring tells Mara that she is not herself.
+
+Her resting heart rate is higher than usual. Her skin temperature has shifted. Her sleep was fragmented in ways she does not remember. The software compresses the night into one red score and suggests a quiet day.
+
+Mara feels normal. This creates a negotiation that did not exist before the ring.
+
+A wearable does not directly measure “recovery.” It measures signals: pulse, movement, temperature, timing. Software compares those signals with a personal baseline and produces a simplified judgment. The score is useful because it turns thousands of measurements into something a person can understand. It is dangerous for the same reason. Compression hides uncertainty.
+
+> **RESEARCH // PUBLISHED**<br />
+> **Wearable tracker conflict study** — a 2026 peer-reviewed PLOS Digital Health study used interviews with 11 regular tracker users to examine conflict between device feedback, bodily perception, motivation, and control. The small qualitative sample identifies experiences; it does not establish how common they are.<br />
+> [Read the real study](https://journals.plos.org/digitalhealth/article?id=10.1371%2Fjournal.pdig.0001136)
+
+Several participants described pressure to satisfy the device, uncertainty when its data conflicted with how they felt, and difficulty separating their own goals from the tracker's demands. The machine had become more than an instrument. It had acquired a vote.
+
+Mara goes for her usual run. After twelve minutes, her legs feel heavy. She slows down. This seems to confirm the ring, though it proves nothing. The air is humid. Dinner was late. She may be getting sick. She may simply be tired.
+
+At the corner, three other runners pass in the opposite direction. Two wear watches. One wears a ring. Four bodies move down the street. At least three of them are being interpreted elsewhere.
+
+---
+
+## 05 / THE GARAGE PRACTICES AT NIGHT
+
+> **SCENE // FICTIONAL**
+
+The robot arm fails differently every time.
+
+It approaches a red block, closes its gripper too early, and pushes the block out of reach. The man beside it taps a foot pedal. The arm stops. He takes control, guides it through the correct motion, and releases the pedal.
+
+The correction becomes new training data.
+
+Traditional automation depends on carefully written instructions: move here, rotate this far, close the gripper with this much force. Robot learning replaces some of those instructions with examples. Show the machine enough successful movements and it can learn a policy—a model that converts what its cameras and sensors perceive into the next physical action.
+
+The difficult part is what happens after training. A policy that works under laboratory lighting may fail when the block moves, the camera shifts, or a sleeve enters the frame. Physical AI has to survive contact with an untidy world.
+
+> **STACK // RELEASED**<br />
+> **LeRobot 0.6** — an open robotics release that adds future-predicting policies, reward models, six new simulation benchmarks, and a deployment workflow that records failures and human corrections as fresh training data.<br />
+> [Inspect the real release](https://huggingface.co/blog/lerobot-release-v060) · [Open the documentation](https://huggingface.co/docs/lerobot/main/index)
+
+LeRobot's new deployment command formalizes the loop happening in the garage: let the robot act, interrupt when it fails, demonstrate the correction, retrain, and try again. The software can preserve the seconds before an error or mark every frame where a human intervened. Failure stops being the end of a run. It becomes material.
+
+This does not make the arm autonomous in the broad sense. It does not understand the garage. It is learning a narrow physical skill through repetition, supervision, and a growing archive of mistakes.
+
+At 2:06 a.m., the gripper closes around the block. The arm lifts, turns, and places it in the tray. The man resets the scene.
+
+No one passing the garage notices that a machine inside has become slightly better at manipulating the physical world than it was yesterday.
+
+---
+
+## 06 / THE PHONE ON THE COMMITTEE
+
+> **CASE // DOCUMENTED**
+
+This story is not fictional.
+
+In May 2026, former European Parliament member Stelios Kouloglou gave Citizen Lab access to forensic artifacts from his iPhone. Kouloglou had served on the parliamentary committee investigating Pegasus, the commercial spyware used against politicians, journalists, activists, and other targets.
+
+The investigators found with high confidence that Pegasus had repeatedly infected his phone while the committee was doing its work.
+
+Pegasus is not an application a target chooses to install. It is a covert system sold to government clients. In this case, Citizen Lab found evidence consistent with a “zero-click” exploit: malicious data reached services on the iPhone without requiring Kouloglou to open a link. Once inside, spyware of this class can turn the most intimate device a person owns into an intelligence source.
+
+> **REAL NEWS HEADLINE // DOCUMENTED**<br />
+> **European Parliament member infected with Pegasus** — Citizen Lab Report 194, published July 3, 2026. Known infections occurred in October 2022 and March 2023 during active committee work. Citizen Lab did not attribute the operator and found no indication that the Greek government was responsible.<br />
+> [Read the real forensic report](https://citizenlab.ca/research/member-of-committee-investigating-spyware-hacked-with-pegasus/)
+
+The phone contained the traces of three Apple threat notifications. Kouloglou did not recall seeing them. Such notices can arrive well after an attack, and a warning that never changes the recipient's behavior offers little protection.
+
+Most people are unlikely to face mercenary spyware. The targets are selected because of what they know, whom they know, or what they are trying to expose. That does not make the episode remote. It reveals the hierarchy of the present: extraordinary surveillance capability can be purchased, aimed, and operated against the small device through which an ordinary human conducts most of life.
+
+Kouloglou was helping investigate the weapon. The weapon was already inside the room.
