@@ -212,7 +212,13 @@ export default async function NearsideIssuePage({ params }: Props) {
 
         <div className={styles.heroCopy}>
           <p className={styles.kicker}>
-            Issue {issue.number} &nbsp;&middot;&nbsp; {issue.publishedLabel}
+            Issue {issue.number}
+            {issue.byline ? (
+              <>
+                &nbsp;&middot;&nbsp; By <span className={styles.byline}>{issue.byline}</span>
+              </>
+            ) : null}
+            &nbsp;&middot;&nbsp; {issue.publishedLabel}
           </p>
           <h1 className={styles.title}>{issue.title}</h1>
           <p className={styles.dek}>Real-world tech and real news headlines, showcased in fictional stories.</p>

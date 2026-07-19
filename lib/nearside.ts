@@ -10,6 +10,7 @@ export interface NearsideIssueMeta {
   title: string;
   date: string;
   publishedLabel: string;
+  byline: string;
   summary: string;
   iterationNote: string;
   sceneCount: number;
@@ -32,6 +33,7 @@ function readIssue(filename: string): NearsideIssue {
     title: String(data.title ?? "Untitled issue"),
     date: String(data.date ?? ""),
     publishedLabel: String(data.publishedLabel ?? ""),
+    byline: String(data.byline ?? ""),
     summary: String(data.summary ?? ""),
     iterationNote: String(data.iterationNote ?? ""),
     sceneCount: Number(data.sceneCount ?? 0),

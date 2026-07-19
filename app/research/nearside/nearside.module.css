@@ -120,6 +120,10 @@
   font-size: 0.7rem;
 }
 
+.byline {
+  color: var(--near-signal);
+}
+
 .title {
   max-width: 900px;
   margin: 0;
@@ -514,10 +518,18 @@
   margin-left: auto;
 }
 
-.article > :global(p:first-child) {
-  margin-top: 0;
+.article > :global(p) {
   font-size: clamp(1.22rem, 2.8vw, 1.58rem);
   line-height: 1.58;
+}
+
+.article > :global(p:first-child) {
+  margin-top: 0;
+}
+
+.article > :global(hr:first-of-type) ~ :global(p) {
+  font-size: 1.08rem;
+  line-height: 1.76;
 }
 
 .article :global(p) {
