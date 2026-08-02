@@ -2,18 +2,6 @@
   "crons": [
     {
       "path": "/api/tracker/refresh",
-      "schedule": "30 13 * * 1-5"
-    },
-    {
-      "path": "/api/tracker/refresh",
-      "schedule": "0 16 * * 1-5"
-    },
-    {
-      "path": "/api/tracker/refresh",
-      "schedule": "30 18 * * 1-5"
-    },
-    {
-      "path": "/api/tracker/refresh",
       "schedule": "5 21 * * 1-5"
     }
   ]

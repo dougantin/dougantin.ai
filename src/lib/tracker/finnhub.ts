@@ -181,7 +181,8 @@ async function fetchFundamentals(symbol: string) {
 
 async function fetchQuoteForSymbol(
   symbol: string,
-  apiKey: string
+  apiKey: string,
+  includeFundamentals: boolean
 ): Promise<TickerQuote> {
   const quoteUrl = `${FMP_BASE_URL}/quote?symbol=${symbol}`;
   const quoteResponse = await fetchJson<FmpQuoteResponse[]>(quoteUrl);
@@ -204,17 +205,20 @@ async function fetchQuoteForSymbol(
     ytdUnavailableSymbols.add(symbol);
   }
 
-  try {
-    const fundamentals = await fetchFundamentals(symbol);
-    marketCap = fundamentals.marketCap;
-    enterpriseValue = fundamentals.enterpriseValue;
-    evToSales = fundamentals.evToSales;
-    operatingMargin = fundamentals.operatingMargin;
-  } catch (error) {
-    fundamentalsUnavailableSymbols.add(symbol);
+  if (includeFundamentals) {
+    try {
+      const fundamentals = await fetchFundamentals(symbol);
+      marketCap = fundamentals.marketCap;
+      enterpriseValue = fundamentals.enterpriseValue;
+      evToSales = fundamentals.evToSales;
+      operatingMargin = fundamentals.operatingMargin;
+    } catch (error) {
+      fundamentalsUnavailableSymbols.add(symbol);
+    }
   }
 
   if (
+    includeFundamentals &&
     marketCap === null &&
     enterpriseValue === null &&
     evToSales === null &&
@@ -251,7 +255,8 @@ export function getAllSymbols(config: TrackerConfig): string[] {
 }
 
 export async function fetchQuotes(
-  symbols: string[]
+  symbols: string[],
+  fundamentalSymbols: ReadonlySet<string> = new Set(symbols)
 ): Promise<Record<string, TickerQuote>> {
   const apiKey = getApiKey();
   const quotes: Record<string, TickerQuote> = {};
@@ -264,7 +269,11 @@ export async function fetchQuotes(
     }
 
     try {
-      const quote = await fetchQuoteForSymbol(symbol, apiKey);
+      const quote = await fetchQuoteForSymbol(
+        symbol,
+        apiKey,
+        fundamentalSymbols.has(symbol)
+      );
       quotes[symbol] = quote;
     } catch (error) {
       console.error(`Failed to fetch FMP data for ${symbol}:`, error);

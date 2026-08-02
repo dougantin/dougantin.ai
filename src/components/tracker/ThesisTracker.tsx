@@ -73,6 +73,14 @@ export default function ThesisTracker({ data }: ThesisTrackerProps) {
               {formatEditorialDate(trackerConfig.lastUpdated)}
             </div>
           </div>
+          <p
+            className="border-t pt-4 leading-relaxed md:col-span-2"
+            style={{ color: "var(--text-muted)", borderColor: "var(--border-default)" }}
+          >
+            After moving from a paid market-data API plan to the free tier, prices refresh
+            once each weekday after the U.S. market closes. Company fundamentals update
+            weekly.
+          </p>
         </div>
 
         <div className="mt-16 space-y-16 md:space-y-20">

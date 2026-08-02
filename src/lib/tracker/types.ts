@@ -37,4 +37,5 @@ export interface TickerQuote {
 export interface TrackerData {
   quotes: Record<string, TickerQuote>;
   fetchedAt: string;
+  fundamentalsFetchedAt?: string;
 }
