@@ -11,6 +11,7 @@ export interface DailyBriefing {
   description: string;
   content: string;
   cadence: "daily" | "weekly" | "monthly" | "quarterly";
+  visibility: "public" | "draft";
 }
 
 function sortBriefingsByDate<T extends { date: string }>(briefings: T[]) {
@@ -49,6 +50,7 @@ function parseBriefing(filePath: string): DailyBriefing {
       data.cadence === "quarterly"
         ? data.cadence
         : "daily",
+    visibility: data.visibility === "draft" ? "draft" : "public",
   };
 }
 
@@ -70,7 +72,9 @@ export function getAllDailyBriefings(): DailyBriefing[] {
     files
       .map(parseBriefing)
       .filter(isValidBriefing)
-      .filter((briefing) => briefing.cadence === "weekly"),
+      .filter(
+        (briefing) => briefing.cadence === "weekly" && briefing.visibility === "public",
+      ),
   );
 }
 
