@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllDailyBriefings } from "@/lib/daily-briefings";
 import { getAllLibraryItems } from "@/lib/library";
 import { getAllEssays } from "@/lib/mdx";
 import { getAllNearsideIssues } from "@/lib/nearside";
@@ -16,6 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const nearsideIssues = getAllNearsideIssues().map((issue) => ({
     url: `${SITE_URL}/research/nearside/${issue.slug}`,
     lastModified: issue.date,
+  }));
+  const middlegameIssues = getAllDailyBriefings().map((briefing) => ({
+    url: `${SITE_URL}/daily-briefing/${briefing.slug}`,
+    lastModified: briefing.date,
   }));
 
   return [
@@ -40,6 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `${SITE_URL}/daily-briefing`,
+      lastModified: middlegameIssues[0]?.lastModified ?? new Date(),
+    },
+    {
       url: `${SITE_URL}/research`,
       lastModified: new Date(),
     },
@@ -58,5 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...essays,
     ...libraryItems,
     ...nearsideIssues,
+    ...middlegameIssues,
   ];
 }
