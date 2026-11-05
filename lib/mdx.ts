@@ -12,6 +12,7 @@ export interface EssayMeta {
   readTime: string;
   tag: string;
   living?: boolean;
+  socialImage?: string;
 }
 
 export interface Essay extends EssayMeta {

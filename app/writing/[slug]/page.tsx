@@ -17,6 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const essay = getEssay(slug);
   if (!essay) return {};
+  const image = {
+    url: essay.socialImage || "/opengraph-image",
+    width: 1200,
+    height: 630,
+    alt: essay.socialImage ? essay.title : SITE_NAME,
+  };
   return {
     title: essay.title,
     description: essay.description,
@@ -28,8 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: essay.description,
       type: "article",
       url: `/writing/${essay.slug}`,
+      images: [image],
     },
     twitter: {
+      card: "summary_large_image",
+      images: [image],
       title: `${essay.title} | ${SITE_NAME}`,
       description: essay.description,
     },
