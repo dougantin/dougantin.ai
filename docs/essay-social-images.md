@@ -18,10 +18,8 @@ Use that file unchanged for the Audience of One essay. Use its composition for f
 ## Publishing
 
 1. Create the PNG using the approved reference and the new essay's title and short dek. Inspect at full size and thumbnail size for clipping and legibility.
-2. Save under `public/images/essays/<slug>.png`. Use a new versioned filename when replacing an already shared image to reduce stale social caches.
-3. Set `socialImage: "/images/essays/<slug>.png"` in the essay's MDX frontmatter. Keep `description` consistent with the approved dek.
-4. `app/writing/[slug]/page.tsx` explicitly sets Open Graph images and Twitter `summary_large_image`. Do not rely on nested metadata inheriting the root layout's image.
-5. Run the production build. Verify the rendered essay HTML has `og:image`, image dimensions, `twitter:image`, and `twitter:card=summary_large_image`. Verify the image URL returns the PNG publicly.
-6. After deployment, check the live article and image. Social services may cache previously shared previews; use their preview refresh tools when necessary.
+2. Save under `public/images/essays/<slug>.png` and set `socialImage: "/images/essays/<slug>.png"` in the MDX frontmatter. Keep the description consistent with the approved dek.
+3. Share the normal article URL on `https://www.dougantin.ai`. The site points crawlers directly at the card on that hostname and automatically versions custom image URLs from their file contents.
+4. The production build tests every sitemap page with a Twitterbot user agent. It checks the large-card tags, robots rules, direct HTTP responses, image dimensions, size, and decodability. To repeat these checks against the live site, run `npm run check:cards:live`.
 
-Existing essays without `socialImage` use the generic site image. This is a fallback; new essays should receive their own card in this format.
+Writing without custom artwork, Library entries, and published weekly briefings get a branded title card automatically. Nearside and the investor field guide keep their existing artwork. When changing the automatic card design, update the template version in `lib/share-cards.ts` so the image URLs change. X can retain an earlier preview for a link it has already seen.

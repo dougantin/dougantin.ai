@@ -3,7 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getEssay, getAllEssays } from "@/lib/mdx";
 import EssayLayout from "@/components/EssayLayout";
 import type { Metadata } from "next";
-import { SITE_NAME } from "@/lib/site";
+import { articleMetadata } from "@/lib/share-cards";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -17,32 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const essay = getEssay(slug);
   if (!essay) return {};
-  const image = {
-    url: essay.socialImage || "/opengraph-image",
-    width: 1200,
-    height: 630,
-    alt: essay.socialImage ? essay.title : SITE_NAME,
-  };
-  return {
-    title: essay.title,
-    description: essay.description,
-    alternates: {
-      canonical: `/writing/${essay.slug}`,
-    },
-    openGraph: {
-      title: `${essay.title} | ${SITE_NAME}`,
-      description: essay.description,
-      type: "article",
-      url: `/writing/${essay.slug}`,
-      images: [image],
-    },
-    twitter: {
-      card: "summary_large_image",
-      images: [image],
-      title: `${essay.title} | ${SITE_NAME}`,
-      description: essay.description,
-    },
-  };
+  return articleMetadata(
+    `/writing/${essay.slug}`, essay.title, essay.description, essay.tag || "Writing", essay.socialImage,
+  );
 }
 
 export default async function EssayPage({ params }: Props) {

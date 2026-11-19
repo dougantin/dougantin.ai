@@ -3,7 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata } from "next";
 import EssayLayout from "@/components/EssayLayout";
 import { getAllDailyBriefings, getDailyBriefing } from "@/lib/daily-briefings";
-import { SITE_NAME } from "@/lib/site";
+import { articleMetadata } from "@/lib/share-cards";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -17,24 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const briefing = getDailyBriefing(slug);
   if (!briefing) return {};
-
-  return {
-    title: briefing.title,
-    description: briefing.description,
-    alternates: {
-      canonical: `/daily-briefing/${briefing.slug}`,
-    },
-    openGraph: {
-      title: `${briefing.title} | ${SITE_NAME}`,
-      description: briefing.description,
-      type: "article",
-      url: `/daily-briefing/${briefing.slug}`,
-    },
-    twitter: {
-      title: `${briefing.title} | ${SITE_NAME}`,
-      description: briefing.description,
-    },
-  };
+  return articleMetadata(
+    `/daily-briefing/${briefing.slug}`, briefing.title, briefing.description, "Middlegame Weekly",
+  );
 }
 
 export default async function DailyBriefingEntryPage({ params }: Props) {

@@ -10,7 +10,7 @@ import {
   getLibraryStatusLabel,
   getLibraryTypeLabel,
 } from "@/lib/library";
-import { SITE_NAME } from "@/lib/site";
+import { articleMetadata } from "@/lib/share-cards";
 
 interface Props {
   params: Promise<{ type: string; slug: string }>;
@@ -27,24 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { type, slug } = await params;
   const item = getLibraryItem(type, slug);
   if (!item) return {};
-
-  return {
-    title: item.title,
-    description: item.summary,
-    alternates: {
-      canonical: `/library/${item.collection}/${item.slug}`,
-    },
-    openGraph: {
-      title: `${item.title} | ${SITE_NAME}`,
-      description: item.summary,
-      type: "article",
-      url: `/library/${item.collection}/${item.slug}`,
-    },
-    twitter: {
-      title: `${item.title} | ${SITE_NAME}`,
-      description: item.summary,
-    },
-  };
+  return articleMetadata(
+    `/library/${item.collection}/${item.slug}`, item.title, item.summary, "Library",
+  );
 }
 
 export default async function LibraryDetailPage({ params }: Props) {
