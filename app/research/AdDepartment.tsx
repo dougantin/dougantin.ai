@@ -117,7 +117,7 @@ export default function AdDepartment() {
         if (!gamePiece) return null;
         return <div className={styles.adDeptPlaying}>
           <button className={styles.adDeptPlayingArt} type="button" aria-label="Enlarge Agency Era game box art" onClick={(event) => openPiece(gamePiece.order - 1, event.currentTarget)}><Image src={gamePiece.src} alt="" width={gamePiece.width} height={gamePiece.height} sizes="84px" /></button>
-          <div className={styles.adDeptPlayingCopy}><p className={styles.adDeptPlayingLabel}>Now playing</p><h3>The ad was for a game that did not exist. So the game got built.</h3><p>Agency Era started as box art for a made-up strategy title. It is now a one-page browser game about energy, compute, agents and judgment.</p></div>
+          <div className={styles.adDeptPlayingCopy}><p className={styles.adDeptPlayingLabel}>Now playing</p><h3>An ad for a game that didn&apos;t exist... so I had Perplexity build one.</h3><p>What started as box art for a made-up strategy title is now a browser game about energy, compute, agents and judgment. An interesting experiment.</p></div>
           <a className={styles.adDeptPlayBtn} href={gameUrl}>Play Agency Era</a>
         </div>;
       })()}
