@@ -79,12 +79,7 @@ export default function AdDepartment() {
     <div className={styles.wrap}>
       <div className={styles.sectionHeading}>
         <div><p className={styles.eyebrow}>Format experiments</p><h2 id="ad-department-title">The Ad Department</h2></div>
-        <p className={styles.sectionIntro}>Thirty-four ads for things that are free to read. Print pages, magazine inserts, movie posters and a few objects, each built to sell <em>one argument</em> from this site.</p>
-      </div>
-
-      <div className={`${styles.seriesContext} ${styles.adDeptContext}`}>
-        <div><p className={styles.contextLabel}>House rules</p><h3>Real thesis. Borrowed formats. Original art.</h3></div>
-        <p>Classic print campaigns could carry an idea with one headline and one picture. These pieces borrow that discipline and point it at the essays, trackers and editions published here.</p>
+        <p className={styles.sectionIntro}>I&apos;m experimenting with making different types of ads with inspiration from notorious ad campaigns, movie posters, and other formats. Many of these ads were designed to promote my special edition magazines, the agency era thesis, and this website.</p>
       </div>
 
       <div className={styles.adDeptTabs} role="tablist" aria-label="Ad formats">
