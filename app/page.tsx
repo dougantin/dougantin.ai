@@ -394,8 +394,8 @@ export default async function Home() {
               <div className={styles.adCardCopy}>
                 <p className={styles.adCardLabel}>Format experiments · {adDepartmentData.total} pieces</p>
                 <h2 className={styles.adCardTitle}>The Ad Department</h2>
-                <p className={styles.adCardDek}>Ads for essays.</p>
-                <p className={styles.adCardDesc}>Print pages, movie posters, a cereal box and a playable game. Each one sells an argument from this site.</p>
+                <p className={styles.adCardDek}>Experiments with new media advertisements.</p>
+                <p className={styles.adCardDesc}>Print pages, movie posters, a cereal box, and a playable game. Different formats for different scenarios. Powered by AI and my swipe files.</p>
                 <span className={styles.adCardAction}>Visit the department</span>
               </div>
               <div className={styles.adCardStack} aria-hidden="true">
