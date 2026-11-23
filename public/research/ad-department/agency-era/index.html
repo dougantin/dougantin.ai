@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agency Era — the strategy game of energy, compute and judgment</title>
+<meta name="description" content="A one-page strategy game. You are one person directing an unlimited swarm of agents. Power it, point it, and launch before the window closes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1730'/%3E%3Cpath d='M16 5l9 22h-4l-1.8-4.6h-6.4L11 27H7z M14.1 18.6h3.8L16 13.4z' fill='%23e9b949'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#orders">Skip to orders</a>
+
+<section id="title" class="title" aria-labelledby="title-h">
+  <div class="title__inner">
+    <figure class="title__box">
+      <img src="./assets/box.webp" width="820" height="1093" alt="Box art for Agency Era: a lone figure on a ridge directs a swarm of drones over a valley of data centers, cooling towers and a rocket launch.">
+    </figure>
+    <div class="title__copy">
+      <p class="eyebrow">The strategy game of energy, compute and judgment</p>
+      <h1 id="title-h">Agency Era</h1>
+      <p class="title__lede">You are one person on a ridge. The swarm in the valley is as large as the compute you can power. Launch the rocket before quarter 16 ends.</p>
+      <ol class="rules" role="list">
+        <li><b>Energy runs compute. Compute runs agents.</b> Whichever is short is your bottleneck.</li>
+        <li><b>You get three orders a quarter.</b> Build, redirect a wing of the swarm, or review its work.</li>
+        <li><b>Agents drift.</b> The bigger the swarm, the faster it loses the brief. Only you can reset it.</li>
+      </ol>
+      <div class="title__actions">
+        <button id="start" class="btn btn--primary btn--lg" type="button">Start quarter one</button>
+        <span class="title__meta">1 player · unlimited agents · about 10 minutes</span>
+      </div>
+      <p class="title__credit">Based on <a href="https://dougantin.ai/writing/agency-era" target="_blank" rel="noopener noreferrer">The Agency Era</a> by Doug Antin.</p>
+    </div>
+  </div>
+</section>
+
+<div id="game" class="game" hidden>
+  <header class="topbar">
+    <p class="wordmark">Agency Era</p>
+    <div class="quarter" aria-live="polite">
+      <span id="q-label" class="quarter__label">Quarter 1 of 16</span>
+      <span class="quarter__track" aria-hidden="true"><span id="q-fill" class="quarter__fill"></span></span>
+    </div>
+    <nav class="topbar__nav" aria-label="Game menu">
+      <button id="btn-help" class="btn btn--ghost" type="button">How to play</button>
+      <button id="btn-sound" class="btn btn--ghost" type="button" aria-pressed="true">Sound on</button>
+      <button id="btn-new" class="btn btn--ghost" type="button">New game</button>
+    </nav>
+  </header>
+
+  <main class="board">
+    <div class="board__left">
+      <section class="hud" aria-label="Resources">
+        <div class="stat" id="stat-energy"><span class="stat__k">Energy</span><span class="stat__v" data-num="energy">0</span><span class="stat__s" data-sub="energy"></span></div>
+        <div class="stat" id="stat-compute"><span class="stat__k">Compute</span><span class="stat__v" data-num="compute">0</span><span class="stat__s" data-sub="compute"></span></div>
+        <div class="stat" id="stat-agents"><span class="stat__k">Agents</span><span class="stat__v" data-num="agents">0</span><span class="stat__s" data-sub="agents"></span></div>
+        <div class="stat" id="stat-direction"><span class="stat__k">Direction</span><span class="stat__v"><span data-num="direction">100</span>%</span><span class="meter" aria-hidden="true"><span class="meter__fill" data-meter="direction"></span></span></div>
+        <div class="stat" id="stat-capital"><span class="stat__k">Capital</span><span class="stat__v">$<span data-num="capital" data-dec="1">0</span>M</span><span class="stat__s" data-sub="capital"></span></div>
+        <div class="stat" id="stat-launch"><span class="stat__k">Launch</span><span class="stat__v"><span data-num="launch">0</span>%</span><span class="meter" aria-hidden="true"><span class="meter__fill" data-meter="launch"></span></span></div>
+      </section>
+
+      <section class="scene" aria-label="The valley">
+        <canvas id="scene" width="1600" height="900" role="img" aria-label="A valley at dawn. A lone figure on a ridge directs a swarm of drones over the structures you have built."></canvas>
+        <p id="report" class="report" role="status"></p>
+        <p id="advice" class="advice"></p>
+      </section>
+
+      <section class="research" aria-labelledby="g-research">
+        <h2 id="g-research" class="label">Research <span class="label__hint"><span id="rp">0</span> points · adopting costs no order</span></h2>
+        <div id="techs" class="techs"></div>
+      </section>
+
+      <section class="log" aria-labelledby="log-h">
+        <h2 id="log-h" class="label">Dispatches</h2>
+        <ol id="log" class="log__list" role="list" aria-live="polite"></ol>
+      </section>
+    </div>
+
+    <aside id="orders" class="orders" aria-labelledby="orders-h" tabindex="-1">
+      <div class="orders__head">
+        <h2 id="orders-h" class="orders__title">Your orders</h2>
+        <p class="pips" id="pips" aria-live="polite"></p>
+      </div>
+
+      <div class="orders__scroll">
+        <section class="group" aria-labelledby="g-build">
+          <h3 id="g-build" class="label">Build <span class="label__hint">1 order each</span></h3>
+          <div id="builds" class="builds"></div>
+        </section>
+
+        <section class="group" aria-labelledby="g-direct">
+          <h3 id="g-direct" class="label">Direct the swarm <span class="label__hint">1 order each</span></h3>
+          <button id="btn-review" class="act" type="button">
+            <span class="act__main"><span class="act__name">Review the work</span><span class="act__sub" id="review-sub">Resets direction to 100%</span></span>
+            <kbd>R</kbd>
+          </button>
+          <div id="wings" class="wings"></div>
+        </section>
+
+      </div>
+
+      <div class="orders__foot">
+        <p id="forecast" class="forecast"></p>
+        <button id="btn-end" class="btn btn--primary btn--block" type="button">End quarter <kbd>E</kbd></button>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<dialog id="dlg-event" class="dlg" aria-labelledby="ev-title">
+  <p class="eyebrow" id="ev-eyebrow">Dispatch</p>
+  <h2 id="ev-title" class="dlg__title"></h2>
+  <p id="ev-text" class="dlg__text"></p>
+  <div id="ev-options" class="dlg__options"></div>
+  <p id="ev-outcome" class="dlg__outcome" role="status" hidden></p>
+  <button id="ev-continue" class="btn btn--primary btn--block" type="button" hidden>Continue</button>
+</dialog>
+
+<dialog id="dlg-help" class="dlg" aria-labelledby="help-title">
+  <h2 id="help-title" class="dlg__title">How to play</h2>
+  <dl class="help">
+    <dt>Goal</dt><dd>Bring the launch to 100% before quarter 16 ends.</dd>
+    <dt>The chain</dt><dd>Each unit of energy powers one unit of compute. Each powered unit runs an agent. Racks without power sit dark.</dd>
+    <dt>Orders</dt><dd>You get three a quarter. Building, redirecting a wing and reviewing the work each cost one. Adopting research is free.</dd>
+    <dt>Wings</dt><dd>The swarm flies in three wings. Ventures earn capital, research earns points for upgrades, launch work wins the game.</dd>
+    <dt>Direction</dt><dd>Output is agents times direction. Direction drifts down every quarter, faster with a bigger swarm. A review resets it.</dd>
+    <dt>Keys</dt><dd><kbd>S</kbd> solar · <kbd>D</kbd> data hall · <kbd>N</kbd> reactor · <kbd>R</kbd> review · <kbd>E</kbd> end quarter</dd>
+  </dl>
+  <button id="help-close" class="btn btn--primary btn--block" type="button">Back to the ridge</button>
+</dialog>
+
+<dialog id="dlg-new" class="dlg dlg--narrow" aria-labelledby="new-title">
+  <h2 id="new-title" class="dlg__title">Start over?</h2>
+  <p class="dlg__text">This valley and its swarm will be cleared.</p>
+  <div class="dlg__row">
+    <button id="new-cancel" class="btn btn--ghost" type="button">Keep playing</button>
+    <button id="new-ok" class="btn btn--primary" type="button">New game</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-end" class="dlg dlg--end" aria-labelledby="end-title">
+  <img id="end-art" class="dlg__art" src="" alt="" width="1400" height="788">
+  <div class="dlg__body">
+    <p class="eyebrow" id="end-eyebrow"></p>
+    <h2 id="end-title" class="dlg__title dlg__title--xl"></h2>
+    <p id="end-line" class="dlg__text"></p>
+    <dl id="end-stats" class="stats"></dl>
+    <div class="dlg__row">
+      <a class="btn btn--ghost" href="https://dougantin.ai/writing/agency-era" target="_blank" rel="noopener noreferrer">Read the essay</a>
+      <button id="end-again" class="btn btn--primary" type="button">Play again</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="./logic.js" defer></script>
+<script src="./scene.js" defer></script>
+<script src="./audio.js" defer></script>
+<script src="./app.js" defer></script>
+</body>
+</html>
