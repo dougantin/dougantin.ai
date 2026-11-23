@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { getAllEssays } from "@/lib/mdx";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
@@ -363,6 +364,29 @@ export default async function Home() {
           </div>
 
           <div className="space-y-4">
+            <Link href="/research#editions-title" className={styles.specialEditionsPreview}>
+              <div className={styles.specialEditionsCopy}>
+                <p className={styles.specialEditionsLabel}>From the archive · 2019–2023</p>
+                <h2 className={styles.specialEditionsTitle}>The Special Editions</h2>
+                <p className={styles.specialEditionsDescription}>
+                  Four curated and annotated magazines tracing my writing from early questions
+                  about reality and agency through The Sovereign Individual Weekly.
+                </p>
+                <span className={styles.specialEditionsAction}>Explore the collection</span>
+              </div>
+              <div className={styles.specialEditionsCovers} aria-hidden="true">
+                {["00", "01", "02", "03"].map((issue) => (
+                  <Image
+                    key={issue}
+                    src={`/research/special-editions/assets/issue-${issue}-cover.jpg`}
+                    alt=""
+                    width={90}
+                    height={120}
+                  />
+                ))}
+              </div>
+            </Link>
+
             <Link href="/research/nearside" className={styles.nearsidePreview}>
               <div className={styles.nearsidePreviewTopline}>
                 <span className={styles.nearsidePreviewWordmark}>Nearside</span>

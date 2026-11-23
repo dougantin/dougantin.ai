@@ -28,7 +28,7 @@ export default function ResearchPage() {
 
     <section className={styles.editions} aria-labelledby="editions-title"><div className={styles.wrap}>
       <div className={styles.sectionHeading}>
-        <div><p className={styles.eyebrow}>A collected history of ideas</p><h2 id="editions-title">The Special Editions</h2></div>
+        <div><p className={styles.eyebrow}>A collected history of ideas</p><h2 id="editions-title" className="scroll-mt-24">The Special Editions</h2></div>
         <p className={styles.sectionIntro}>A four-volume e-magazine collecting Doug Antin’s original writing from 2019 to 2023. Curated and annotated, it brings together the defining essays, ideas, and deeper cuts from his blog, <em>dougantin.com</em>, and his previous newsletter, <em>The Sovereign Individual Weekly</em>.</p>
       </div>
       <div className={styles.seriesContext}>

@@ -1,3 +1,91 @@
+.specialEditionsPreview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 236px;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 224px;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #655040;
+  border-left: 3px solid #c79672;
+  border-radius: 0.5rem;
+  background: radial-gradient(circle at 90% 12%, rgba(127, 168, 134, 0.1), transparent 18rem), linear-gradient(135deg, #2a211d, #1e211e);
+  color: #eee8dd;
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.specialEditionsPreview:hover {
+  border-color: #c79672;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.2);
+  color: #eee8dd;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.specialEditionsPreview:focus-visible {
+  outline: 2px solid #80c8c7;
+  outline-offset: 4px;
+}
+
+.specialEditionsCopy { position: relative; z-index: 1; }
+.specialEditionsLabel {
+  margin: 0 0 0.8rem;
+  color: #c79672;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.specialEditionsTitle {
+  margin: 0;
+  color: #f6eee1;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+.specialEditionsDescription {
+  max-width: 29rem;
+  margin: 0.85rem 0 1.15rem;
+  color: #c9c0bb;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.specialEditionsAction {
+  display: inline-block;
+  border-bottom: 1px solid rgba(128, 200, 199, 0.55);
+  color: #80c8c7;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding-bottom: 0.15rem;
+}
+.specialEditionsCovers {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.specialEditionsCovers img {
+  display: block;
+  width: calc((100% - 1.05rem) / 4);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
+}
+.specialEditionsCovers img:nth-child(even) { transform: translateY(-0.5rem); }
+
+@media (max-width: 640px) {
+  .specialEditionsPreview { grid-template-columns: 1fr; gap: 1.7rem; }
+  .specialEditionsCovers { max-width: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specialEditionsPreview { transition: none; }
+}
+
 .nearsidePreview {
   position: relative;
   display: block;
