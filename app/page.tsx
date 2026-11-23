@@ -6,6 +6,7 @@ import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import TrackerPreview from "@/src/components/tracker/TrackerPreview";
 import { getTrackerData } from "@/src/lib/tracker/data";
 import styles from "./home.module.css";
+import { adDepartmentData } from "./research/ad-department-data";
 
 export const dynamic = "force-dynamic";
 
@@ -384,6 +385,24 @@ export default async function Home() {
                     height={120}
                   />
                 ))}
+              </div>
+            </Link>
+
+            <Link href="/research#ad-department" className={styles.adCard} id="ad-department-card">
+              <span className={`${styles.adCardCrop} ${styles.adCardCropTl}`} aria-hidden="true" />
+              <span className={`${styles.adCardCrop} ${styles.adCardCropBr}`} aria-hidden="true" />
+              <div className={styles.adCardCopy}>
+                <p className={styles.adCardLabel}>Format experiments · {adDepartmentData.total} pieces</p>
+                <h2 className={styles.adCardTitle}>The Ad Department</h2>
+                <p className={styles.adCardDek}>Experiments with new media advertisements.</p>
+                <p className={styles.adCardDesc}>Print pages, movie posters, a cereal box, and a playable game. Different formats for different scenarios. Powered by AI and my swipe files.</p>
+                <span className={styles.adCardAction}>Visit the department</span>
+              </div>
+              <div className={styles.adCardStack} aria-hidden="true">
+                {adDepartmentData.homeCardStack.map((id) => {
+                  const piece = adDepartmentData.pieces.find((item) => item.id === id);
+                  return piece ? <Image key={id} src={piece.src} alt="" width={piece.width} height={piece.height} sizes="104px" /> : null;
+                })}
               </div>
             </Link>
 

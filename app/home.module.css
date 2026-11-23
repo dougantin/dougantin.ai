@@ -233,3 +233,27 @@
     transition: none;
   }
 }
+
+/* The Ad Department home card */
+.adCard{--ad-ink:#e2553a;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 236px;align-items:center;gap:1.5rem;min-height:224px;padding:1.5rem;overflow:hidden;border:1px solid #5d3a30;border-left:3px solid var(--ad-ink);border-radius:.5rem;background:radial-gradient(circle at 88% 8%,rgba(226,85,58,.13),transparent 17rem),linear-gradient(135deg,#2b1e1a,#1f1917);color:#eee8dd;text-decoration:none;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.adCard:hover{border-color:var(--ad-ink);box-shadow:0 18px 54px rgba(0,0,0,.2);color:#eee8dd;text-decoration:none;transform:translateY(-1px)}
+.adCard:focus-visible{outline:2px solid #80c8c7;outline-offset:4px}
+.adCardCrop{position:absolute;width:11px;height:11px;pointer-events:none;opacity:.42}
+.adCardCropTl{top:9px;right:9px;border-top:1px solid #eee8dd;border-right:1px solid #eee8dd}
+.adCardCropBr{bottom:9px;right:9px;border-bottom:1px solid #eee8dd;border-right:1px solid #eee8dd}
+.adCardCopy{position:relative;z-index:1}
+.adCardLabel{margin:0 0 .8rem;color:#f0795f;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.adCardTitle{margin:0;color:#f6eee1;font-family:var(--font-playfair),Georgia,serif;font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;letter-spacing:-.035em;line-height:1.12}
+.adCardDek{margin:.3rem 0 0;color:#e1d5c9;font-family:var(--font-playfair),Georgia,serif;font-style:italic;font-size:1.05rem;line-height:1.4}
+.adCardDesc{max-width:27rem;margin:.7rem 0 1.15rem;color:#c9c0bb;font-size:.9rem;line-height:1.6}
+.adCardAction{display:inline-block;border-bottom:1px solid var(--ad-ink);color:#f6eee1;font-size:.82rem;font-weight:700;padding-bottom:.15rem}
+.adCardStack{position:relative;height:176px}
+.adCardStack img{position:absolute;top:10px;left:0;width:104px;height:auto;aspect-ratio:2/3;object-fit:cover;border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 18px rgba(0,0,0,.42);transition:transform .25s ease}
+.adCardStack img:nth-child(1){left:0;transform:rotate(-7deg) translateY(8px)}
+.adCardStack img:nth-child(2){left:44px;transform:rotate(-2.5deg)}
+.adCardStack img:nth-child(3){left:88px;transform:rotate(2.5deg)}
+.adCardStack img:nth-child(4){left:132px;transform:rotate(7deg) translateY(8px)}
+.adCard:hover .adCardStack img:nth-child(1){transform:rotate(-9deg) translate(-4px,8px)}
+.adCard:hover .adCardStack img:nth-child(4){transform:rotate(9deg) translate(4px,8px)}
+@media (max-width:640px){.adCard{grid-template-columns:1fr;gap:1.4rem}.adCardStack{width:236px}}
+@media (prefers-reduced-motion:reduce){.adCard,.adCardStack img{transition:none}}

@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import styles from "./research.module.css";
+import AdDepartment from "./AdDepartment";
 
 export const metadata: Metadata = {
   title: "Research",
-  description: "Doug Antin's research, including four curated special edition magazines of his writing from 2019 to 2023, Nearside, and the AI x Crypto Investor Field Guide.",
+  description: "Doug Antin's research, including four curated special edition magazines of his writing from 2019 to 2023, The Ad Department, Nearside, and the AI x Crypto Investor Field Guide.",
   alternates: { canonical: "/research" },
 };
 
@@ -49,6 +50,8 @@ export default function ResearchPage() {
       })}</div>
       <div className={styles.editorialNote}><span className={styles.noteLabel}>Editor&apos;s note</span><p>These magazines offer a clearer view of Doug’s work and thesis, taking readers from his early questions about reality and agency through the sustained research that laid the foundation for his work today.</p><a href={`${base}/issues/${editions[0].file}`}>Begin with Issue 00</a></div>
     </div></section>
+
+    <AdDepartment />
 
     <section className={`${styles.current} ${styles.wrap}`} aria-labelledby="current-title">
       <div className={styles.currentHeading}><p className={styles.eyebrow}>Ongoing research</p><h2 id="current-title">Current Fieldwork</h2><p>Exploratory projects and practical guides for the opportunities taking shape now.</p></div>

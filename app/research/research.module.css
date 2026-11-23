@@ -59,3 +59,106 @@
 @media(max-width:1050px){.issueGrid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:38px;row-gap:48px}.issueDescription,.issueSubtitle{min-height:0}.coverLink{max-width:380px}.seriesContext{grid-template-columns:220px 1fr;gap:25px}.editorialNote{grid-template-columns:125px 1fr;gap:22px}.editorialNote a{grid-column:2}.path{display:none}}
 @media(max-width:700px){.wrap{width:min(100% - 40px,520px)}.intro{padding-block:60px 65px}.introRule{margin-bottom:40px}.eyebrow{font-size:11px}.introCopy{font-size:17px}.editions{padding-block:59px 64px}.sectionHeading{display:block;margin-bottom:28px}.sectionHeading h2{margin-bottom:21px}.sectionIntro{font-size:16px}.seriesContext{display:block;padding:22px;margin-bottom:34px}.seriesContext h3{font-size:22px;margin-bottom:16px}.path{display:none}.issueGrid{grid-template-columns:1fr;gap:43px}.coverLink{max-width:340px;margin-inline:auto}.issueCopy{padding-top:18px}.issueMeta{font-size:11px}.issue h3{font-size:31px}.issueSubtitle{font-size:19px}.issueDescription{font-size:15px;margin-bottom:14px}.editorialNote{display:block;margin-top:54px}.noteLabel{display:block;margin-bottom:12px}.editorialNote p{font-size:18px;margin-bottom:22px}.current{padding-block:65px 75px}.currentGrid{grid-template-columns:1fr}.currentCard{min-height:310px;padding:28px}}
 @media(prefers-reduced-motion:reduce){.coverLink img,.currentCard{transition:none}}
+
+/* The Ad Department */
+.adDept{--ad-ink:#e2553a;--ad-ink-soft:#f0795f;padding-block:80px 88px;border-bottom:1px solid #3b312a;scroll-margin-top:64px}
+
+.adDeptTabs{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.adDeptTabs button{appearance:none;background:none;border:0;border-top:2px solid transparent;margin-top:-1px;padding:15px 30px 15px 0;min-height:48px;margin-right:6px;color:var(--faint);font:700 11px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:color .18s ease,border-color .18s ease}
+.adDeptTabs button span{color:#8b7e75;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.adDeptTabs button:hover{color:var(--ink)}
+.adDeptTabs button[aria-selected="true"]{color:var(--ink);border-top-color:var(--ad-ink)}
+.adDeptTabs button[aria-selected="true"] span{color:var(--ad-ink-soft)}
+.adDeptTabs button:focus-visible{outline:2px solid var(--aqua);outline-offset:2px}
+.page .adDeptPanelNote{margin:20px 0 26px;color:var(--faint);font-size:14px;line-height:1.5}
+.adDeptPanel[hidden]{display:none}
+
+.adDeptGrid{align-items:stretch}
+.adTile{display:flex;flex-direction:column}
+.adTileFrame{appearance:none;border:0;padding:0;margin:0;width:100%;cursor:zoom-in;font:inherit;color:inherit;aspect-ratio:2/3}
+.adDeptGridMag .adTileFrame{aspect-ratio:3/4}
+.adTileFrame:focus-visible{outline:2px solid var(--aqua);outline-offset:4px}
+.adTileZoom{position:absolute;right:10px;bottom:10px;padding:5px 9px;background:rgba(20,16,14,.86);color:var(--ink);font:700 10px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease;z-index:1}
+.adTileFrame:hover .adTileZoom,.adTileFrame:focus-visible .adTileZoom{opacity:1;transform:none}
+.adTile .issueCopy{display:flex;flex-direction:column;flex:1}
+.adTile .issueMeta span:last-child{text-align:right}
+.page .adTile h3{font-size:22px;line-height:1.2;letter-spacing:-.025em;margin-bottom:10px;text-wrap:balance}
+.adTile .adTileNote{min-height:0;margin-bottom:18px}
+.adTile .readLink{align-self:flex-start;margin-top:auto}
+
+/* Objects: three frames share one row height, the spread takes two columns */
+.adDeptGridObject{grid-template-rows:auto auto;row-gap:0}
+.adDeptGridObject .adTile{display:grid;grid-row:span 2;grid-template-rows:subgrid}
+.adDeptGridObject .adTileWide{grid-column:span 2}
+.adDeptGridObject .adTileFrame{aspect-ratio:auto;height:auto;align-self:stretch;background:#14100e}
+.adDeptGridObject .adTile:first-child .adTileFrame{aspect-ratio:2/3}
+.adDeptGridObject .adTileFrame img{position:absolute;inset:0;object-fit:contain}
+
+.adDeptPlaying{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:28px;align-items:center;margin-top:58px;padding:24px 30px 24px 26px;background:#241d1a;border:1px solid #453a33;border-left:2px solid var(--ad-ink)}
+.adDeptPlayingArt{appearance:none;border:0;padding:0;background:none;cursor:zoom-in;display:block;box-shadow:0 8px 16px rgba(0,0,0,.35);transform:rotate(-3deg)}
+.adDeptPlayingArt img{display:block;width:84px;height:auto}
+.adDeptPlayingArt:focus-visible{outline:2px solid var(--aqua);outline-offset:4px}
+.adDeptPlayingLabel{margin:0 0 8px;color:var(--ad-ink-soft);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.page .adDeptPlaying h3{font-size:23px;line-height:1.25;letter-spacing:-.025em;margin:0 0 8px;text-wrap:balance}
+.adDeptPlayingCopy p:last-child{margin:0;font-size:15px;line-height:1.6;color:#c0b9b1;max-width:620px}
+.page a.adDeptPlayBtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border:1px solid var(--ink);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:background .18s ease,color .18s ease}
+.page a.adDeptPlayBtn:hover{background:var(--ink);color:#1b1614}
+
+.adDept .editorialNote{margin-top:52px}
+.adDeptAll{appearance:none;background:none;border:0;border-bottom:1px solid rgba(128,200,199,.45);padding:0 0 3px;margin-top:6px;color:var(--aqua);font:700 13px/1.65 var(--sans);letter-spacing:.025em;white-space:nowrap;cursor:pointer}
+.adDeptAll:hover{color:var(--ink);border-color:var(--ink)}
+.adDeptAll:focus-visible{outline:2px solid var(--aqua);outline-offset:4px}
+
+@media (max-width:1050px){
+  .adDeptGridObject{grid-template-rows:none;row-gap:48px;align-items:start}
+  .adDeptGridObject .adTile{display:flex;grid-row:auto}
+  .adDeptGridObject .adTileFrame{aspect-ratio:2/3;align-self:auto}
+  .adDeptGridObject .adTileWide .adTileFrame{aspect-ratio:3/2;max-width:none}
+  .adDept .adTileFrame{max-width:380px}
+  .adDeptAll{grid-column:2;justify-self:start}
+  .adDeptPlaying{grid-template-columns:84px minmax(0,1fr)}
+  .adDeptPlayBtn{grid-column:2;justify-self:start}
+}
+@media (max-width:700px){
+  .adDept{padding-block:59px 66px}
+  .adDeptTabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:0}
+  .adDeptTabs button{margin:0;padding:14px 0;border-top:0;border-bottom:1px solid var(--line);justify-content:space-between;padding-right:18px}
+  .adDeptTabs button[aria-selected="true"]{box-shadow:inset 0 -2px 0 var(--ad-ink)}
+  /* one swipeable row per format instead of four stacked pages */
+  .adDept .adDeptGrid{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:0 20px 14px;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#6b5f56 transparent}
+  .adDept .adTile{flex:0 0 76%;max-width:300px;scroll-snap-align:start}
+  .adDept .adTileFrame{max-width:none;margin:0}
+  .adDeptGridObject .adTileFrame{aspect-ratio:2/3}
+  .adDeptGridObject .adTileWide{flex-basis:88%;max-width:340px}
+  .adDeptGridObject .adTileWide .adTileFrame{aspect-ratio:3/2}
+  .page .adTile h3{font-size:22px}
+  .adTile .adTileNote{font-size:15px}
+  .adDeptPanelNote:after{content:" Swipe for more."}
+  .adDeptPlaying{grid-template-columns:1fr;gap:20px;padding:24px 22px;margin-top:48px}
+  .adDeptPlayingArt{justify-self:start}
+  .adDeptPlayBtn{grid-column:auto}
+  .adDeptAll{display:inline-block}
+}
+@media (prefers-reduced-motion:reduce){.adTileZoom,.adDeptTabs button,.adDeptPlayBtn{transition:none}}
+
+/* ---------- Lightbox ---------- */
+.adBox{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(14,11,10,.96);color:var(--muted);overflow:auto}
+.adBox::backdrop{background:rgba(14,11,10,.8)}
+.adBoxInner{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:44px;align-items:center;min-height:100%;padding:44px 56px;width:min(1320px,100%);margin-inline:auto;position:relative}
+.adBoxStage{display:flex;align-items:center;justify-content:center;min-width:0}
+.adBoxStage img{display:block;max-width:100%;max-height:calc(100dvh - 88px);width:auto;height:auto;box-shadow:0 24px 60px rgba(0,0,0,.55);background:#2a231f}
+.adBoxCount{margin:0 0 18px;color:var(--ad-ink-soft,#f0795f);font:700 11px/1.4 var(--sans);letter-spacing:.2em;font-variant-numeric:tabular-nums}
+.adBoxMeta{margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line);color:var(--faint);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.5}
+.page .adBox h3{font-size:28px;line-height:1.16;letter-spacing:-.03em;margin-bottom:12px;text-wrap:balance}
+.adBoxNote{font-size:15px;line-height:1.65;color:#c0b9b1;margin-bottom:20px}
+.adBoxNav{display:flex;gap:10px;margin-top:34px}
+.adBoxNav button,.adBoxClose{appearance:none;background:none;border:1px solid #6b5f56;color:var(--ink);min-height:44px;padding:0 16px;font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:border-color .18s ease,background .18s ease}
+.adBoxNav button:hover,.adBoxClose:hover{border-color:var(--ink);background:rgba(238,232,221,.07)}
+.adBoxNav button:focus-visible,.adBoxClose:focus-visible{outline:2px solid var(--aqua);outline-offset:3px}
+.adBoxClose{position:absolute;top:22px;right:26px}
+@media (max-width:900px){
+  .adBoxInner{grid-template-columns:1fr;gap:24px;padding:76px 20px 40px;align-items:start;align-content:start}
+  .adBoxStage img{max-height:66dvh}
+  .adBoxClose{top:16px;right:20px}
+  .adBoxSide{max-width:520px;margin-inline:auto;width:100%}
+}
